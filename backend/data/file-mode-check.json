@@ -1,0 +1,11 @@
+{
+  "anon_seed": 0,
+  "session_seed": 0,
+  "task_seed": 0,
+  "report_seed": 0,
+  "users_by_anon": {},
+  "sessions_by_id": {},
+  "tasks_by_id": {},
+  "reports_by_id": {},
+  "bound_users": {}
+}
