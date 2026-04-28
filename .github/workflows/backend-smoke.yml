@@ -1,0 +1,49 @@
+name: backend-smoke
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  smoke-regression:
+    runs-on: ubuntu-latest
+    env:
+      PORT: "18083"
+      STORAGE_MODE: "postgres"
+      MIGRATION_FILE: "./backend/migrations/001_init_v1.sql"
+      BASE_URL: "http://127.0.0.1:18083"
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      - name: Prepare scripts
+        run: chmod +x backend/scripts/*.sh
+
+      - name: Start backend (postgres mode)
+        run: |
+          set -euo pipefail
+          test -n "${DATABASE_URL}" || (echo "DATABASE_URL secret is required" && exit 1)
+          nohup ./backend/scripts/start_postgres.sh > backend-start.log 2>&1 &
+          for i in $(seq 1 40); do
+            if curl -sS "${BASE_URL}/healthz" >/tmp/healthz.json 2>/dev/null; then
+              cat /tmp/healthz.json
+              break
+            fi
+            sleep 2
+          done
+          grep -q '"storage_mode":"postgres"' /tmp/healthz.json || (echo "healthz missing storage_mode=postgres" && cat backend-start.log && exit 1)
+
+      - name: Run smoke positive
+        run: ./backend/scripts/smoke_v1.sh
+
+      - name: Run smoke negative
+        run: ./backend/scripts/smoke_v1_negative.sh
