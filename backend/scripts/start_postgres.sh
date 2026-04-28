@@ -17,6 +17,16 @@ fi
 
 cd "$BACKEND_DIR"
 
+# Allow callers to pass repo-root style path.
+if [[ "$MIGRATION_FILE" == ./backend/* ]]; then
+  MIGRATION_FILE=".${MIGRATION_FILE#./backend}"
+fi
+
+if [[ ! -f "$MIGRATION_FILE" ]]; then
+  echo "[start_postgres] migration file not found: $MIGRATION_FILE"
+  exit 1
+fi
+
 echo "[start_postgres] PORT=$PORT"
 echo "[start_postgres] STORAGE_MODE=$STORAGE_MODE"
 echo "[start_postgres] MIGRATION_FILE=$MIGRATION_FILE"

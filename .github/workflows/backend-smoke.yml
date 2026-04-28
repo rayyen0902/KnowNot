@@ -13,7 +13,7 @@ jobs:
     env:
       PORT: "18083"
       STORAGE_MODE: "postgres"
-      MIGRATION_FILE: "./backend/migrations/001_init_v1.sql"
+      MIGRATION_FILE: "./migrations/001_init_v1.sql"
       BASE_URL: "http://127.0.0.1:18083"
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
@@ -33,13 +33,16 @@ jobs:
           set -euo pipefail
           test -n "${DATABASE_URL}" || (echo "DATABASE_URL secret is required" && exit 1)
           nohup ./backend/scripts/start_postgres.sh > backend-start.log 2>&1 &
-          for i in $(seq 1 40); do
+          for i in $(seq 1 15); do
             if curl -sS "${BASE_URL}/healthz" >/tmp/healthz.json 2>/dev/null; then
               cat /tmp/healthz.json
-              break
+              if grep -q '"code":0' /tmp/healthz.json; then
+                break
+              fi
             fi
             sleep 2
           done
+          grep -q '"code":0' /tmp/healthz.json || (echo "healthz code!=0" && cat backend-start.log && exit 1)
           grep -q '"storage_mode":"postgres"' /tmp/healthz.json || (echo "healthz missing storage_mode=postgres" && cat backend-start.log && exit 1)
 
       - name: Run smoke positive
