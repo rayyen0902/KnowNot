@@ -1,0 +1,23 @@
+# Dependencies（勿提交，本机 npm install 会重新生成）
+node_modules/
+
+# 构建产物
+dist/
+build/
+.temp/
+
+# 缓存
+.swc/
+.cache/
+
+# 系统文件
+.DS_Store
+
+# 环境变量（含密钥勿入库）
+.env
+.env.*
+!.env.example
+
+# 日志
+*.log
+npm-debug.log*

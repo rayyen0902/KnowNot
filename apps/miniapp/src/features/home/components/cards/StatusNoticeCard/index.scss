@@ -1,0 +1,21 @@
+.status-notice-card {
+  text-align: center;
+  font-size: 13px;
+  padding-top: 2px;
+}
+
+.status-notice-card--info {
+  color: rgba(82, 67, 71, 0.72);
+}
+
+.status-notice-card--success {
+  color: #2f8f59;
+}
+
+.status-notice-card--warning {
+  color: #a87415;
+}
+
+.status-notice-card--error {
+  color: #c53e3e;
+}

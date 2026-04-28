@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="bg-surface text-on-surface" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的收藏 - 知不Ai护肤</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#adb5fe",
+                        "primary-container": "#f7a1c0",
+                        "surface-container-high": "#e9e8e8",
+                        "inverse-primary": "#ffb0cc",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c1c",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-fixed-variant": "#394182",
+                        "on-primary-fixed-variant": "#71314c",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary-fixed": "#9df1ee",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9aeeeb",
+                        "surface-tint": "#8e4864",
+                        "tertiary": "#51599b",
+                        "secondary-fixed-dim": "#81d5d1",
+                        "tertiary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdada",
+                        "secondary": "#006a68",
+                        "on-tertiary-fixed": "#091255",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "on-primary-container": "#76344f",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#00201f",
+                        "surface-container": "#efeded",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface-variant": "#524347",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bcc2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb0cc",
+                        "outline": "#847377",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline-variant": "#d6c1c6",
+                        "surface-variant": "#e4e2e2",
+                        "inverse-surface": "#303031",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006e6c",
+                        "background": "#fbf9f9",
+                        "primary": "#8e4864",
+                        "primary-fixed": "#ffd9e4",
+                        "on-tertiary-container": "#3c4485",
+                        "on-primary-fixed": "#3b0420",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body antialiased min-h-screen pb-24">
+<!-- Shared Component: TopAppBar -->
+<header class="bg-[#fbf9f9] dark:bg-slate-950 text-[#8e4864] dark:text-[#f7a1c0] font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight flex justify-between items-center w-full px-5 py-4 h-16 sticky top-0 z-50 backdrop-blur-md bg-gradient-to-b from-[#fbf9f9] to-transparent dark:from-slate-950 no-border flat no-shadows">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center p-2 -ml-2 rounded-full text-[#8e4864] dark:text-[#f7a1c0]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-['Plus_Jakarta_Sans'] font-black text-[#8e4864] dark:text-[#f7a1c0] text-xl">知不Ai护肤</span>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center p-2 -mr-2 rounded-full text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="max-w-5xl mx-auto">
+<!-- Page Header -->
+<section class="px-6 pt-8 pb-10">
+<h1 class="font-headline text-[2.5rem] font-bold text-primary tracking-tight leading-tight mb-3">我的收藏</h1>
+<p class="text-on-surface-variant font-body text-base max-w-md leading-relaxed">您的专属肌肤档案库。这里保存了您认为最有价值的护肤方案与临床推荐。</p>
+</section>
+<!-- Multi-Mode Tab Bar (Floating Island) -->
+<div class="px-6 mb-10 flex">
+<nav class="bg-surface-container/60 backdrop-blur-2xl rounded-full p-1.5 inline-flex shadow-[0_8px_32px_rgba(27,28,28,0.06)] border border-outline-variant/10">
+<button class="bg-primary text-on-primary rounded-full px-6 py-2.5 font-body text-sm font-semibold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">article</span>
+                    护肤方案
+                </button>
+<button class="text-on-surface-variant hover:text-primary rounded-full px-6 py-2.5 font-body text-sm font-medium transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">vaccines</span>
+                    推荐产品
+                </button>
+</nav>
+</div>
+<!-- Asymmetric Bento Grid Content -->
+<section class="px-6 grid grid-cols-1 md:grid-cols-12 gap-6 pb-20">
+<!-- Highlight Card (Hero-like) -->
+<article class="md:col-span-8 bg-surface-container-lowest rounded-[1.25rem] overflow-hidden flex flex-col md:flex-row group relative isolate shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<div class="md:w-2/5 h-56 md:h-auto relative overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close-up of clear glass dropper bottle with pale pink serum on pristine white marble surface, bright clinical lighting, soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOnf7OxdHgVFOheAMGOIqsTT7JZh8rLf7zIMR7_GwWy0ntRM8c3_EvTDXYn1AggrOAu1YGVKH3uKRs04AVxT4HWQdbdCS_CnRu-vNsLhgAKhY_RJGc0DCKlT42e3Jd7kS-cLslbCVa91rHWpKsPL7tObnt9N_q_NNNMQniQeYVnZM0pl4WpEc6WOzFtp89rTYDIv8QWZkCtyR8gycmz-FW6-Enp7ZOdSEvqGZIl18YiJs1eTLnLbJd1j_tdmQG-6Ed6mX-2OHtvQs"/>
+<!-- Signature Gradient Glass Overlay -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/80 to-primary-container/20 mix-blend-multiply opacity-60"></div>
+</div>
+<div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label text-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                            核心成分
+                        </span>
+<span class="text-outline font-label text-xs">2周前收藏</span>
+</div>
+<h2 class="font-headline text-xl md:text-2xl font-bold text-on-surface mb-3 leading-snug">抗老初级指南：A醇的正确建立耐受方法与临床数据</h2>
+<p class="font-body text-sm text-on-surface-variant line-clamp-2 mb-6">视黄醇（A醇）作为抗衰老的黄金标准成分，其刺激性常常让新手望而却步。本文详细解析如何通过“三明治叠涂法”安全度过耐受期。</p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex items-center -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container border-2 border-surface-container-lowest flex items-center justify-center text-primary font-bold text-xs">Dr.</div>
+</div>
+<button class="text-primary hover:text-surface-tint font-body text-sm font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            阅读全文 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Clinical Protocol Card -->
+<article class="md:col-span-4 bg-secondary text-on-secondary rounded-[1.25rem] p-6 relative overflow-hidden flex flex-col justify-between shadow-[0_8px_32px_rgba(0,106,104,0.15)]">
+<!-- Abstract BG Element -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="w-10 h-10 bg-on-secondary/10 rounded-full flex items-center justify-center mb-5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-secondary">verified_user</span>
+</div>
+<h3 class="font-headline text-lg font-semibold mb-2 leading-tight">敏感肌屏障修护处方</h3>
+<p class="font-body text-sm text-secondary-container opacity-90 mb-4">针对红血丝与角质层薄弱的定制方案，包含神经酰胺与泛醇的协同使用建议。</p>
+</div>
+<div class="relative z-10 flex items-center justify-between mt-8 border-t border-on-secondary/20 pt-4">
+<span class="font-label text-xs text-secondary-container">12 分钟阅读</span>
+<button class="w-8 h-8 rounded-full bg-on-secondary text-secondary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">bookmark_added</span>
+</button>
+</div>
+</article>
+<!-- Text Heavy Insights Card -->
+<article class="md:col-span-4 bg-surface-container-low rounded-[1.25rem] p-6 flex flex-col border border-outline-variant/15 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">wb_sunny</span>
+<span class="font-label text-xs font-semibold tracking-wider uppercase">防晒解析</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-on-surface mb-3">物理防晒 vs 化学防晒：成分谱系图解与光毒性风险评估</h3>
+<p class="font-body text-sm text-on-surface-variant flex-grow mb-6">深入探讨二氧化钛与氧化锌的微粒化处理技术，以及化学防晒剂在不同肤质上的表现...</p>
+<div class="flex justify-between items-center">
+<span class="text-outline font-label text-xs">1个月前收藏</span>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Minimalist Product Note Card -->
+<article class="md:col-span-4 bg-surface-container-lowest rounded-[1.25rem] p-6 flex flex-col shadow-[0_2px_12px_rgba(0,0,0,0.03)] relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<h3 class="font-headline text-lg font-bold text-on-surface mb-2 pl-2">早C晚A的搭配误区</h3>
+<p class="font-body text-sm text-on-surface-variant mb-4 pl-2">为什么你的VC精华加上A醇反而导致了烂脸？pH值的冲突原理分析。</p>
+<div class="mt-auto bg-surface p-3 rounded-lg flex items-start gap-3 ml-2 border border-surface-container-highest">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+<p class="font-label text-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">AI 重点摘要：</strong>建议将高浓度原型VC与A醇分早晚使用，避免叠加导致酸碱度中和失活及过度刺激。
+                    </p>
+</div>
+</article>
+<!-- Image Focus Card with Glassmorphism -->
+<article class="md:col-span-4 rounded-[1.25rem] relative overflow-hidden min-h-[240px] group shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Minimalist abstract composition of smooth white pebbles and a soft pink botanical leaf on a pale cream background, gentle studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe8QK6FkzkosMHRjmC6UqimjIClwzTTfGkaQ6YB_JlNRRa2x0eFK6NbFngdbpsxquStMhM_gvFV-gyr0xDYdT8UQvrMPQjyQ2fUy4UbFxVDpEcfYa3MjoA85KtwW9MjCSKEVJ9qdtIZX9VkNYHHUYhzW2OwAhurWv-eOTwi0APusXm6UBtJHBx-685WNRlEIiMNysjYD8Lfz28_B1wguSchExfwC4D71QXej4-zqxcE-vVuNUgtjIiIvX-sgp9f53doVin8x_t7w4"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-on-surface/80"></div>
+<div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+<div class="bg-surface-bright/20 backdrop-blur-md border border-white/20 rounded-xl p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+<span class="bg-white/90 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">生活方式</span>
+<h3 class="font-headline text-white font-semibold leading-tight">饮食抗糖化对肤色的长期影响数据报告</h3>
+</div>
+</div>
+</article>
+</section>
+</main>
+</body></html>

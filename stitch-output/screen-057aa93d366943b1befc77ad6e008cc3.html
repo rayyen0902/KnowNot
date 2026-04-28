@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>肤质记录 - 知不Ai护肤</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#adb5fe",
+                    "primary-container": "#f7a1c0",
+                    "surface-container-high": "#e9e8e8",
+                    "inverse-primary": "#ffb0cc",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1b1c1c",
+                    "surface-bright": "#fbf9f9",
+                    "on-tertiary-fixed-variant": "#394182",
+                    "on-primary-fixed-variant": "#71314c",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary-fixed": "#9df1ee",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#9aeeeb",
+                    "surface-tint": "#8e4864",
+                    "tertiary": "#51599b",
+                    "secondary-fixed-dim": "#81d5d1",
+                    "tertiary-fixed": "#dfe0ff",
+                    "surface-dim": "#dbdada",
+                    "secondary": "#006a68",
+                    "on-tertiary-fixed": "#091255",
+                    "on-secondary-fixed-variant": "#00504e",
+                    "on-primary-container": "#76344f",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-fixed": "#00201f",
+                    "surface-container": "#efeded",
+                    "surface-container-low": "#f5f3f3",
+                    "on-surface-variant": "#524347",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#bcc2ff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#ffb0cc",
+                    "outline": "#847377",
+                    "inverse-on-surface": "#f2f0f0",
+                    "outline-variant": "#d6c1c6",
+                    "surface-variant": "#e4e2e2",
+                    "inverse-surface": "#303031",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006e6c",
+                    "background": "#fbf9f9",
+                    "primary": "#8e4864",
+                    "primary-fixed": "#ffd9e4",
+                    "on-tertiary-container": "#3c4485",
+                    "on-primary-fixed": "#3b0420",
+                    "on-error": "#ffffff",
+                    "surface": "#fbf9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "display": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-bright/80 backdrop-blur-md;
+            }
+            .gradient-text {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container;
+            }
+            .clinical-glow {
+                @apply bg-gradient-to-br from-primary to-primary-container;
+            }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col antialiased">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#fbf9f9] dark:bg-slate-950 flex justify-between items-center w-full px-5 py-4 h-16 sticky top-0 z-50 backdrop-blur-md bg-gradient-to-b from-[#fbf9f9] to-transparent dark:from-slate-950 no-border">
+<button class="text-[#8e4864] dark:text-[#f7a1c0] hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-black text-[#8e4864] dark:text-[#f7a1c0] text-xl tracking-tight">知不Ai护肤</h1>
+<button class="text-[#8e4864] dark:text-[#f7a1c0] hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</header>
+<main class="flex-1 w-full max-w-3xl mx-auto px-4 pb-20 pt-6">
+<!-- Header Section -->
+<section class="mb-10">
+<div class="flex items-end justify-between mb-2">
+<h2 class="font-headline text-[1.75rem] font-bold text-on-surface tracking-tight">肤质记录</h2>
+<span class="font-label text-[0.6875rem] text-secondary bg-secondary-container px-3 py-1 rounded-full flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                    临床分析
+                </span>
+</div>
+<p class="font-body text-[0.875rem] text-on-surface-variant max-w-md">追踪您的肌肤演变。每次检测都由AI深度分析，提供专业的改善建议。</p>
+</section>
+<!-- Summary Card (Bento style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+<!-- Main Stat -->
+<div class="bg-surface-container-lowest rounded-xl p-6 col-span-1 md:col-span-2 relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary-container/20 rounded-full blur-2xl"></div>
+<div>
+<h3 class="font-title text-[1.125rem] text-on-surface font-semibold mb-1">当前主导肤质</h3>
+<p class="font-label text-[0.6875rem] text-on-surface-variant">最新检测: 2023年10月15日</p>
+</div>
+<div class="mt-8 flex items-end gap-3">
+<span class="font-display text-[3.5rem] leading-none text-primary font-bold tracking-tighter">混合性</span>
+<span class="font-title text-[1.125rem] text-primary-container font-medium mb-2">偏油</span>
+</div>
+</div>
+<!-- Trend Stat -->
+<div class="bg-primary rounded-xl p-6 text-on-primary flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -left-10 -bottom-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start">
+<h3 class="font-title text-[1.125rem] font-medium opacity-90">整体改善</h3>
+<span class="material-symbols-outlined text-on-primary">trending_up</span>
+</div>
+<div class="mt-8">
+<span class="font-display text-[2.5rem] leading-none font-bold">+12%</span>
+<p class="font-label text-[0.6875rem] opacity-80 mt-1">较首次检测</p>
+</div>
+</div>
+</section>
+<!-- History Timeline -->
+<section class="space-y-6">
+<h3 class="font-headline text-[1.25rem] font-bold text-on-surface mb-6">历史报告</h3>
+<!-- Item 1: Latest -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border-l-4 border-primary relative">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[0.6875rem] text-secondary font-medium tracking-wider uppercase mb-1 block">最新报告</span>
+<h4 class="font-title text-[1.125rem] font-semibold text-on-surface">2023年10月15日</h4>
+</div>
+<div class="bg-surface-container px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">water_drop</span>
+<span class="font-body text-[0.875rem] text-on-surface-variant font-medium">混合偏油</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-5 pt-5 border-t border-surface-container">
+<div>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mb-1">主要改善</p>
+<p class="font-body text-[0.875rem] text-on-surface font-medium">T区出油减少 <span class="text-secondary font-semibold ml-1">-15%</span></p>
+</div>
+<div>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mb-1">需关注</p>
+<p class="font-body text-[0.875rem] text-on-surface font-medium">两颊缺水</p>
+</div>
+</div>
+<button class="w-full mt-5 bg-surface-container-low hover:bg-surface-container text-primary font-body text-[0.875rem] font-medium py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+                    查看完整报告
+                    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 ml-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title text-[1.125rem] font-semibold text-on-surface">2023年9月01日</h4>
+</div>
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">water_drop</span>
+<span class="font-body text-[0.875rem] text-on-surface-variant font-medium">混合偏油</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-5 pt-5 border-t border-surface-variant/50">
+<div>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mb-1">主要改善</p>
+<p class="font-body text-[0.875rem] text-on-surface font-medium">泛红减轻 <span class="text-secondary font-semibold ml-1">-8%</span></p>
+</div>
+<div>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mb-1">需关注</p>
+<p class="font-body text-[0.875rem] text-on-surface font-medium">毛孔粗大</p>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-5 ml-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title text-[1.125rem] font-semibold text-on-surface">2023年7月20日</h4>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mt-1">首次记录</p>
+</div>
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">oil_barrel</span>
+<span class="font-body text-[0.875rem] text-on-surface-variant font-medium">油性敏感</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4 mt-5 pt-5 border-t border-surface-variant/50">
+<div>
+<p class="font-label text-[0.6875rem] text-on-surface-variant mb-1">基线状态</p>
+<p class="font-body text-[0.875rem] text-on-surface">全脸油脂分泌旺盛，伴有局部敏感泛红。</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-width=1.0" name="viewport"/>
+<title>知不Ai - 启动页</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#adb5fe",
+                        "primary-container": "#f7a1c0",
+                        "surface-container-high": "#e9e8e8",
+                        "inverse-primary": "#ffb0cc",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c1c",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-fixed-variant": "#394182",
+                        "on-primary-fixed-variant": "#71314c",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary-fixed": "#9df1ee",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9aeeeb",
+                        "surface-tint": "#8e4864",
+                        "tertiary": "#51599b",
+                        "secondary-fixed-dim": "#81d5d1",
+                        "tertiary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdada",
+                        "secondary": "#006a68",
+                        "on-tertiary-fixed": "#091255",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "on-primary-container": "#76344f",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#00201f",
+                        "surface-container": "#efeded",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface-variant": "#524347",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bcc2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb0cc",
+                        "outline": "#847377",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline-variant": "#d6c1c6",
+                        "surface-variant": "#e4e2e2",
+                        "inverse-surface": "#303031",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006e6c",
+                        "background": "#fbf9f9",
+                        "primary": "#8e4864",
+                        "primary-fixed": "#ffd9e4",
+                        "on-tertiary-container": "#3c4485",
+                        "on-primary-fixed": "#3b0420",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": [
+                            "Plus Jakarta Sans"
+                        ],
+                        "display": [
+                            "Plus Jakarta Sans"
+                        ],
+                        "body": [
+                            "Inter"
+                        ],
+                        "label": [
+                            "Inter"
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-screen w-screen overflow-hidden bg-surface antialiased flex flex-col justify-between items-center bg-gradient-to-br from-surface to-primary-container/30">
+<main class="flex-grow flex flex-col items-center justify-center w-full px-6 relative z-10">
+<div class="relative w-48 h-48 md:w-64 md:h-64 mb-8 flex items-center justify-center rounded-full bg-surface-container-lowest/50 backdrop-blur-3xl shadow-[0_8px_32px_rgba(27,28,28,0.05)] border border-outline-variant/15">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-container/20 rounded-full blur-xl"></div>
+<img alt="Brand Logo Abstract" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mix-blend-multiply opacity-90" data-alt="Abstract minimalist 3D rendering of soft pink and white geometric shapes, representing clinical precision and elegant skincare aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDebx09P0zIuUyLcHGb2TZkosS2NvFHctPJUsql7Lh8c2yvMy7tKsjKJLaa-5DWQbXZwwrifEoNJ4Ao2nYiBMGxJNC_onam2I099jmvqyD6DYWuf53yqAoslFx6Kp2fltHoRE-5I5SKjOOB0Z-xDejN9XTn1n-cPymU2NAB-RpJHsp2teV8rCKaVGj6Vs6r_g74Zl4USIrEmSOAPF07v1Fu6VjritImNMNg6eJD4REnbdd762Qb6DErngijO-gC5wUzsPjtTE3C5qg"/>
+<div class="absolute -bottom-4 text-center">
+<h1 class="font-headline font-extrabold text-display-lg text-primary tracking-tight">知不Ai</h1>
+</div>
+</div>
+</main>
+<footer class="w-full pb-12 pt-8 text-center relative z-10">
+<p class="font-body font-medium text-body-md text-on-surface-variant tracking-wider uppercase opacity-80">
+            临床级智能护肤管家
+        </p>
+</footer>
+<!-- TopAppBar Semantic Shell (Suppressed for transactional splash screen) -->
+</body></html>

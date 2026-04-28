@@ -1,0 +1,56 @@
+.camera-capture-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #000;
+}
+
+.camera-capture-page__camera {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.camera-capture-page__hint {
+  flex-shrink: 0;
+  padding: 12px 20px 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.camera-capture-page__toolbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px 36px;
+  padding-bottom: calc(36px + env(safe-area-inset-bottom));
+}
+
+.camera-capture-page__btn {
+  min-width: 72px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+.camera-capture-page__btn--ghost {
+  opacity: 0.85;
+}
+
+.camera-capture-page__shutter {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.camera-capture-page__shutter--disabled {
+  opacity: 0.45;
+}

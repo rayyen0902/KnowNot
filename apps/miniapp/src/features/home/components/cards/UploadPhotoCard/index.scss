@@ -1,0 +1,26 @@
+.upload-photo-card__title {
+  color: #1b1c1c;
+  font-size: 23px;
+  line-height: 1.72;
+  font-weight: 700;
+}
+
+.upload-photo-card__cta {
+  margin-top: 12px;
+  width: 265px;
+  height: 70px;
+  border-radius: 45px;
+  border: 3px dashed rgba(154, 103, 125, 0.35);
+  background: #f4f0f2;
+  color: #9a677d;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-photo-card__tips {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #8e4864;
+}

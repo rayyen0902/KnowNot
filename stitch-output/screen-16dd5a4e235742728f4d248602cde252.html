@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>临床焕彩 - AI 护肤助手</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#76344f",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#8e4864",
+                        "secondary-fixed-dim": "#81d5d1",
+                        "secondary-fixed": "#9df1ee",
+                        "on-primary-fixed-variant": "#71314c",
+                        "on-surface": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#51599b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#adb5fe",
+                        "secondary": "#006a68",
+                        "on-secondary-fixed": "#00201f",
+                        "on-background": "#1b1c1c",
+                        "surface-container-high": "#e9e8e8",
+                        "outline": "#847377",
+                        "inverse-surface": "#303031",
+                        "surface-bright": "#fbf9f9",
+                        "surface": "#fbf9f9",
+                        "surface-container": "#efeded",
+                        "on-secondary-container": "#006e6c",
+                        "surface-dim": "#dbdada",
+                        "surface-variant": "#e4e2e2",
+                        "inverse-primary": "#ffb0cc",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#394182",
+                        "tertiary-fixed": "#dfe0ff",
+                        "on-surface-variant": "#524347",
+                        "on-primary-fixed": "#3b0420",
+                        "primary-fixed-dim": "#ffb0cc",
+                        "background": "#fbf9f9",
+                        "primary-fixed": "#ffd9e4",
+                        "tertiary-fixed-dim": "#bcc2ff",
+                        "on-tertiary-container": "#3c4485",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "secondary-container": "#9aeeeb",
+                        "primary-container": "#f7a1c0",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e4e2e2",
+                        "outline-variant": "#d6c1c6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#8e4864",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-fixed": "#091255"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-24 md:pb-12 pt-20">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f9]/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-surface-variant">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-3xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a young woman with clear glowing skin, natural lighting, soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7PXILR7wqtok1HSp9Hy_gEQlej7P_VNzbTtVteJU4ZV34nt5QsIyWfuhJwXm-26OdPVIZvm_puIyQpbTXV3ewAV7lKtXkqz9Dbatbm-ouKSTmlEP_OZF8STbL9oM75LWKmYjQYmxNz5gsCE5MpvaPTnrStdMrNasDsZfoLg4Wo-Hz6kaHAnfKur6OVc_GYaIA_OtwPYm8COHDNtT4_SEHTy4-OkmQMJX3VPHwINEVCTF6F5337DVYiGrduwQWrRZ2MwKc3t6A2zo"/>
+</div>
+<h1 class="text-lg font-semibold text-[#8e4864] font-headline tracking-tight">组件库</h1>
+</div>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-4 py-6 space-y-12">
+<!-- AI Questionnaire Greeting -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">1. AI 问卷问候</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-3.5 text-body text-[15px] leading-relaxed">
+<p>为了给您提供最准确的临床建议，我需要更好地了解您的皮肤状况。您愿意回答几个简短的问题吗？</p>
+</div>
+<div class="flex gap-2 mt-1">
+<button class="bg-primary text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">愿意</button>
+<button class="bg-surface-container-high text-on-surface px-5 py-1.5 rounded-full text-sm font-medium hover:bg-surface-variant transition-colors">不愿意</button>
+</div>
+</div>
+</div>
+<!-- User Response -->
+<div class="flex justify-end mt-4">
+<div class="bg-primary text-white rounded-2xl rounded-tr-sm p-3 text-body text-[15px]">
+                好的，开始吧。
+            </div>
+</div>
+</section>
+<!-- Single Choice Card (Skin type) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">2. 单选卡片 (肤质)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-3 text-on-surface">您如何描述您的基础肤质？</p>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center p-3 rounded-xl bg-surface hover:bg-surface-container-low cursor-pointer border border-transparent transition-all">
+<input class="text-primary focus:ring-primary h-4 w-4" name="skin_type" type="radio"/>
+<span class="ml-3 text-sm text-on-surface">油性</span>
+</label>
+<label class="flex items-center p-3 rounded-xl bg-surface hover:bg-surface-container-low cursor-pointer border border-transparent transition-all">
+<input class="text-primary focus:ring-primary h-4 w-4" name="skin_type" type="radio"/>
+<span class="ml-3 text-sm text-on-surface">干性</span>
+</label>
+<label class="flex items-center p-3 rounded-xl bg-primary-fixed border border-primary/20 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4" name="skin_type" type="radio"/>
+<span class="ml-3 text-sm font-medium text-on-primary-fixed">混合性</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Single Choice Card (Washing frequency) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">3. 单选卡片 (洗脸频率)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-3 text-on-surface">您通常什么时候洗脸？</p>
+<div class="flex flex-wrap gap-2">
+<button class="bg-surface border border-outline-variant text-on-surface px-4 py-2 rounded-full text-sm hover:bg-surface-container-low transition-colors">早上</button>
+<button class="bg-surface border border-outline-variant text-on-surface px-4 py-2 rounded-full text-sm hover:bg-surface-container-low transition-colors">晚上</button>
+<button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">早晚都洗</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Single Choice Card (Makeup style) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">4. 单选卡片 (化妆习惯)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-3 text-on-surface">您平时的化妆习惯是？</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface border border-outline-variant text-on-surface px-3 py-2.5 rounded-xl text-sm hover:bg-surface-container-low transition-colors text-left">不化妆</button>
+<button class="bg-surface border border-outline-variant text-on-surface px-3 py-2.5 rounded-xl text-sm hover:bg-surface-container-low transition-colors text-left">淡妆 (防晒/隔离)</button>
+<button class="bg-primary-fixed border border-primary/20 text-on-primary-fixed font-medium px-3 py-2.5 rounded-xl text-sm text-left">全妆</button>
+<button class="bg-surface border border-outline-variant text-on-surface px-3 py-2.5 rounded-xl text-sm hover:bg-surface-container-low transition-colors text-left">偶尔化妆</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Multi-select Card (Skincare routine) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">5. 多选卡片 (护肤步骤)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-1 text-on-surface">您目前的护肤步骤有哪些？</p>
+<p class="text-xs text-on-surface-variant mb-3">可多选</p>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center p-3 rounded-xl bg-surface hover:bg-surface-container-low cursor-pointer border border-transparent transition-all">
+<input class="text-primary focus:ring-primary h-4 w-4 rounded" type="checkbox"/>
+<span class="ml-3 text-sm text-on-surface">洁面</span>
+</label>
+<label class="flex items-center p-3 rounded-xl bg-primary-fixed border border-primary/20 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4 rounded" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-on-primary-fixed">爽肤水/精华水</span>
+</label>
+<label class="flex items-center p-3 rounded-xl bg-primary-fixed border border-primary/20 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4 rounded" type="checkbox"/>
+<span class="ml-3 text-sm font-medium text-on-primary-fixed">面霜/乳液</span>
+</label>
+<label class="flex items-center p-3 rounded-xl bg-surface hover:bg-surface-container-low cursor-pointer border border-transparent transition-all">
+<input class="text-primary focus:ring-primary h-4 w-4 rounded" type="checkbox"/>
+<span class="ml-3 text-sm text-on-surface">防晒</span>
+</label>
+</div>
+<button class="mt-4 w-full bg-primary text-white py-2.5 rounded-xl text-sm font-medium">确认</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Input Card (Allergy history) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">6. 输入卡片 (过敏史)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-3 text-on-surface">您是否有任何已知护肤品成分过敏？</p>
+<div class="flex gap-2 mb-3">
+<button class="flex-1 bg-primary text-white px-4 py-2 rounded-xl text-sm font-medium">有</button>
+<button class="flex-1 bg-surface border border-outline-variant text-on-surface px-4 py-2 rounded-xl text-sm hover:bg-surface-container-low transition-colors">没有</button>
+</div>
+<div class="mt-2">
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-3 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-on-surface placeholder:text-outline" placeholder="请输入过敏成分 (如：酒精、香精等)" type="text"/>
+<button class="mt-3 w-full bg-primary text-white py-2.5 rounded-xl text-sm font-medium opacity-50 cursor-not-allowed">提交</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Multimedia Card (Take a photo) -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">7. 多媒体卡片 (拍照)</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-body">
+<p class="font-medium text-[15px] mb-3 text-on-surface">为了更准确地分析您的皮肤状况，可以拍摄一张面部无妆照片吗？</p>
+<button class="w-full border-2 border-dashed border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors rounded-xl p-6 flex flex-col items-center justify-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+<span class="text-sm font-medium">点击拍照或上传图片</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Lightweight Product Card -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">8. 轻量级产品卡片</h2>
+<div class="flex items-start gap-3">
+<div class="flex flex-col gap-2 w-full">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-3 text-body">
+<p class="text-[14px] mb-3 text-on-surface">根据您的混合性肌肤，我推荐这款产品：</p>
+<div class="bg-surface rounded-xl p-3 flex gap-3 items-center border border-outline-variant/30">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Product" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg6v3g8N2gNFY5RQOaQLDFE-5OgfFYQ4i6K9yqWzA6Fi8MfS9QOhIjyFm2VC1bc-bfb0cfEg8imx5v0jI_0oco4igFoU6mx6ivyo08y5aCDAYbJHVJTyoshUvbwUUqSUW1antH-zOd1-cej0P7RxCWxqtyCBEWNiIevAab4San42ZesjC0wQE_av9H7o0fNiFQTTqZ1YjULRWMkrpeLz6gxkyKKWNU4uET01_lqOsaSOpS6XziUjEXvfLywup9kWVudX3q3XReltY"/>
+</div>
+<div class="flex-1">
+<span class="inline-block px-2 py-0.5 bg-primary-fixed text-on-primary-fixed text-[10px] font-semibold rounded-full mb-1">保湿控油</span>
+<h4 class="font-medium text-sm text-on-surface leading-tight">焕颜平衡精华液</h4>
+<p class="text-xs text-on-surface-variant mt-1 line-clamp-1">适合混合性肌肤日常护理</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- System Notification -->
+<section>
+<h2 class="text-sm font-semibold text-outline mb-4 tracking-wider uppercase">9. 系统通知</h2>
+<div class="flex justify-center my-6">
+<span class="text-xs text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full font-medium">
+        已成功保存您的肌肤档案档案
+    </span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-white/90 backdrop-blur-2xl fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg rounded-[2rem] border border-surface-variant shadow-sm z-50 flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center bg-[#8e4864] text-white rounded-full h-12 w-12 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-[22px]">chat_bubble</span>
+<span class="font-['Inter'] text-[10px] font-medium sr-only">咨询</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 h-12 w-12 hover:text-[#8e4864]" href="#">
+<span class="material-symbols-outlined text-[22px]">face</span>
+<span class="font-['Inter'] text-[10px] font-medium sr-only">肌肤扫描</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 h-12 w-12 hover:text-[#8e4864]" href="#">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-medium sr-only">商店</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 h-12 w-12 hover:text-[#8e4864]" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-['Inter'] text-[10px] font-medium sr-only">我的</span>
+</a>
+</nav>
+</body></html>

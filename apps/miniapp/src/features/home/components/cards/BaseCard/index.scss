@@ -1,0 +1,24 @@
+.home-base-card {
+  position: relative;
+  background: #e6e6e6;
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 10px 30px rgba(27, 28, 28, 0.05);
+}
+
+.home-base-card--padding-sm {
+  padding: 12px;
+}
+
+.home-base-card--padding-md {
+  padding: 18px;
+}
+
+.home-base-card--padding-lg {
+  padding: 24px;
+}
+
+.home-base-card--assistant,
+.home-base-card--question,
+.home-base-card--product {
+  margin-right: 30px;
+}

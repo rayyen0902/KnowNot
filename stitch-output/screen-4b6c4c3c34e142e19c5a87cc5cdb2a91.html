@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>设置 - 知不Ai护肤</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#adb5fe",
+                        "primary-container": "#f7a1c0",
+                        "surface-container-high": "#e9e8e8",
+                        "inverse-primary": "#ffb0cc",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c1c",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-fixed-variant": "#394182",
+                        "on-primary-fixed-variant": "#71314c",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary-fixed": "#9df1ee",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9aeeeb",
+                        "surface-tint": "#8e4864",
+                        "tertiary": "#51599b",
+                        "secondary-fixed-dim": "#81d5d1",
+                        "tertiary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdada",
+                        "secondary": "#006a68",
+                        "on-tertiary-fixed": "#091255",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "on-primary-container": "#76344f",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#00201f",
+                        "surface-container": "#efeded",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface-variant": "#524347",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bcc2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb0cc",
+                        "outline": "#847377",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline-variant": "#d6c1c6",
+                        "surface-variant": "#e4e2e2",
+                        "inverse-surface": "#303031",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006e6c",
+                        "background": "#fbf9f9",
+                        "primary": "#8e4864",
+                        "primary-fixed": "#ffd9e4",
+                        "on-tertiary-container": "#3c4485",
+                        "on-primary-fixed": "#3b0420",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-text { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f9] dark:bg-slate-950 flex justify-between items-center w-full px-5 py-4 h-16 sticky top-0 z-50 backdrop-blur-md bg-gradient-to-b from-[#fbf9f9] to-transparent dark:from-slate-950 no-border flat no-shadows">
+<button aria-label="Go back" class="text-[#8e4864] dark:text-[#f7a1c0] hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-[#8e4864] dark:text-[#f7a1c0]">设置</h1>
+<button aria-label="Settings" class="text-[#8e4864] dark:text-[#f7a1c0] hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-5 py-6 space-y-8 max-w-2xl mx-auto w-full">
+<!-- Profile Summary Card (Asymmetric / Glassmorphism) -->
+<section class="bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden flex items-center gap-6">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-container/20 opacity-50 z-0"></div>
+<div class="relative z-10 w-20 h-20 rounded-full bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="close up portrait of a young woman with clear glowing skin, natural lighting, soft focus background, editorial aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAicHzCMILbkEHG55bIfvUqEpX9PGNdqi2fAR7Op3nvzpovi7WN8RRkrtOvulLycvQZxgD_RNOuFnciezedLVQpxV9-v13IiUfsvUxvbu--mgKvaLX8i-bN0fzeFmV9d8s-KoZi65irk8NmYhPhyT89e2bCOWDBxga2xop5NJ6Z_M8dOgJKfposOEtS7ssQzJkE5Z4jO9T0QhHMAECsRzlepNBxdnBia6IdI9mTikUUhrlGTI4fX5ECewYrzKEssyHZ_Eie1HIZf0"/>
+</div>
+<div class="relative z-10 flex-grow">
+<h2 class="text-xl font-headline font-bold text-on-surface mb-1">Emily Chen</h2>
+<p class="text-sm font-label text-on-surface-variant mb-3">Premium Member</p>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">
+                    编辑个人资料
+                </button>
+</div>
+</section>
+<!-- Account Settings -->
+<section>
+<h3 class="text-lg font-headline font-semibold text-primary mb-4 px-2">账号管理</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer border-b border-surface">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-body text-base">个人信息</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer border-b border-surface">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-body text-base">密码与安全</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<span class="font-body text-base">订阅与支付</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Notification Settings -->
+<section>
+<h3 class="text-lg font-headline font-semibold text-primary mb-4 px-2">通知设置</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden p-4 space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body text-base font-medium">护肤提醒</p>
+<p class="font-label text-xs text-on-surface-variant mt-1">每日早晚护肤步骤定时提醒</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body text-base font-medium">皮肤分析报告</p>
+<p class="font-label text-xs text-on-surface-variant mt-1">每周AI皮肤状态变化推送</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body text-base font-medium">系统通知</p>
+<p class="font-label text-xs text-on-surface-variant mt-1">应用更新与重要公告</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- System & Other -->
+<section>
+<h3 class="text-lg font-headline font-semibold text-primary mb-4 px-2">通用</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer border-b border-surface">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">delete</span>
+<span class="font-body text-base">清除缓存</span>
+</div>
+<span class="text-sm font-label text-on-surface-variant">124 MB</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer border-b border-surface">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">info</span>
+<span class="font-body text-base">关于我们</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">logout</span>
+<span class="font-body text-base text-error">退出登录</span>
+</div>
+</div>
+</div>
+</section>
+<div class="text-center pt-8 pb-4">
+<p class="text-xs font-label text-on-surface-variant">知不Ai护肤 v2.4.1</p>
+<p class="text-xs font-label text-on-surface-variant mt-1">© 2023 Clinical Glow. All rights reserved.</p>
+</div>
+</main>
+</body></html>

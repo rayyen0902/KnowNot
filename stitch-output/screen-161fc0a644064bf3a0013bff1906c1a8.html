@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的护肤品 - 知不Ai护肤助理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#847377",
+                      "on-tertiary-fixed-variant": "#394182",
+                      "surface-tint": "#8e4864",
+                      "secondary-container": "#9aeeeb",
+                      "on-secondary-fixed": "#00201f",
+                      "tertiary-fixed-dim": "#bcc2ff",
+                      "surface-container": "#efeded",
+                      "surface-container-low": "#f5f3f3",
+                      "on-primary-container": "#76344f",
+                      "inverse-primary": "#ffb0cc",
+                      "surface-variant": "#e4e2e2",
+                      "secondary-fixed": "#9df1ee",
+                      "secondary": "#006a68",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#d6c1c6",
+                      "background": "#fbf9f9",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffd9e4",
+                      "surface-bright": "#fbf9f9",
+                      "on-surface": "#1b1c1c",
+                      "on-error": "#ffffff",
+                      "tertiary": "#51599b",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#3b0420",
+                      "on-secondary-fixed-variant": "#00504e",
+                      "on-primary-fixed-variant": "#71314c",
+                      "on-secondary-container": "#006e6c",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e9e8e8",
+                      "surface-container-highest": "#e4e2e2",
+                      "on-surface-variant": "#524347",
+                      "inverse-on-surface": "#f2f0f0",
+                      "primary-fixed-dim": "#ffb0cc",
+                      "on-tertiary-fixed": "#091255",
+                      "tertiary-fixed": "#dfe0ff",
+                      "tertiary-container": "#adb5fe",
+                      "primary-container": "#f7a1c0",
+                      "inverse-surface": "#303031",
+                      "on-background": "#1b1c1c",
+                      "on-primary": "#ffffff",
+                      "primary": "#8e4864",
+                      "on-tertiary-container": "#3c4485",
+                      "surface-dim": "#dbdada",
+                      "surface": "#fbf9f9",
+                      "secondary-fixed-dim": "#81d5d1",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {}
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: theme('colors.background');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col pt-16 pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f9] shadow-[0_8px_32px_rgba(0,0,0,0.05)] bg-surface-container-low flex justify-between items-center px-6 h-16">
+<button class="scale-95 active:scale-90 transition-transform duration-200 text-[#8e4864] hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-[#8e4864] font-['Plus_Jakarta_Sans'] font-extrabold text-xl tracking-tight">我的护肤品</h1>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-4 md:px-8 max-w-4xl mx-auto w-full flex flex-col gap-6 pt-6">
+<!-- Summary Stats Bento -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_4px_16px_rgba(0,0,0,0.02)] flex flex-col gap-2 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-primary-container opacity-20 rounded-full"></div>
+<span class="text-on-surface-variant font-label text-[0.6875rem] uppercase tracking-wider">在用产品</span>
+<span class="text-primary font-display text-3xl font-extrabold">12</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-[0_4px_16px_rgba(0,0,0,0.02)] flex flex-col gap-2 relative overflow-hidden border border-error/20">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-error-container opacity-20 rounded-full"></div>
+<span class="text-error font-label text-[0.6875rem] uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                    临期提示
+                </span>
+<span class="text-error font-display text-3xl font-extrabold">2</span>
+</div>
+</section>
+<!-- Product List -->
+<section class="flex flex-col gap-4">
+<!-- Category Header -->
+<div class="flex justify-between items-end mt-4">
+<h2 class="font-headline text-headline-md text-on-surface font-bold">精华 &amp; 面霜</h2>
+<span class="text-on-surface-variant font-body text-sm">共 4 件</span>
+</div>
+<!-- Product Card: Warning State -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex gap-4 relative overflow-hidden border-l-4 border-l-error">
+<!-- Image Box -->
+<div class="w-24 h-24 rounded-lg bg-surface-container flex-shrink-0 relative overflow-hidden">
+<img alt="Product thumbnail" class="object-cover w-full h-full" data-alt="minimalist white serum bottle with soft pink lighting background studio setup premium skincare" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADbp383sYQDC8fpnh8PHrH-lb_BEYw58lnEYcIiTKhE2cUqGq7U1IXuHO_GxRiZi1c14WsVXktz8RT_gB79lqCsbdu4Jj5ln-caF8Ig-dZIbM0AJaYvZHD-IE7aiC-pbUdNNukN8z2CAnkA210bJ-5rNwp_onLa0LcYYllqiInRe8rZ7ArCyu79hgBEVff2A_c0PQ88UCplWXdgHzEZREngDvyAbgJRagIgQ-REsrwb2wh-uo5DEYUnlCjrrwRHifzYi6Chbrw_ew"/>
+</div>
+<!-- Content Box -->
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-wide">Estée Lauder</p>
+<h3 class="font-body text-title-md font-semibold text-on-surface leading-tight mt-1">小棕瓶特润修护肌透精华露 50ml</h3>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-on-surface-variant">开启日期: 2023.01.15</span>
+<span class="font-label text-xs text-error font-medium flex items-center gap-1 bg-error-container/50 px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-[12px] fill">timer</span>
+                                仅剩 15 天过期
+                            </span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card: Normal State -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex gap-4 relative overflow-hidden">
+<!-- Image Box -->
+<div class="w-24 h-24 rounded-lg bg-surface-container flex-shrink-0 relative overflow-hidden">
+<img alt="Product thumbnail" class="object-cover w-full h-full" data-alt="elegant frosted glass cream jar on white marble surface with soft natural lighting shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyh1EzKJZcW0Vu8UZN_1u8_ZOFR6DShwZ-dWaKvDHnTGnr7MxPIfsPN0EO5M4ch1KQNC_8Cm4GO6hTeSv8db9M0mK6qUOFKBbPva2hEurT5NlJJZ5RWyg6e814WDJC12zFSDK12DtzAk5Ols769v5VbhBmyT2OojqLfJLaEuSmIBRWWgKqL5xwiCz2Fit2qCntDvELrSzj_evtqjKEyY_weUlGIWDJjYIFga_36VrBeDSJ7p6sCRvoyegUnbU2C_F7uL5jQ70-GNM"/>
+</div>
+<!-- Content Box -->
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-wide">Lancôme</p>
+<h3 class="font-body text-title-md font-semibold text-on-surface leading-tight mt-1">菁纯臻颜焕亮雪肌面霜 60ml</h3>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-on-surface-variant">开启日期: 2023.08.01</span>
+<span class="font-label text-xs text-secondary font-medium flex items-center gap-1 bg-secondary-container/50 px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-[12px] fill">check_circle</span>
+                                建议使用至 2024.08
+                            </span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card: Normal State -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex gap-4 relative overflow-hidden">
+<!-- Image Box -->
+<div class="w-24 h-24 rounded-lg bg-surface-container flex-shrink-0 relative overflow-hidden">
+<img alt="Product thumbnail" class="object-cover w-full h-full" data-alt="minimalist white skincare bottle pump dispenser against soft beige background clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZvhWs8z4JLkMOCplWEb2Aka-d6eoke0Xzm20GdBEWhF1kfVW12TVouf7soXwo-ggwwzyjZvGkM3-xGaeW_uMz-Fdz07Ju3SwmCKZfXHw3d0scfInXyUyxFDxLHGfKFlXIk7cjpPPPAaiY69OJipZuHd2T5BKvmPtKYCS5V-d2PSVc9kNKkATh-XPZPo80YwHfqfiI5bvXNWh8NQE-qo_kr6s62tmJzthZnqzuh8teV1Noe9buVnrBbat3KlIjQ3tGxz1qRyhfK_o"/>
+</div>
+<!-- Content Box -->
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-wide">La Roche-Posay</p>
+<h3 class="font-body text-title-md font-semibold text-on-surface leading-tight mt-1">B5多效修复面霜 40ml</h3>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-on-surface-variant">开启日期: 2023.09.15</span>
+<span class="font-label text-xs text-secondary font-medium flex items-center gap-1 bg-secondary-container/50 px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-[12px] fill">check_circle</span>
+                                建议使用至 2024.03
+                            </span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Spacing for FAB -->
+<div class="h-10"></div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6 z-40">
+<button class="bg-primary hover:bg-primary/90 text-on-primary rounded-full px-6 py-4 flex items-center gap-2 shadow-[0_8px_32px_rgba(142,72,100,0.3)] transition-transform hover:-translate-y-1 active:scale-95 active:translate-y-0">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="font-body font-medium text-sm">添加新产品</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,81 @@
+.product-recommend-card__title {
+  font-size: 23px;
+  line-height: 1.72;
+  color: #1b1c1c;
+  font-weight: 700;
+}
+
+.product-recommend-card__inner {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.product-recommend-card__thumb {
+  width: 108px;
+  height: 108px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 40%, #2c3444 0%, #11151c 60%, #090b0f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #d9ebff;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  box-shadow: inset 0 0 18px rgba(120, 180, 255, 0.15);
+}
+
+.product-recommend-card__thumb-text {
+  color: #d9ebff;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.product-recommend-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-recommend-card__tag {
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(142, 72, 100, 0.12);
+  color: #8e4864;
+}
+
+.product-recommend-card__name {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1b1c1c;
+}
+
+.product-recommend-card__desc {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.72;
+  color: #524347;
+}
+
+.product-recommend-card__action {
+  margin-top: 10px;
+  align-self: flex-start;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 45px;
+  background: #8e4864;
+  color: #fff;
+  font-size: 14px;
+}

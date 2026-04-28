@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>知不Ai护肤 - 拍照引导</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#adb5fe",
+                        "primary-container": "#f7a1c0",
+                        "surface-container-high": "#e9e8e8",
+                        "inverse-primary": "#ffb0cc",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c1c",
+                        "surface-bright": "#fbf9f9",
+                        "on-tertiary-fixed-variant": "#394182",
+                        "on-primary-fixed-variant": "#71314c",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary-fixed": "#9df1ee",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9aeeeb",
+                        "surface-tint": "#8e4864",
+                        "tertiary": "#51599b",
+                        "secondary-fixed-dim": "#81d5d1",
+                        "tertiary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdada",
+                        "secondary": "#006a68",
+                        "on-tertiary-fixed": "#091255",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "on-primary-container": "#76344f",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#00201f",
+                        "surface-container": "#efeded",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface-variant": "#524347",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#bcc2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb0cc",
+                        "outline": "#847377",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline-variant": "#d6c1c6",
+                        "surface-variant": "#e4e2e2",
+                        "inverse-surface": "#303031",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006e6c",
+                        "background": "#fbf9f9",
+                        "primary": "#8e4864",
+                        "primary-fixed": "#ffd9e4",
+                        "on-tertiary-container": "#3c4485",
+                        "on-primary-fixed": "#3b0420",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(251, 249, 249, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #8e4864 0%, #f7a1c0 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #8e4864 0%, #f7a1c0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col relative pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-5 py-4 h-16 sticky top-0 z-50 glass-panel bg-gradient-to-b from-[#fbf9f9] to-transparent dark:from-slate-950">
+<button aria-label="返回" class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-lg tracking-tight text-primary">知不Ai护肤</h1>
+<button aria-label="设置" class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center w-10 h-10 rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-5 pt-4 pb-8 max-w-md mx-auto w-full">
+<!-- Hero Section -->
+<div class="mb-10 text-center">
+<h2 class="font-headline text-3xl font-extrabold text-primary mb-3">AI 肤质分析</h2>
+<p class="font-body text-on-surface-variant text-base leading-relaxed max-w-[280px] mx-auto">
+                为了获得最精准的临床级肤质报告，请遵循以下拍摄建议。
+            </p>
+</div>
+<!-- Guidance Grid (Asymmetric) -->
+<div class="grid grid-cols-1 gap-6 mb-12">
+<!-- Guideline 1: Lighting -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden flex flex-col items-center text-center shadow-[0_4px_24px_rgba(27,28,28,0.02)]">
+<div class="w-16 h-16 rounded-full bg-primary-container/30 flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="light_mode" data-weight="fill" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">自然均匀光线</h3>
+<p class="font-body text-sm text-on-surface-variant">
+                    请在光线充足、均匀的环境下拍摄。<span class="text-error font-medium">避免强烈直射光</span>或背光，以免产生阴影影响分析。
+                </p>
+</div>
+<!-- Guideline 2: Angle & Face -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden flex flex-col items-center text-center shadow-[0_4px_24px_rgba(27,28,28,0.02)] ml-4">
+<div class="w-16 h-16 rounded-full bg-secondary-container/30 flex items-center justify-center mb-4 text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="face" data-weight="fill" style="font-variation-settings: 'FILL' 1;">face</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">完全露出面部</h3>
+<p class="font-body text-sm text-on-surface-variant">
+                    请摘下眼镜，将头发撩起，保持面部放松，正对镜头。<span class="text-secondary font-medium">素颜状态</span>下检测效果最佳。
+                </p>
+</div>
+<!-- Guideline 3: Distance -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden flex flex-col items-center text-center shadow-[0_4px_24px_rgba(27,28,28,0.02)] mr-4">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-4 text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="center_focus_strong" data-weight="fill" style="font-variation-settings: 'FILL' 1;">center_focus_strong</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">保持适当距离</h3>
+<p class="font-body text-sm text-on-surface-variant">
+                    脸部轮廓需完整显示在屏幕提示框内，不要太远或太近，保持手机稳定。
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed) -->
+<div class="fixed bottom-0 left-0 right-0 p-5 glass-panel border-t-0 shadow-[0_-8px_32px_rgba(27,28,28,0.05)] z-40 max-w-md mx-auto">
+<button class="w-full bg-primary text-on-primary font-headline font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(142,72,100,0.2)]">
+<span class="material-symbols-outlined" data-icon="photo_camera" data-weight="fill" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+            开始拍摄分析
+        </button>
+<p class="text-center font-label text-xs text-on-surface-variant mt-3 opacity-70">
+            您的照片仅用于本次分析，我们将严格保护您的隐私
+        </p>
+</div>
+</body></html>
