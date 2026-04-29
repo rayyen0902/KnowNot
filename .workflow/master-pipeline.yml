@@ -1,0 +1,51 @@
+name: backend_smoke_main
+displayName: 后端回归（主分支）
+
+variables:
+  PORT: "18083"
+  STORAGE_MODE: "postgres"
+  MIGRATION_FILE: "./backend/migrations/001_init_v1.sql"
+  BASE_URL: "http://127.0.0.1:18083"
+
+stages:
+  - stage:
+      name: smoke
+      displayName: Smoke 回归
+      strategy: naturally
+      trigger: auto
+      steps:
+        - step: shell@agent
+          name: start_backend
+          displayName: 启动后端（postgres）
+          hostGroupID: gitee-go
+          script: |
+            set -euo pipefail
+            test -n "${DATABASE_URL:-}" || (echo "DATABASE_URL is required" && exit 1)
+            chmod +x backend/scripts/*.sh
+            nohup backend/scripts/start_postgres.sh > backend-start.log 2>&1 &
+            for i in $(seq 1 40); do
+              if curl -sS "${BASE_URL}/healthz" >/tmp/healthz.json 2>/dev/null; then
+                cat /tmp/healthz.json
+                break
+              fi
+              sleep 2
+            done
+            grep -q '"storage_mode":"postgres"' /tmp/healthz.json || (echo "healthz missing storage_mode=postgres" && cat backend-start.log && exit 1)
+
+        - step: shell@agent
+          name: smoke_positive
+          displayName: 正向 Smoke
+          hostGroupID: gitee-go
+          dependsOn: start_backend
+          script: |
+            set -euo pipefail
+            BASE_URL="${BASE_URL}" backend/scripts/smoke_v1.sh
+
+        - step: shell@agent
+          name: smoke_negative
+          displayName: 负向 Smoke
+          hostGroupID: gitee-go
+          dependsOn: smoke_positive
+          script: |
+            set -euo pipefail
+            BASE_URL="${BASE_URL}" backend/scripts/smoke_v1_negative.sh
