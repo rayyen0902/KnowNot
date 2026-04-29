@@ -68,10 +68,89 @@
   justify-content: center;
 }
 
+.splash-footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 .splash-footer__text {
   color: #524347;
   font-size: 32px;
   line-height: 1.5;
   letter-spacing: 0.8px;
   opacity: 0.8;
+}
+
+.splash-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.splash-footer__link {
+  color: #8e4864;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.splash-consent-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 28, 28, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 120;
+}
+
+.splash-consent-card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.splash-consent-card__title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1b1c1c;
+}
+
+.splash-consent-card__desc {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #524347;
+}
+
+.splash-consent-card__links {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.splash-consent-card__link {
+  color: #8e4864;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.splash-consent-card__cta {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  background: #8e4864;
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 1.2;
 }

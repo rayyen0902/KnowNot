@@ -1,7 +1,84 @@
+import { useMemo, useState } from 'react';
+import Taro, { useLoad } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
+import { mockProductDetail, mockProducts } from '@/data/mock';
+import { goTo } from '@/utils/router';
 import './index.scss';
 
+type MergedProduct = {
+  brand: string;
+  verificationTag: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  match: number;
+  matchStatus: string;
+  matchReason: string;
+  points: string[];
+  ingredients: typeof mockProductDetail.ingredients;
+  routines: typeof mockProductDetail.routines;
+};
+
+function mergeProduct(productId: string): MergedProduct {
+  const list = mockProducts;
+  if (list.length === 0) {
+    return {
+      brand: mockProductDetail.brand,
+      verificationTag: mockProductDetail.verificationTag,
+      title: mockProductDetail.title,
+      desc: mockProductDetail.desc,
+      tags: mockProductDetail.tags,
+      match: mockProductDetail.match,
+      matchStatus: mockProductDetail.matchStatus,
+      matchReason: mockProductDetail.matchReason,
+      points: mockProductDetail.points,
+      ingredients: mockProductDetail.ingredients,
+      routines: mockProductDetail.routines
+    };
+  }
+  const n = Number.parseInt(productId, 10);
+  const idx = Number.isFinite(n) ? Math.min(Math.max(n, 0), list.length - 1) : 0;
+  const p = list[idx];
+  return {
+    brand: p.brand,
+    verificationTag: mockProductDetail.verificationTag,
+    title: p.title,
+    desc: p.desc,
+    tags: p.tags,
+    match: p.match,
+    matchStatus: p.matchDesc,
+    matchReason: mockProductDetail.matchReason,
+    points: mockProductDetail.points,
+    ingredients: mockProductDetail.ingredients,
+    routines: mockProductDetail.routines
+  };
+}
+
 export default function ProductDetailPage() {
+  const [productId, setProductId] = useState('0');
+
+  useLoad((params: { product_id?: string }) => {
+    setProductId(params?.product_id ?? '0');
+  });
+
+  const product = useMemo(() => mergeProduct(productId), [productId]);
+
+  const onConsult = () => {
+    Taro.showToast({
+      title: '咨询入口暂未开放，已跳转订单页',
+      icon: 'none'
+    });
+    goTo('/pages/orders/index');
+  };
+
+  const onAddList = () => {
+    goTo('/pages/my-products/index');
+  };
+
+  const onLogistics = () => {
+    goTo('/pages/orders/index');
+  };
+
   return (
     <View className='product-detail-page'>
       <View className='detail-hero' />
@@ -9,15 +86,17 @@ export default function ProductDetailPage() {
       <View className='detail-content'>
         <View className='detail-card detail-card--header'>
           <View className='detail-brand-row'>
-            <Text className='detail-badge'>DERMALAB</Text>
-            <Text className='detail-badge detail-badge--secondary'>⌂ 临床验证</Text>
+            <Text className='detail-badge'>{product.brand}</Text>
+            <Text className='detail-badge detail-badge--secondary'>⌂ {product.verificationTag}</Text>
           </View>
-          <Text className='detail-title'>多重神经酰胺修护精华乳</Text>
-          <Text className='detail-desc'>专为敏弱肌设计，深层修护肌肤屏障，即刻舒缓泛红干痒，重建健康肌肤生态。</Text>
+          <Text className='detail-title'>{product.title}</Text>
+          <Text className='detail-desc'>{product.desc}</Text>
           <View className='detail-tags'>
-            <Text className='detail-tag'>强韧屏障</Text>
-            <Text className='detail-tag'>深层保湿</Text>
-            <Text className='detail-tag'>舒缓褪红</Text>
+            {product.tags.map((tag) => (
+              <Text key={tag} className='detail-tag'>
+                {tag}
+              </Text>
+            ))}
           </View>
         </View>
 
@@ -28,66 +107,71 @@ export default function ProductDetailPage() {
               <Text className='match-card__title'>知不Ai 肤质匹配</Text>
             </View>
             <View className='match-score'>
-              96<Text className='match-score__percent'>%</Text>
-              <Text className='match-score__desc'>极度契合当前状态</Text>
+              {product.match}
+              <Text className='match-score__percent'>%</Text>
+              <Text className='match-score__desc'>{product.matchStatus}</Text>
             </View>
           </View>
           <View className='match-card__body'>
-            <Text className='match-card__body-text'>根据您最新的测肤报告（混合偏干、屏障受损期），该产品的核心成分矩阵能提供针对性修护。</Text>
-            <Text className='match-point'>急救舒缓：有效改善您近期的两颊泛红问题。</Text>
-            <Text className='match-point'>精准保湿：补充细胞间脂质，解决U区干燥起皮。</Text>
+            <Text className='match-card__body-text'>{product.matchReason}</Text>
+            {product.points.map((point) => (
+              <Text key={point} className='match-point'>
+                {point}
+              </Text>
+            ))}
           </View>
         </View>
 
         <Text className='section-title'>核心成分图谱</Text>
         <View className='ingredient-grid'>
-          <View className='ingredient-card ingredient-card--big'>
-            <View className='ingredient-card__icon'>◌</View>
-            <View>
-              <Text className='ingredient-card__title'>复合神经酰胺 (1, 3, 6-II)</Text>
-              <Text className='ingredient-card__desc'>模拟健康皮脂膜结构，黄金比例直达肌底，像水泥一样填补细胞间隙，强韧屏障。</Text>
+          {product.ingredients.map((ing, index) => (
+            <View
+              key={ing.title}
+              className={index === 0 ? 'ingredient-card ingredient-card--big' : 'ingredient-card'}
+            >
+              {index === 0 ? (
+                <>
+                  <View className='ingredient-card__icon'>◌</View>
+                  <View>
+                    <Text className='ingredient-card__title'>{ing.title}</Text>
+                    <Text className='ingredient-card__desc'>{ing.desc}</Text>
+                  </View>
+                </>
+              ) : (
+                <>
+                  <Text className='ingredient-card__title ingredient-card__title--accent'>{ing.title}</Text>
+                  <Text className='ingredient-card__desc'>{ing.desc}</Text>
+                </>
+              )}
             </View>
-          </View>
-          <View className='ingredient-card'>
-            <Text className='ingredient-card__title ingredient-card__title--accent'>依克多因</Text>
-            <Text className='ingredient-card__desc'>细胞级防护盾，抵御外界刺激，长效锁水。</Text>
-          </View>
-          <View className='ingredient-card'>
-            <Text className='ingredient-card__title ingredient-card__title--accent'>积雪草提取物</Text>
-            <Text className='ingredient-card__desc'>温和植萃力量，即刻褪红，舒缓敏感不适。</Text>
-          </View>
+          ))}
         </View>
 
         <Text className='section-title'>定制护肤仪式</Text>
         <View className='routine-scroll'>
-          <View className='routine-card'>
-            <View className='routine-card__step'>1</View>
-            <Text className='routine-card__title'>温和清洁</Text>
-            <Text className='routine-card__desc'>使用氨基酸洁面后，保留肌肤微湿状态。</Text>
-          </View>
-          <View className='routine-card routine-card--accent'>
-            <View className='routine-card__step'>2</View>
-            <Text className='routine-card__title'>取量涂抹</Text>
-            <Text className='routine-card__desc'>取2-3泵精华乳于掌心，点涂于面部及颈部。</Text>
-          </View>
-          <View className='routine-card'>
-            <View className='routine-card__step'>3</View>
-            <Text className='routine-card__title'>按压吸收</Text>
-            <Text className='routine-card__desc'>双手搓热，轻柔按压面部帮助成分渗透吸收。</Text>
-          </View>
+          {product.routines.map((step) => (
+            <View
+              key={step.step}
+              className={step.accent ? 'routine-card routine-card--accent' : 'routine-card'}
+            >
+              <View className='routine-card__step'>{step.step}</View>
+              <Text className='routine-card__title'>{step.title}</Text>
+              <Text className='routine-card__desc'>{step.desc}</Text>
+            </View>
+          ))}
         </View>
       </View>
 
       <View className='bottom-bar'>
-        <View className='bottom-bar__primary'>
+        <View className='bottom-bar__primary' onClick={onConsult}>
           <Text className='bottom-bar__primary-icon'>◻</Text>
           <Text className='bottom-bar__primary-text'>立即咨询</Text>
         </View>
-        <View className='bottom-bar__item'>
+        <View className='bottom-bar__item' onClick={onAddList}>
           <Text className='bottom-bar__item-icon'>◎</Text>
           <Text>加入清单</Text>
         </View>
-        <View className='bottom-bar__item'>
+        <View className='bottom-bar__item' onClick={onLogistics}>
           <Text className='bottom-bar__item-icon'>◫</Text>
           <Text>物流追踪</Text>
         </View>

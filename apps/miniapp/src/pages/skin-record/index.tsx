@@ -36,7 +36,7 @@ export default function SkinRecordPage() {
             <Text className='skin-record-head__title'>肤质记录</Text>
             <View className='skin-record-head__tag'>
               <Text className='skin-record-head__tag-dot'>◌</Text>
-              <Text>临床分析</Text>
+              <Text>趋势分析</Text>
             </View>
           </View>
           <Text className='skin-record-head__desc'>追踪您的肌肤演变。每次检测都由AI深度分析，提供专业的改善建议。</Text>

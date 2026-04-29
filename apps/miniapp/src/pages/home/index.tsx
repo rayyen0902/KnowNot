@@ -9,6 +9,7 @@ import {
   initAnonymousUser,
   sessionStart
 } from '@/services/api';
+import { goTo } from '@/utils/router';
 import { getAnonymousId } from '@/utils/session';
 import './index.scss';
 
@@ -72,15 +73,12 @@ export default function HomePage() {
   };
 
   const handleCameraClick = () => {
-    Taro.showToast({
-      title: '拍照功能开发中',
-      icon: 'none'
-    });
+    void Taro.navigateTo({ url: '/pages/camera-capture/index' });
   };
 
   const handleMicClick = () => {
     Taro.showToast({
-      title: '语音输入开发中',
+      title: '语音输入暂未开放，请用文字描述',
       icon: 'none'
     });
   };
@@ -145,9 +143,7 @@ export default function HomePage() {
       const reportId = await pollReportTask(task.task_id);
       Taro.hideLoading();
       console.info('[v1-flow] report/task/done', { reportId });
-      Taro.navigateTo({
-        url: `/pages/report/index?report_id=${encodeURIComponent(reportId)}`
-      });
+      goTo(`/pages/report/index?report_id=${encodeURIComponent(reportId)}`);
     } catch (error) {
       Taro.hideLoading();
       Taro.showToast({

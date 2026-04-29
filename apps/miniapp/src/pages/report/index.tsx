@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
-import Taro, { useLoad } from '@tarojs/taro';
+import Taro, { useDidShow, useLoad } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { getReportDetail, getShopCards } from '@/services/api';
 import type { ReportDetailResponse, RoutineStep, ShopCard } from '@/services/types';
+import { goTo } from '@/utils/router';
 import { getAnonymousId, getUserId } from '@/utils/session';
 import './index.scss';
 
@@ -16,17 +17,35 @@ export default function ReportPage() {
   const [shopCards, setShopCards] = useState<ShopCard[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorText, setErrorText] = useState('');
+  const [userId, setUserId] = useState('');
+  const isBound = Boolean(userId);
 
   useLoad((params: PageParams) => {
     const nextReportId = params?.report_id || '';
     setReportId(nextReportId);
+    setUserId(getUserId());
 
     if (!nextReportId) {
       setReport(null);
       setErrorText('');
       return;
     }
+    // 强门禁：未绑定账号时不展示完整报告正文，仅保留绑定引导。
+    if (!getUserId()) {
+      setReport(null);
+      setShopCards([]);
+      setErrorText('');
+      setLoading(false);
+      return;
+    }
     void loadReportDetail(nextReportId);
+  });
+
+  useDidShow(() => {
+    const latestUserId = getUserId();
+    setUserId(latestUserId);
+    if (!reportId || !latestUserId || loading || report) return;
+    void loadReportDetail(reportId);
   });
 
   const loadReportDetail = async (id: string) => {
@@ -74,9 +93,7 @@ export default function ReportPage() {
       Taro.showToast({ title: '缺少绑定参数', icon: 'none' });
       return;
     }
-    Taro.navigateTo({
-      url: `/pages/auth/index?scene=bind_report&anonymous_id=${encodeURIComponent(anonymousId)}&report_id=${encodeURIComponent(reportId)}`
-    });
+    goTo(`/pages/auth/index?scene=bind_report&anonymous_id=${encodeURIComponent(anonymousId)}&report_id=${encodeURIComponent(reportId)}`);
   };
 
   const openShopCard = async (card: ShopCard) => {
@@ -102,6 +119,19 @@ export default function ReportPage() {
         <View className='report-card'>
           <Text className='report-card__title'>请先生成报告</Text>
           <Text className='report-card__text'>完成首页采集后将自动生成并跳转到报告页。</Text>
+        </View>
+      </View>
+    );
+  }
+
+  if (!isBound) {
+    return (
+      <View className='report-page'>
+        <View className='report-card'>
+          <Text className='report-card__title'>绑定后可查看完整报告</Text>
+          <Text className='report-card__text'>为保障数据安全，需先完成授权绑定后再查看详细分析与建议。</Text>
+          <Text className='report-footer__btn' onClick={goBind}>立即绑定并查看</Text>
+          <Text className='report-footer__desc'>*本服务提供日常护肤建议，不提供医疗诊断或治疗方案。</Text>
         </View>
       </View>
     );
@@ -182,7 +212,7 @@ export default function ReportPage() {
       </View>
 
       <View className='report-footer'>
-        {!getUserId() ? <Text className='report-footer__btn' onClick={goBind}>查看完整报告并绑定账号</Text> : null}
+        {!isBound ? <Text className='report-footer__btn' onClick={goBind}>查看完整报告并绑定账号</Text> : null}
         <Text className='report-footer__desc'>*分析结果基于当前AI模型评估，仅供日常护肤参考，不作为医疗诊断依据。</Text>
       </View>
         </>

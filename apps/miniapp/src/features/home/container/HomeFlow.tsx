@@ -134,7 +134,7 @@ export default function HomeFlow({ liveMessages = [], onSubmitReport }: HomeFlow
               buttonText={block.buttonText}
               tips={block.tips}
               onUploadClick={() => {
-                Taro.showToast({ title: '上传功能开发中', icon: 'none' });
+                void Taro.navigateTo({ url: '/pages/camera-capture/index' });
               }}
             />
           );
@@ -150,7 +150,7 @@ export default function HomeFlow({ liveMessages = [], onSubmitReport }: HomeFlow
               name={block.name}
               desc={block.desc}
               imageText={block.imageText}
-              onClick={() => goTo('/pages/product-detail/index')}
+              onClick={() => goTo('/pages/product-detail/index?product_id=0')}
             />
           );
         }

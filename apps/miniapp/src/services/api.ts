@@ -24,8 +24,53 @@ import type {
 } from './types';
 
 const DEFAULT_ERROR_MESSAGE = '服务开小差，请稍后重试';
-const API_BASE = process.env.TARO_APP_API_BASE_URL || '';
-const USE_MOCK_API = process.env.TARO_APP_MOCK_API === '1' || !API_BASE;
+const runtimeEnv: Record<string, string | undefined> =
+  typeof process !== 'undefined' && process.env ? process.env : {};
+const API_BASE = runtimeEnv.TARO_APP_API_BASE_URL || '';
+const USE_MOCK_API = runtimeEnv.TARO_APP_MOCK_API === '1' || !API_BASE;
+
+const API_ERROR_MESSAGE_MAP: Record<string, Record<number, string>> = {
+  '/api/v1/user/init': {
+    40001: '初始化参数有误，请重试',
+    40101: '登录状态已失效，请重新授权',
+    50001: '初始化失败，请稍后重试'
+  },
+  '/api/v1/report/task/create': {
+    40001: '采集信息不完整，请检查后重试',
+    40901: '当前状态暂不可生成报告，请稍后重试',
+    50001: '报告任务创建失败，请稍后重试',
+    50201: '分析服务暂时不可用，请稍后重试'
+  },
+  '/api/v1/report/task/status': {
+    40001: '任务参数有误，请重试',
+    40401: '报告任务不存在，请重新发起',
+    50001: '任务状态查询失败，请稍后重试'
+  },
+  '/api/v1/report/detail': {
+    40001: '报告参数有误，请重试',
+    40401: '报告不存在或已失效，请重新生成',
+    50001: '报告加载失败，请稍后重试'
+  },
+  '/api/v1/user/bind': {
+    40001: '绑定参数有误，请重试',
+    40101: '抖音授权校验失败，请重新登录',
+    40901: '该账号已绑定其他身份，请更换账号重试',
+    50001: '账号绑定失败，请稍后重试'
+  }
+};
+
+function normalizeApiPath(url: string) {
+  const path = normalizePath(url);
+  return path.split('?')[0];
+}
+
+function getMappedApiErrorMessage(url: string, code?: number) {
+  if (typeof code !== 'number') return '';
+  const path = normalizeApiPath(url);
+  const table = API_ERROR_MESSAGE_MAP[path];
+  if (!table) return '';
+  return table[code] || '';
+}
 
 type MockTask = {
   pollCount: number;
@@ -65,7 +110,7 @@ async function request<T>(url: string, method: 'GET' | 'POST', data?: Record<str
 
   const payload = response.data;
   if (response.statusCode < 200 || response.statusCode >= 300) {
-    const message = payload?.message || DEFAULT_ERROR_MESSAGE;
+    const message = getMappedApiErrorMessage(url, payload?.code) || payload?.message || DEFAULT_ERROR_MESSAGE;
     throw new Error(message);
   }
 
@@ -74,10 +119,10 @@ async function request<T>(url: string, method: 'GET' | 'POST', data?: Record<str
   }
 
   if (payload.code !== 0) {
-    if (payload.code === 401) {
+    if (payload.code === 401 || payload.code === 40101) {
       Taro.showToast({ title: '登录状态失效，请重新授权', icon: 'none' });
     }
-    throw new Error(payload.message || DEFAULT_ERROR_MESSAGE);
+    throw new Error(getMappedApiErrorMessage(url, payload.code) || payload.message || DEFAULT_ERROR_MESSAGE);
   }
 
   return payload.data;

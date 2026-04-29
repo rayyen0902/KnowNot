@@ -1,5 +1,6 @@
 import { View, Text } from '@tarojs/components';
 import { goTo } from '@/utils/router';
+import { mockUser } from '@/data/mock';
 import './index.scss';
 
 export default function ProfilePage() {
@@ -9,8 +10,8 @@ export default function ProfilePage() {
         <View className='profile-hero'>
           <View className='profile-hero__avatar' />
           <View className='profile-hero__body'>
-            <Text className='profile-hero__name'>Jane Doe</Text>
-            <Text className='profile-hero__role'>护肤达人</Text>
+            <Text className='profile-hero__name'>{mockUser.name}</Text>
+            <Text className='profile-hero__role'>{mockUser.role}</Text>
             <Text className='profile-hero__button'>编辑/完善资料</Text>
           </View>
         </View>

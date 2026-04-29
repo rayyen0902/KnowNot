@@ -118,8 +118,16 @@
   line-height: 1;
 }
 
+.auth-card__hint {
+  display: block;
+  margin-top: 16px;
+  font-size: 22px;
+  line-height: 1.45;
+  color: #7a6d70;
+}
+
 .auth-agree {
-  margin-top: 8px;
+  margin-top: 16px;
   display: flex;
   gap: 12px;
   align-items: flex-start;

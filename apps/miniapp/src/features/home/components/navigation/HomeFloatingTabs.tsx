@@ -15,8 +15,8 @@ const TABS: TabItem[] = [
   { key: 'profile', path: '/pages/profile/index', label: '个人', iconModifier: 'floating-tabs__icon--my' },
   { key: 'report', path: '/pages/report/index', label: '报告', iconModifier: 'floating-tabs__icon--report' },
   { key: 'calendar', path: '/pages/calendar/index', label: '日程', iconModifier: 'floating-tabs__icon--calendar' },
-  { key: 'heart', path: '', label: '知心', iconModifier: 'floating-tabs__icon--heart' },
-  { key: 'expert', path: '', label: '专家', iconModifier: 'floating-tabs__icon--expert' }
+  { key: 'heart', path: '/pages/favorites/index', label: '知心', iconModifier: 'floating-tabs__icon--heart' },
+  { key: 'expert', path: '/pages/photo-guide/index', label: '专家', iconModifier: 'floating-tabs__icon--expert' }
 ];
 
 function normalizeRoute(route: string): string {
@@ -56,7 +56,15 @@ export default function HomeFloatingTabs() {
               key={item.key}
               className={`floating-tabs__item${isActive ? ' floating-tabs__item--active' : ''}`}
               onClick={() => {
-                if (item.path) goTo(item.path);
+                if (item.path) {
+                  goTo(item.path);
+                  return;
+                }
+                Taro.showToast({
+                  title: '该入口暂未开放，已跳转报告页',
+                  icon: 'none'
+                });
+                goTo('/pages/report/index');
               }}
             >
               <View className={`floating-tabs__icon ${item.iconModifier}`} />

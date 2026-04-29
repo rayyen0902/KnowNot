@@ -1,4 +1,5 @@
 import { View, Text, Input } from '@tarojs/components';
+import { goTo } from '@/utils/router';
 import './index.scss';
 
 export default function PhotoGuidePage() {
@@ -7,7 +8,7 @@ export default function PhotoGuidePage() {
       <View className='scan-main'>
         <View className='scan-copy'>
           <Text className='scan-copy__title'>智能识屏录入</Text>
-          <Text className='scan-copy__desc'>对准产品包装或成分表，AI 助手将自动为您建立专业的临床级护肤档案。</Text>
+          <Text className='scan-copy__desc'>对准产品包装或成分表，AI 助手将自动生成日常护肤记录，帮助你持续复盘。</Text>
         </View>
 
         <View className='scan-search'>
@@ -16,7 +17,7 @@ export default function PhotoGuidePage() {
           <View className='scan-search__go'>→</View>
         </View>
 
-        <View className='scan-viewport-wrap'>
+        <View className='scan-viewport-wrap' onClick={() => goTo('/pages/camera-capture/index')}>
           <View className='scan-viewport'>
             <View className='scan-corner scan-corner--tl' />
             <View className='scan-corner scan-corner--tr' />
@@ -32,12 +33,14 @@ export default function PhotoGuidePage() {
         <View className='scan-trust'>
           <View className='scan-trust__icon'>✓</View>
           <View>
-            <Text className='scan-trust__title'>精准构成临床解析</Text>
+            <Text className='scan-trust__title'>精准成分解析</Text>
             <Text className='scan-trust__desc'>已接入全球 50,000+ 成分与专利品牌数据库，确保成分比对准确性与专业性。</Text>
           </View>
         </View>
 
-        <View className='scan-manual'>⌁ 找不到产品？尝试手动添加</View>
+        <View className='scan-manual' onClick={() => goTo('/pages/my-products/index')}>
+          ⌁ 找不到产品？尝试手动添加
+        </View>
       </View>
     </View>
   );

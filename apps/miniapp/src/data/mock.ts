@@ -14,7 +14,7 @@ export const mockHomeConversation = {
   followUpPhoto: '有一个更简单的办法，您可以发一张您的无滤镜素颜照片，我帮您分析分析',
   reportOffer: '根据您的反馈，现在可以为您生成一份护肤报告，您需要吗？',
   generating: '报告生成中，大约需要30～60秒',
-  recommendation: '根据你的诊断，可以给我推荐一款护肤精华吗？',
+  recommendation: '根据你的分析结果，可以给我推荐一款护肤精华吗？',
   routineNotice: '检测到您已录入【玻尿酸精华】，已为您加入今晚的护肤日程。'
 };
 
@@ -53,7 +53,7 @@ export const mockProducts = [
 
 export const mockProductDetail = {
   brand: 'DermaLab',
-  verificationTag: '临床验证',
+  verificationTag: '功效评测',
   title: '多重神经酰胺修护精华乳',
   desc: '专为敏弱肌设计，深层修护肌肤屏障，即刻舒缓泛红干痒，重建健康肌肤生态。',
   tags: ['强韧屏障', '深层保湿', '舒缓褪红'],
@@ -120,7 +120,14 @@ export const mockMyProducts = [
   { name: '保湿精华', desc: '日常保湿' }
 ];
 
-export const mockFavorites = [
-  '护肤报告 · 敏感偏干修护方案',
-  '产品 · 神经酰胺面霜'
+/** 收藏列表：演示数据；报告类无 reportId 时跳转首页引导生成 */
+export const mockFavoriteEntries: {
+  id: string;
+  title: string;
+  kind: 'report' | 'product';
+  reportId?: string;
+  productId?: string;
+}[] = [
+  { id: 'f1', title: '护肤报告 · 敏感偏干修护方案', kind: 'report', reportId: '' },
+  { id: 'f2', title: '产品 · 神经酰胺面霜', kind: 'product', productId: '0' }
 ];
