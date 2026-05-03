@@ -71,10 +71,12 @@ export function setActiveReportTask(task: StoredReportTask | null) {
   notifyTask();
 }
 
+/** 合并任务字段但不通知订阅者（避免轮询每 2s 打断 Tab/首页订阅） */
 export function patchActiveReportTask(partial: Partial<StoredReportTask>) {
   const cur = getActiveReportTask();
   if (!cur) return;
-  setActiveReportTask({ ...cur, ...partial });
+  const next = { ...cur, ...partial };
+  Taro.setStorageSync(REPORT_FLOW_KEYS.activeTask, next);
 }
 
 export function isReportTaskBlockingTab(): boolean {

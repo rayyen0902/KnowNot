@@ -73,7 +73,8 @@ function getMappedApiErrorMessage(url: string, code?: number) {
 }
 
 type MockTask = {
-  pollCount: number;
+  /** 创建时刻，用于按时间模拟 pending→running→done（对齐 §1-8 轮询联调） */
+  createdAtMs: number;
   shouldFail: boolean;
   reportId?: string;
 };
@@ -171,7 +172,7 @@ async function mockRequest<T>(url: string, method: 'GET' | 'POST', data?: Record
     const shouldFail = Array.isArray((data as ReportTaskCreateRequest | undefined)?.profile?.allergy_preset)
       && ((data as ReportTaskCreateRequest).profile.allergy_preset || []).includes('mock_fail');
     mockStore.tasks[taskId] = {
-      pollCount: 0,
+      createdAtMs: Date.now(),
       shouldFail
     };
     return { task_id: taskId } as T;
@@ -183,10 +184,10 @@ async function mockRequest<T>(url: string, method: 'GET' | 'POST', data?: Record
     if (!task) {
       throw new Error('任务不存在');
     }
-    task.pollCount += 1;
+    const elapsed = Date.now() - task.createdAtMs;
     let state: ReportTaskStatusResponse['state'] = 'pending';
-    if (task.pollCount >= 2) state = 'running';
-    if (task.pollCount >= 3) state = task.shouldFail ? 'failed' : 'done';
+    if (elapsed >= 2100) state = 'running';
+    if (elapsed >= 4200) state = task.shouldFail ? 'failed' : 'done';
 
     if (state === 'done' && !task.reportId) {
       mockStore.reportSeed += 1;

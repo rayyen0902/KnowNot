@@ -4,6 +4,7 @@ import { View, ScrollView, Text, Input } from '@tarojs/components';
 import HomeFlow from '@/features/home/container/HomeFlow';
 import { ChatThread, HomeFloatingTabs } from '@/features/home/components';
 import { initAnonymousUser } from '@/services/api';
+import { useReportTaskPoller } from '@/hooks/useReportTaskPoller';
 import {
   appendChatMessage,
   getChatMessages,
@@ -17,6 +18,8 @@ import './index.scss';
 export default function HomePage() {
   const [chatText, setChatText] = useState('');
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>(() => getChatMessages());
+
+  useReportTaskPoller();
 
   useDidShow(() => {
     void initAnonymousUser().then((payload) => {

@@ -90,8 +90,6 @@ export default function HomeFloatingTabs() {
               className={`floating-tabs__item${isActive ? ' floating-tabs__item--active' : ''}${
                 reportLocked ? ' floating-tabs__item--disabled' : ''
               }`}
-              ariaRole='button'
-              ariaDisabled={reportLocked ? true : undefined}
               ariaLabel={reportLocked ? `${item.label}，报告生成中暂不可点` : item.label}
               onClick={() => {
                 if (item.key === 'more') {
