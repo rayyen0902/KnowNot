@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=390, initial-scale=1" />
+  <title>FE-NIGHT-10 settings capture (390)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 390px;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #fff 0%, #fbf9f9 100%);
+      font-family: 'PingFang SC', 'WenQuanYi Zen Hei', sans-serif;
+    }
+    .settings-main { padding: 24px 20px 120px; display: flex; flex-direction: column; gap: 32px; }
+    .settings-hero {
+      position: relative; display: flex; align-items: center; gap: 24px; overflow: hidden;
+      border-radius: 24px; padding: 24px; background: #fff;
+    }
+    .settings-hero__glow {
+      position: absolute; left: 0; top: 0; width: 100%; height: 148px; opacity: 0.5; pointer-events: none;
+      background: linear-gradient(135deg, rgb(142 72 100 / 10%) 0%, rgb(247 161 192 / 20%) 100%);
+    }
+    .settings-hero__avatar { position: relative; z-index: 1; width: 80px; height: 80px; flex-shrink: 0; border-radius: 9999px; background: #efeded; }
+    .settings-hero__body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .settings-hero__name { color: #1b1c1c; font-size: 20px; line-height: 1.4; font-weight: 700; font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif; }
+    .settings-hero__desc-wrap { padding-bottom: 8px; }
+    .settings-hero__desc { color: #524347; font-size: 14px; line-height: 1.4285714; font-family: Inter, sans-serif; }
+    .settings-hero__button { align-self: flex-start; padding: 8px 16px; border-radius: 9999px; background: #8e4864; display: flex; align-items: center; justify-content: center; }
+    .settings-hero__button-text { color: #fff; font-size: 14px; line-height: 1.4285714; font-weight: 500; }
+    .settings-section { display: flex; flex-direction: column; gap: 16px; }
+    .settings-section__title-wrap { padding: 0 8px; }
+    .settings-section__title { color: #8e4864; font-size: 18px; line-height: 1.5555556; font-weight: 500; }
+    .settings-group { overflow: hidden; border-radius: 24px; background: #f5f3f3; }
+    .settings-group--notify { padding: 16px; display: flex; flex-direction: column; gap: 24px; }
+    .settings-row { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
+    .settings-row--divider { border-bottom: 1px solid #fbf9f9; }
+    .settings-row__left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .settings-row__icon { flex-shrink: 0; background-repeat: no-repeat; background-position: center; background-size: contain; }
+    .settings-row__icon--person { width: 16px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23006a68' d='M8 8a3 3 0 100-6 3 3 0 000 6zm-5.33 8c.11-3.33 2.44-6 5.33-6s5.22 2.67 5.33 6H2.67z'/%3E%3C/svg%3E"); }
+    .settings-row__icon--lock { width: 16px; height: 21px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 21'%3E%3Cpath fill='%23006a68' d='M13 9V6a5 5 0 00-10 0v3H2v12h12V9h-1zm-2 0H5V6a3 3 0 016 0v3z'/%3E%3C/svg%3E"); }
+    .settings-row__icon--pay { width: 20px; height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath fill='%23006a68' d='M2 2h16v12H2V2zm2 2v2h12V4H4zm10 6H6v2h8v-2z'/%3E%3C/svg%3E"); }
+    .settings-row__icon--cache { width: 16px; height: 18px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 18'%3E%3Cpath fill='%23006a68' d='M6 0h4v2H6V0zm-4 4h12v2H2V4zm2 4h8l-1 8H5L4 8zm2.5 2l.5 4h1l.5-4h-2z'/%3E%3C/svg%3E"); }
+    .settings-row__icon--about { width: 20px; height: 20px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23006a68' stroke-width='1.5'/%3E%3Cpath fill='%23006a68' d='M9 6h2v2H9V6zm0 3.5h2v4.5H9V9.5z'/%3E%3C/svg%3E"); }
+    .settings-row__icon--logout { width: 18px; height: 18px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23ba1a1a' d='M4 16h6v-2H4V4h6V2H4a2 2 0 00-2 2v10a2 2 0 002 2zm10.59-6l-4-4L9 7.59 12.41 11 9 14.41 10.59 16l6-6-6-6z'/%3E%3C/svg%3E"); }
+    .settings-row__label { color: #1b1c1c; font-size: 16px; line-height: 1.5; font-weight: 500; }
+    .settings-row__label--danger { color: #ba1a1a; }
+    .settings-row__value { color: #524347; font-size: 14px; line-height: 1.4285714; font-family: Inter, sans-serif; }
+    .settings-row__chevron { width: 7.4px; height: 12px; flex-shrink: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 12'%3E%3Cpath fill='%23847377' d='M1.5 0L0 1.4L4.6 6L0 10.6L1.5 12L7.4 6z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: contain; }
+    .notify-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .notify-row__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .notify-row__title { color: #1b1c1c; font-size: 16px; line-height: 1.5; font-weight: 500; }
+    .notify-row__desc { color: #524347; font-size: 12px; line-height: 1.3333333; font-weight: 500; }
+    .notify-switch { position: relative; width: 44px; height: 24px; border-radius: 9999px; background: #e4e2e2; flex-shrink: 0; }
+    .notify-switch--active { background: #8e4864; }
+    .notify-switch__thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 9999px; background: #fff; border: 1px solid #d1d5db; }
+    .notify-switch--active .notify-switch__thumb { left: 22px; border-color: #fff; }
+    .settings-footer { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 32px 0 16px; }
+    .settings-footer__version, .settings-footer__copy { color: #524347; font-size: 12px; line-height: 1.3333333; font-family: Inter, sans-serif; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="settings-main">
+    <div class="settings-hero">
+      <div class="settings-hero__glow"></div>
+      <div class="settings-hero__avatar"></div>
+      <div class="settings-hero__body">
+        <div class="settings-hero__name">Emily Chen</div>
+        <div class="settings-hero__desc-wrap"><div class="settings-hero__desc">Premium Member</div></div>
+        <div class="settings-hero__button"><span class="settings-hero__button-text">编辑个人资料</span></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section__title-wrap"><div class="settings-section__title">账号管理</div></div>
+      <div class="settings-group">
+        <div class="settings-row settings-row--divider"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--person"></div><span class="settings-row__label">个人信息</span></div><div class="settings-row__chevron"></div></div>
+        <div class="settings-row settings-row--divider"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--lock"></div><span class="settings-row__label">密码与安全</span></div><div class="settings-row__chevron"></div></div>
+        <div class="settings-row"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--pay"></div><span class="settings-row__label">订阅与支付</span></div><div class="settings-row__chevron"></div></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section__title-wrap"><div class="settings-section__title">通知设置</div></div>
+      <div class="settings-group settings-group--notify">
+        <div class="notify-row"><div class="notify-row__body"><div class="notify-row__title">护肤提醒</div><div class="notify-row__desc">每日早晚护肤步骤定时提醒</div></div><div class="notify-switch notify-switch--active"><div class="notify-switch__thumb"></div></div></div>
+        <div class="notify-row"><div class="notify-row__body"><div class="notify-row__title">皮肤分析报告</div><div class="notify-row__desc">每周AI皮肤状态变化推送</div></div><div class="notify-switch notify-switch--active"><div class="notify-switch__thumb"></div></div></div>
+        <div class="notify-row"><div class="notify-row__body"><div class="notify-row__title">系统通知</div><div class="notify-row__desc">应用更新与重要公告</div></div><div class="notify-switch"><div class="notify-switch__thumb"></div></div></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section__title-wrap"><div class="settings-section__title">通用</div></div>
+      <div class="settings-group">
+        <div class="settings-row settings-row--divider"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--cache"></div><span class="settings-row__label">清除缓存</span></div><span class="settings-row__value">124 MB</span></div>
+        <div class="settings-row settings-row--divider"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--about"></div><span class="settings-row__label">关于我们</span></div><div class="settings-row__chevron"></div></div>
+        <div class="settings-row"><div class="settings-row__left"><div class="settings-row__icon settings-row__icon--logout"></div><span class="settings-row__label settings-row__label--danger">退出登录</span></div></div>
+      </div>
+    </div>
+    <div class="settings-footer"><div class="settings-footer__version">知不Ai护肤 v2.4.1</div><div class="settings-footer__copy">© 2023 Clinical Glow. All rights reserved.</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=390, initial-scale=1" />
+  <title>FE-NIGHT-12 camera-capture capture (390)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 390px;
+      background: linear-gradient(180deg, #fff 0%, #fbf9f9 100%);
+      font-family: 'PingFang SC', 'WenQuanYi Zen Hei', sans-serif;
+    }
+    .cc-main { padding: 24px 20px 32px; }
+    .cc-header { max-width: 350px; margin: 0 auto; padding-bottom: 32px; display: flex; flex-direction: column; gap: 6.875px; }
+    .cc-title { color: #8e4864; font-size: 30px; line-height: 1.2; font-weight: 500; letter-spacing: -0.75px; }
+    .cc-sub { color: #524347; font-size: 14px; line-height: 1.625; font-weight: 500; white-space: pre-line; }
+    .cc-search-wrap { max-width: 350px; margin: 0 auto; padding-bottom: 32px; }
+    .cc-search {
+      position: relative; min-height: 56px; border-radius: 9999px; background: #f5f3f3;
+      box-shadow: 0 2px 8.75px rgb(27 28 28 / 2%); padding: 18px 56px 16px 48px;
+    }
+    .cc-search-icon {
+      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      width: 18px; height: 18px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='7.5' cy='7.5' r='5' fill='none' stroke='%23d6c1c6' stroke-width='1.8'/%3E%3Cpath stroke='%23d6c1c6' stroke-width='1.8' stroke-linecap='round' d='M11 11l4.5 4.5'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .cc-search-ph { color: #d6c1c6; font-size: 16px; line-height: 1.5; font-weight: 500; padding-bottom: 2px; }
+    .cc-search-btn {
+      position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 9999px; background: #8e4864;
+      box-shadow: 0 1px 1.75px rgb(0 0 0 / 5%); display: flex; align-items: center; justify-content: center;
+    }
+    .cc-search-btn__glyph {
+      width: 12px; height: 12px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M3 2l5 4-5 4V2z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .cc-scanner {
+      position: relative; max-width: 350px; margin: 0 auto 32px; height: 466.66px; border-radius: 32px;
+      background: #e4e2e2; box-shadow: 0 8px 28px rgb(142 72 100 / 5%); overflow: hidden;
+    }
+    .cc-cam {
+      position: absolute; inset: 0; opacity: 0.4;
+      background: linear-gradient(145deg, #c8bdbf 0%, #9a9092 100%);
+    }
+    .cc-viewport { position: relative; z-index: 1; width: 100%; height: 100%; }
+    .cc-frost {
+      position: absolute; left: 24px; top: 24px; right: 24px; bottom: 24px; border-radius: 24px;
+      border: 1px solid rgb(247 161 192 / 16%); background: rgb(251 249 249 / 1.2%);
+      backdrop-filter: blur(1.75px); overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      padding: 172.33px 0 140.33px 0;
+    }
+    .cc-corner { position: absolute; width: 40px; height: 40px; opacity: 0.8; pointer-events: none; }
+    .cc-corner--tl { top: 1px; left: 1px; border-left: 4px solid #8e4864; border-top: 4px solid #8e4864; border-top-left-radius: 24px; }
+    .cc-corner--tr { top: 1px; right: 1px; border-right: 4px solid #8e4864; border-top: 4px solid #8e4864; border-top-right-radius: 24px; }
+    .cc-corner--bl { bottom: 1px; left: 1px; border-left: 4px solid #8e4864; border-bottom: 4px solid #8e4864; border-bottom-left-radius: 24px; }
+    .cc-corner--br { bottom: 1px; right: 1px; border-right: 4px solid #8e4864; border-bottom: 4px solid #8e4864; border-bottom-right-radius: 24px; }
+    .cc-laser {
+      position: absolute; left: 1px; top: 209.33px; width: calc(100% - 2px); height: 2px; z-index: 1;
+      background: linear-gradient(90deg, rgb(142 72 100 / 0%) 0%, #8e4864 50%, rgb(142 72 100 / 0%) 100%);
+      box-shadow: 0 0 10.5px rgb(142 72 100 / 80%); pointer-events: none;
+    }
+    .cc-center { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; padding: 0 16px; gap: 12px; }
+    .cc-icon-wrap {
+      width: 64px; height: 64px; border-radius: 9999px; border: 1px solid #efeded; background: rgb(251 249 249 / 64%);
+      box-shadow: 0 1px 1.75px rgb(0 0 0 / 5%), 0 4px 2.625px rgb(0 0 0 / 7%);
+      backdrop-filter: blur(10.5px); display: flex; align-items: center; justify-content: center;
+    }
+    .cc-icon {
+      width: 25px; height: 27.5px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 28'%3E%3Cpath fill='%238e4864' d='M5 2h15v20H5V2zm2 2v16h11V4H7zm2 2h7v2H9V6zm0 4h7v2H9v-2zm0 4h4v2H9v-2z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .cc-center-text {
+      color: #8e4864; font-size: 18px; line-height: 1.5555556; font-weight: 500; letter-spacing: 0.45px; text-align: center;
+      text-shadow: 0 4px 4.375px rgb(0 0 0 / 7%), 0 2px 3.5px rgb(0 0 0 / 6%);
+    }
+    .cc-footer { max-width: 350px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .cc-trust {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 12px; padding: 16px; border-radius: 16px;
+      background: #f5f3f3; border: 1px solid rgb(228 226 226 / 25%);
+    }
+    .cc-trust-badge {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 9999px; background: #9aeeeb;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cc-trust-badge__glyph {
+      width: 12.83px; height: 12.25px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath fill='%23006a68' d='M6.5 1L2 3.5v3.5c0 2.8 2.8 5.1 4.5 5.8l4.5-5.8V3.5L6.5 1z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .cc-trust-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .cc-trust-title { color: #1b1c1c; font-size: 14px; line-height: 1.4285714; font-weight: 500; }
+    .cc-trust-desc { color: #524347; font-size: 12px; line-height: 1.625; font-weight: 500; white-space: pre-line; }
+    .cc-manual { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 8px; padding: 16px 0; }
+    .cc-manual__glyph {
+      width: 12px; height: 10.67px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%238e4864' d='M1 10l2-6h6l2 6H1zm2.5-7L4 1h4l.5 2h-5z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .cc-manual span { color: #8e4864; font-size: 14px; line-height: 1.4285714; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="cc-main">
+    <div class="cc-header">
+      <div class="cc-title">智能识屏录入</div>
+      <div class="cc-sub">对准产品包装或成分表，AI 助手将自动为您建立专业的
+临床级护肤档案。</div>
+    </div>
+    <div class="cc-search-wrap">
+      <div class="cc-search">
+        <div class="cc-search-icon"></div>
+        <div class="cc-search-ph">搜索品牌、单品或核心成分...</div>
+        <div class="cc-search-btn"><div class="cc-search-btn__glyph"></div></div>
+      </div>
+    </div>
+    <div class="cc-scanner">
+      <div class="cc-cam"></div>
+      <div class="cc-viewport">
+        <div class="cc-frost">
+          <div class="cc-corner cc-corner--tl"></div>
+          <div class="cc-corner cc-corner--tr"></div>
+          <div class="cc-corner cc-corner--bl"></div>
+          <div class="cc-corner cc-corner--br"></div>
+          <div class="cc-laser"></div>
+          <div class="cc-center">
+            <div class="cc-icon-wrap"><div class="cc-icon"></div></div>
+            <div class="cc-center-text">将瓶身或成分表置于框内</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cc-footer">
+      <div class="cc-trust">
+        <div class="cc-trust-badge"><div class="cc-trust-badge__glyph"></div></div>
+        <div class="cc-trust-body">
+          <div class="cc-trust-title">精准院线级解析</div>
+          <div class="cc-trust-desc">已接入全球 50,000+ 院线与专柜品牌数据库，确保
+成分比对的绝对严谨性。</div>
+        </div>
+      </div>
+      <div class="cc-manual">
+        <div class="cc-manual__glyph"></div>
+        <span>找不到产品？尝试手动添加</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

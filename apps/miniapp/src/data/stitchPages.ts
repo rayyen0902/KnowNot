@@ -17,7 +17,7 @@ export const stitchPages = [
   {
     title: '拍照引导',
     path: '/pages/photo-guide/index',
-    subtitle: '引导用户采集素颜照片'
+    subtitle: '首页聊天区上传/拍照入口的落地引导，再进入采集页'
   },
   {
     title: '添加护肤档案',
@@ -27,7 +27,7 @@ export const stitchPages = [
   {
     title: '护肤报告',
     path: '/pages/report/index',
-    subtitle: '展示 AI 护肤分析结果'
+    subtitle: '肤质评估、护理建议与推荐'
   },
   {
     title: '商品详情',

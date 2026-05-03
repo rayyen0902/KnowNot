@@ -1,4 +1,7 @@
+@use '../../styles/from-pencil-390' as *;
+
 .home-page {
+  position: relative;
   min-height: 100vh;
   background: #fbf9f9;
   color: #1b1c1c;
@@ -6,9 +9,18 @@
   flex-direction: column;
 }
 
+.home-page--pencil {
+  background: linear-gradient(180deg, #ffffff 0%, #fbf9f9 42%, #fbf9f9 100%);
+}
+
 .home-main {
   flex: 1;
   padding: 0 16px 300px;
+}
+
+.home-main--pencil {
+  box-sizing: border-box;
+  padding: fp(12) fp(12) fp(220);
 }
 
 .home-layout {
@@ -242,110 +254,251 @@
   padding-top: 2px;
 }
 
-.chat-input {
+/* 底部 Dock：`pencil-首页.pen` N02xNb + Eqmbw */
+.home-dock {
   position: fixed;
-  left: 20px;
-  right: 20px;
-  bottom: 55px;
-  height: 95px;
-  background: #efeded;
-  border-radius: 45px;
-  box-shadow: 0 10px 28px rgba(27, 28, 28, 0.14);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: fp(12);
+  padding: fp(16) fp(16) fp(16);
+  padding-bottom: calc(#{fp(16)} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{fp(16)} + env(safe-area-inset-bottom));
+  background: rgba(251, 249, 249, 0.95);
+  border-top: 1px solid rgba(214, 193, 198, 0.1);
+  box-sizing: border-box;
+}
+
+.chat-input--pencil {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  min-height: fp(56);
+  background: #f5f3f3;
+  border-radius: 9999px;
+  border: 1px solid rgba(214, 193, 198, 0.1);
+  box-shadow: none;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 16px;
-  z-index: 50;
+  gap: fp(12);
+  padding: fp(8) fp(12);
+  box-sizing: border-box;
 }
 
-.chat-input__camera {
-  width: 24px;
-  height: 18px;
-  border: 2px solid #006a68;
-  border-radius: 4px;
-  position: relative;
+.chat-input__icon-btn {
+  width: fp(40);
+  height: fp(40);
   flex-shrink: 0;
-  transform: scale(1.6);
-  transform-origin: left center;
-  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.chat-input__camera::before {
+.chat-input__cam-wire {
+  width: fp(22);
+  height: fp(16);
+  border: #{fp(2)} solid #006a68;
+  border-radius: fp(4);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.chat-input__cam-wire::before {
   content: '';
   position: absolute;
-  width: 6px;
-  height: 4px;
-  top: -5px;
-  left: 4px;
-  border: 2px solid #006a68;
+  width: fp(6);
+  height: fp(4);
+  top: fp(-5);
+  left: fp(3);
+  border: #{fp(2)} solid #006a68;
   border-bottom: none;
-  border-radius: 2px 2px 0 0;
+  border-radius: fp(2) fp(2) 0 0;
 }
 
-.chat-input__camera::after {
+.chat-input__cam-wire::after {
   content: '';
   position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 2px solid #006a68;
+  width: fp(7);
+  height: fp(7);
+  border: #{fp(2)} solid #006a68;
   border-radius: 9999px;
-  top: 3px;
-  left: 6px;
+  top: fp(3);
+  left: fp(5);
 }
 
-.chat-input__mic {
-  width: 20px;
-  height: 24px;
-  position: relative;
-  flex-shrink: 0;
-  transform: scale(1.3);
-  transform-origin: left center;
-  margin-left: 40px;
-}
-
-.chat-input__mic-head {
-  width: 10px;
-  height: 14px;
-  border: 2px solid #006a68;
+.chat-input__mic-wire {
+  width: fp(10);
+  height: fp(14);
+  border: #{fp(2)} solid #006a68;
   border-radius: 9999px;
-  margin: 0 auto;
-}
-
-.chat-input__mic-stem {
-  width: 2px;
-  height: 7px;
-  background: #006a68;
-  margin: 1px auto 0;
   position: relative;
+  margin-bottom: fp(4);
 }
 
-.chat-input__mic-stem::before {
+.chat-input__mic-wire::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 2px;
+  width: fp(2);
+  height: fp(6);
   background: #006a68;
-  left: -4px;
-  top: 6px;
+  left: fp(4);
+  bottom: fp(-8);
+}
+
+.chat-input__mic-wire::before {
+  content: '';
+  position: absolute;
+  width: fp(10);
+  height: fp(2);
+  background: #006a68;
+  left: 0;
+  bottom: fp(-8);
 }
 
 .chat-input__field {
   flex: 1;
-  margin-left: 20px;
-  font-size: 34px;
-  color: #1b1c1c;
+  min-width: 0;
+  margin-left: 0;
+  font-size: fp(14);
+  font-weight: 500;
+  color: #524347;
+  height: fp(40);
+  line-height: fp(40);
 }
 
-.chat-input__plus {
-  min-width: 116px;
-  height: 68px;
-  padding: 0 24px;
+.chat-input__ph {
+  color: rgba(82, 67, 71, 0.5);
+  font-size: fp(14);
+  font-weight: 500;
+}
+
+.chat-input__send {
+  width: fp(40);
+  height: fp(40);
   border-radius: 9999px;
   background: #8e4864;
-  color: #fff;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+}
+
+.chat-input__send-glyph {
+  color: #fff;
+  font-size: fp(16);
   line-height: 1;
+  transform: translateX(#{fp(1)}) rotate(-45deg);
+}
+
+/* 主内容区：轻量商品卡 lxtkg / gT2mt */
+.pencil-feed {
+  display: flex;
+  flex-direction: column;
+  gap: fp(16);
+  padding-top: fp(8);
+}
+
+.pencil-feed__section {
+  display: flex;
+  flex-direction: column;
+  gap: fp(16);
+}
+
+.pencil-product__title {
+  display: block;
+  font-size: fp(14);
+  line-height: 1.45;
+  color: #524347;
+  font-weight: 500;
+}
+
+.pencil-product__shell {
+  background: #e4e2e2;
+  border-radius: fp(2) fp(16) fp(16) fp(16);
+  padding: fp(12);
+  box-sizing: border-box;
+}
+
+.pencil-product__card {
+  background: #fbf9f9;
+  border: 1px solid rgba(214, 193, 198, 0.3);
+  border-radius: fp(8);
+  padding: fp(12);
+  box-sizing: border-box;
+}
+
+.pencil-product__row {
+  display: flex;
+  flex-direction: row;
+  gap: fp(16);
+  align-items: flex-start;
+}
+
+.pencil-product__thumb {
+  width: fp(64);
+  height: fp(64);
+  flex-shrink: 0;
+  border-radius: fp(8);
+  background: #e9e8e8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pencil-product__thumb-line {
+  font-size: fp(9);
+  font-weight: 700;
+  color: #524347;
+  line-height: 1.1;
+}
+
+.pencil-product__meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: fp(6);
+}
+
+.pencil-product__tag {
+  align-self: flex-start;
+  background: #ffd9e4;
+  border-radius: fp(4);
+  padding: fp(2) fp(8);
+}
+
+.pencil-product__tag-text {
+  font-size: fp(10);
+  line-height: 1.3;
+  color: #3b0420;
+  font-weight: 600;
+}
+
+.pencil-product__name {
+  font-size: fp(14);
+  line-height: 1.35;
+  font-weight: 600;
+  color: #1b1c1c;
+}
+
+.pencil-product__desc {
+  font-size: fp(12);
+  line-height: 1.4;
+  color: #524347;
+}
+
+.pencil-feed__notice {
+  display: block;
+  text-align: center;
+  font-size: fp(12);
+  font-style: italic;
+  color: #d967b9;
+  line-height: 1.5;
+  padding: fp(4) fp(8) 0;
 }

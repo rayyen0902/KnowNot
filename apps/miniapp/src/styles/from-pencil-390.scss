@@ -1,0 +1,4 @@
+// Pencil 390 画布标注 → rpx（750rpx = 视口宽，含 iPhone 375 逻辑像素屏）
+@function fp($x) {
+  @return round($x * 750 / 390) * 1rpx;
+}

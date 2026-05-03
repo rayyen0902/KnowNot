@@ -1,56 +1,371 @@
+$design-width: 390;
+
+@function d($px) {
+  @return calc(750rpx * #{$px} / #{$design-width});
+}
+
+/* Pencil: G9wV9H「扫码/搜索录入 - 优化版」；取景 Y0rV9H / oJEdU */
+
 .camera-capture-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff 0%, #fbf9f9 100%);
+  box-sizing: border-box;
+}
+
+.camera-capture-page__main {
+  padding: d(24) d(20) d(32) d(20);
+  padding-bottom: calc(#{d(32)} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{d(32)} + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
-  height: 100vh;
   box-sizing: border-box;
-  background: #000;
+}
+
+.camera-capture-page__header {
+  width: 100%;
+  max-width: d(350);
+  margin: 0 auto;
+  padding-bottom: d(32);
+  display: flex;
+  flex-direction: column;
+  gap: d(6.875);
+}
+
+.camera-capture-page__title {
+  color: #8e4864;
+  font-size: d(30);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: d(-0.75);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.camera-capture-page__subtitle {
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.625;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.camera-capture-page__search-wrap {
+  width: 100%;
+  max-width: d(350);
+  margin: 0 auto;
+  padding-bottom: d(32);
+}
+
+.camera-capture-page__search {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 9999px;
+  background: #f5f3f3;
+  box-shadow: 0 d(2) d(8.75) rgb(27 28 28 / 2%);
+  min-height: d(56);
+  padding: d(18) d(56) d(16) d(48);
+  box-sizing: border-box;
+}
+
+.camera-capture-page__search-icon {
+  position: absolute;
+  left: d(16);
+  top: 50%;
+  transform: translateY(-50%);
+  width: d(18);
+  height: d(18);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Ccircle cx='7.5' cy='7.5' r='5' fill='none' stroke='%23d6c1c6' stroke-width='1.8'/%3E%3Cpath stroke='%23d6c1c6' stroke-width='1.8' stroke-linecap='round' d='M11 11l4.5 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.camera-capture-page__search-field {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: d(2);
+}
+
+.camera-capture-page__search-placeholder {
+  color: #d6c1c6;
+  font-size: d(16);
+  line-height: 1.5;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.camera-capture-page__search-btn {
+  position: absolute;
+  right: d(8);
+  top: 50%;
+  transform: translateY(-50%);
+  width: d(40);
+  height: d(40);
+  border-radius: 9999px;
+  background: #8e4864;
+  box-shadow: 0 d(1) d(1.75) rgb(0 0 0 / 5%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-capture-page__search-btn-icon {
+  width: d(12);
+  height: d(12);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M3 2l5 4-5 4V2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.camera-capture-page__scanner {
+  position: relative;
+  width: 100%;
+  max-width: d(350);
+  margin: 0 auto d(32);
+  height: d(466.66);
+  border-radius: d(32);
+  background: #e4e2e2;
+  box-shadow: 0 d(8) d(28) rgb(142 72 100 / 5%);
+  overflow: hidden;
+}
+
+.camera-capture-page__scanner--busy .camera-capture-page__tap-catcher {
+  pointer-events: none;
 }
 
 .camera-capture-page__camera {
-  flex: 1;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-height: 0;
+  height: 100%;
+  opacity: 0.4;
+  z-index: 0;
 }
 
-.camera-capture-page__hint {
-  flex-shrink: 0;
-  padding: 12px 20px 8px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.65);
-  text-align: center;
+.camera-capture-page__viewport {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.camera-capture-page__toolbar {
-  flex-shrink: 0;
+.camera-capture-page__frost {
+  position: absolute;
+  left: d(24);
+  top: d(24);
+  right: d(24);
+  bottom: d(24);
+  border-radius: d(24);
+  border: d(1) solid rgb(247 161 192 / 16%);
+  background: rgb(251 249 249 / 1.2%);
+  backdrop-filter: blur(d(1.75));
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 28px 36px;
-  padding-bottom: calc(36px + env(safe-area-inset-bottom));
-}
-
-.camera-capture-page__btn {
-  min-width: 72px;
-  padding: 10px 16px;
-  font-size: 15px;
-  color: #fff;
-  text-align: center;
-}
-
-.camera-capture-page__btn--ghost {
-  opacity: 0.85;
-}
-
-.camera-capture-page__shutter {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.9);
-  background: #fff;
+  justify-content: flex-start;
+  padding: d(172.33) 0 d(140.33) 0;
   box-sizing: border-box;
 }
 
-.camera-capture-page__shutter--disabled {
-  opacity: 0.45;
+.camera-capture-page__corner {
+  position: absolute;
+  width: d(40);
+  height: d(40);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.camera-capture-page__corner--tl {
+  top: d(1);
+  left: d(1);
+  border-left: d(4) solid #8e4864;
+  border-top: d(4) solid #8e4864;
+  border-top-left-radius: d(24);
+}
+
+.camera-capture-page__corner--tr {
+  top: d(1);
+  right: d(1);
+  left: auto;
+  border-right: d(4) solid #8e4864;
+  border-top: d(4) solid #8e4864;
+  border-top-right-radius: d(24);
+}
+
+.camera-capture-page__corner--bl {
+  bottom: d(1);
+  left: d(1);
+  right: auto;
+  border-left: d(4) solid #8e4864;
+  border-bottom: d(4) solid #8e4864;
+  border-bottom-left-radius: d(24);
+}
+
+.camera-capture-page__corner--br {
+  bottom: d(1);
+  right: d(1);
+  left: auto;
+  border-right: d(4) solid #8e4864;
+  border-bottom: d(4) solid #8e4864;
+  border-bottom-right-radius: d(24);
+}
+
+.camera-capture-page__laser {
+  position: absolute;
+  left: d(1);
+  top: d(209.33);
+  width: calc(100% - #{d(2)});
+  height: d(2);
+  background: linear-gradient(90deg, rgb(142 72 100 / 0%) 0%, #8e4864 50%, rgb(142 72 100 / 0%) 100%);
+  box-shadow: 0 0 d(10.5) rgb(142 72 100 / 80%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.camera-capture-page__center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 d(16);
+  gap: d(12);
+  pointer-events: none;
+}
+
+.camera-capture-page__center-icon-wrap {
+  width: d(64);
+  height: d(64);
+  border-radius: 9999px;
+  border: d(1) solid #efeded;
+  background: rgb(251 249 249 / 64%);
+  box-shadow:
+    0 d(1) d(1.75) rgb(0 0 0 / 5%),
+    0 d(4) d(2.625) rgb(0 0 0 / 7%);
+  backdrop-filter: blur(d(10.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-capture-page__center-icon {
+  width: d(25);
+  height: d(27.5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 28'%3E%3Cpath fill='%238e4864' d='M5 2h15v20H5V2zm2 2v16h11V4H7zm2 2h7v2H9V6zm0 4h7v2H9v-2zm0 4h4v2H9v-2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.camera-capture-page__center-text {
+  color: #8e4864;
+  font-size: d(18);
+  line-height: 1.5555556;
+  font-weight: 500;
+  letter-spacing: d(0.45);
+  text-align: center;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  text-shadow:
+    0 d(4) d(4.375) rgb(0 0 0 / 7%),
+    0 d(2) d(3.5) rgb(0 0 0 / 6%);
+}
+
+.camera-capture-page__tap-catcher {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: transparent;
+}
+
+.camera-capture-page__footer {
+  width: 100%;
+  max-width: d(350);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: d(20);
+}
+
+.camera-capture-page__trust {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: d(12);
+  padding: d(16);
+  border-radius: d(16);
+  background: #f5f3f3;
+  border: d(1) solid rgb(228 226 226 / 25%);
+}
+
+.camera-capture-page__trust-badge {
+  flex-shrink: 0;
+  width: d(32);
+  height: d(32);
+  border-radius: 9999px;
+  background: #9aeeeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-capture-page__trust-badge-icon {
+  width: d(12.833333015441895);
+  height: d(12.25);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath fill='%23006a68' d='M6.5 1L2 3.5v3.5c0 2.8 2.8 5.1 4.5 5.8l4.5-5.8V3.5L6.5 1z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.camera-capture-page__trust-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: d(2);
+}
+
+.camera-capture-page__trust-title {
+  color: #1b1c1c;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.camera-capture-page__trust-desc {
+  color: #524347;
+  font-size: d(12);
+  line-height: 1.625;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.camera-capture-page__manual {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: d(8);
+  padding: d(16) 0;
+}
+
+.camera-capture-page__manual-icon {
+  width: d(12);
+  height: d(10.67);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 11'%3E%3Cpath fill='%238e4864' d='M1 10l2-6h6l2 6H1zm2.5-7L4 1h4l.5 2h-5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.camera-capture-page__manual-text {
+  color: #8e4864;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
 }

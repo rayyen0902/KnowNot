@@ -3,6 +3,10 @@ import path from 'path';
 export default {
   projectName: 'zhibu-ai-skincare-miniapp',
   date: '2026-04-25',
+  /**
+   * 750：与 `d()/fp()` 中「round(px×750÷390)rpx」一致（390 为 Pencil 画布宽）。
+   * 若改为 375，postcss 会把普通 `px` 放大一倍，需全站迁移或改用 `Px`/纯 rpx。
+   */
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,

@@ -1,173 +1,45 @@
-import { useState } from 'react';
-import Taro from '@tarojs/taro';
-import { View } from '@tarojs/components';
-import {
-  AllergyCard,
-  AssistantBubble,
-  ChoiceCard,
-  ProductRecommendCard,
-  StatusNoticeCard,
-  UploadPhotoCard,
-  UserBubble
-} from '@/features/home/components';
+import { Text, View } from '@tarojs/components';
 import { goTo } from '@/utils/router';
 import { homeSchema } from './homeSchema';
 
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'assistant';
-  text: string;
-}
+/** 首页主内容：对齐 `pencil-首页.pen`「Main Content Area」轻量商品卡 + 系统通知行 */
+export default function HomeFlow() {
+  const product = homeSchema.find((b) => b.type === 'product_card');
+  if (!product || product.type !== 'product_card') {
+    return <View className='pencil-feed' />;
+  }
 
-type HomeFlowProps = {
-  liveMessages?: ChatMessage[];
-  onSubmitReport?: (payload: HomeFormState) => void | Promise<void>;
-};
-
-export type HomeFormState = {
-  skinType: string;
-  washTime: string;
-  makeupHabit: string;
-  routineSteps: string[];
-  allergyInput: string;
-  allergyPreset: string[];
-};
-
-export default function HomeFlow({ liveMessages = [], onSubmitReport }: HomeFlowProps) {
-  const [form, setForm] = useState<HomeFormState>({
-    skinType: 'combination',
-    washTime: 'morning_night',
-    makeupHabit: 'light',
-    routineSteps: ['cleanser', 'toner'],
-    allergyInput: '',
-    allergyPreset: ['none']
-  });
-
-  const setChoiceValue = (stateKey: 'skinType' | 'washTime' | 'makeupHabit', value: string) => {
-    setForm((prev) => ({ ...prev, [stateKey]: value }));
-  };
-
-  const setRoutineSteps = (value: string[]) => {
-    setForm((prev) => ({ ...prev, routineSteps: value }));
-  };
-
-  const toggleAllergyPreset = (value: string) => {
-    setForm((prev) => {
-      const exists = prev.allergyPreset.includes(value);
-      return {
-        ...prev,
-        allergyPreset: exists ? prev.allergyPreset.filter((item) => item !== value) : [...prev.allergyPreset, value]
-      };
-    });
-  };
-
-  const submitAllergy = () => {
-    Taro.showToast({
-      title: '过敏信息已保存',
-      icon: 'none'
-    });
-  };
+  const lines = (product.imageText ?? 'PRODUCT').split('\n');
 
   return (
-    <View className='home-layout'>
-      {homeSchema.map((block) => {
-        if (block.type === 'assistant_bubble') {
-          return (
-            <AssistantBubble key={block.id} text={block.text} layout={block.layout} className={block.className} />
-          );
-        }
+    <View className='pencil-feed'>
+      <View className='pencil-feed__section'>
+        <Text className='pencil-product__title'>{product.title}</Text>
+        <View className='pencil-product__shell' onClick={() => goTo('/pages/product-detail/index?product_id=0')}>
+          <View className='pencil-product__card'>
+            <View className='pencil-product__row'>
+              <View className='pencil-product__thumb'>
+                {lines.map((line, i) => (
+                  <Text key={`${i}-${line}`} className='pencil-product__thumb-line'>
+                    {line}
+                  </Text>
+                ))}
+              </View>
+              <View className='pencil-product__meta'>
+                {product.tag ? (
+                  <View className='pencil-product__tag'>
+                    <Text className='pencil-product__tag-text'>{product.tag}</Text>
+                  </View>
+                ) : null}
+                <Text className='pencil-product__name'>{product.name}</Text>
+                {product.desc ? <Text className='pencil-product__desc'>{product.desc}</Text> : null}
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
 
-        if (block.type === 'user_bubble') {
-          return <UserBubble key={block.id} text={block.text} layout={block.layout} className={block.className} />;
-        }
-
-        if (block.type === 'choice_card') {
-          const currentValue = form[block.stateKey];
-          return (
-            <ChoiceCard
-              key={block.id}
-              title={block.title}
-              hint={block.hint}
-              multiple={block.multiple}
-              layout={block.layout}
-              options={block.options}
-              value={currentValue}
-              onChange={(nextValue) => {
-                if (block.stateKey === 'routineSteps') {
-                  setRoutineSteps(Array.isArray(nextValue) ? nextValue : [nextValue]);
-                  return;
-                }
-
-                if (Array.isArray(nextValue)) return;
-                setChoiceValue(block.stateKey, nextValue);
-              }}
-              confirmText={block.confirmText}
-              onConfirm={block.action === 'toReport' ? () => onSubmitReport?.(form) : undefined}
-            />
-          );
-        }
-
-        if (block.type === 'allergy_card') {
-          return (
-            <AllergyCard
-              key={block.id}
-              title={block.title}
-              layout={block.layout}
-              presetOptions={block.presetOptions}
-              selectedValues={form[block.selectedStateKey]}
-              onPresetToggle={toggleAllergyPreset}
-              inputValue={form[block.stateKey]}
-              onInputChange={(value) => setForm((prev) => ({ ...prev, allergyInput: value }))}
-              onSubmit={submitAllergy}
-              submitText={block.submitText}
-              placeholder={block.placeholder}
-            />
-          );
-        }
-
-        if (block.type === 'upload_card') {
-          return (
-            <UploadPhotoCard
-              key={block.id}
-              title={block.title}
-              layout={block.layout}
-              buttonText={block.buttonText}
-              tips={block.tips}
-              onUploadClick={() => {
-                void Taro.navigateTo({ url: '/pages/camera-capture/index' });
-              }}
-            />
-          );
-        }
-
-        if (block.type === 'product_card') {
-          return (
-            <ProductRecommendCard
-              key={block.id}
-              title={block.title}
-              layout={block.layout}
-              tag={block.tag}
-              name={block.name}
-              desc={block.desc}
-              imageText={block.imageText}
-              onClick={() => goTo('/pages/product-detail/index?product_id=0')}
-            />
-          );
-        }
-
-        return (
-          <StatusNoticeCard key={block.id} text={block.text} layout={block.layout} type={block.noticeType ?? 'info'} />
-        );
-      })}
-
-      {liveMessages.map((message) =>
-        message.role === 'user' ? (
-          <UserBubble key={message.id} text={message.text} layout='default' />
-        ) : (
-          <AssistantBubble key={message.id} text={message.text} layout='default' />
-        )
-      )}
-
+      <Text className='pencil-feed__notice'>已成功保存您的肌肤档案档案</Text>
       <View id='home-flow-bottom' />
     </View>
   );

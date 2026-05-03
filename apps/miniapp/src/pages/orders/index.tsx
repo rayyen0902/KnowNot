@@ -46,14 +46,16 @@ export default function OrdersPage() {
   return (
     <View className='orders-page'>
       <View className='orders-main'>
-        <View className='orders-filter-wrap'>
-          <View className='orders-filter'>
-            <View className='orders-filter__active' />
-            {tabs.map((tab, index) => (
-              <View className={`orders-filter__item ${index === 0 ? 'orders-filter__item--active' : ''}`} key={tab}>
-                {tab}
-              </View>
-            ))}
+        <View className='orders-functional'>
+          <View className='orders-filter-wrap'>
+            <View className='orders-filter'>
+              <View className='orders-filter__active' />
+              {tabs.map((tab, index) => (
+                <View className={`orders-filter__item ${index === 0 ? 'orders-filter__item--active' : ''}`} key={tab}>
+                  {tab}
+                </View>
+              ))}
+            </View>
           </View>
         </View>
 

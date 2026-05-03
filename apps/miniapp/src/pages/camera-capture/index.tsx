@@ -6,6 +6,12 @@ import './index.scss';
 
 const CAMERA_ID = 'skin-capture-camera';
 
+const HEADER_SUB =
+  '对准产品包装或成分表，AI 助手将自动为您建立专业的\n临床级护肤档案。';
+
+const TRUST_DESC =
+  '已接入全球 50,000+ 院线与专柜品牌数据库，确保\n成分比对的绝对严谨性。';
+
 /** 抖音 camera 若识别 `beauty` 则关闭美颜；未识别时由宿主默认（官方未在文档中保证）。 */
 type DouyinCameraProps = ComponentProps<typeof Camera> & { beauty?: number };
 const DouyinCamera = Camera as ComponentType<DouyinCameraProps>;
@@ -31,6 +37,9 @@ export default function CameraCapturePage() {
 
   const onCapture = useCallback(() => {
     if (!cameraReady || capturing || !ctxRef.current) {
+      if (!cameraReady) {
+        Taro.showToast({ title: '相机初始化中…', icon: 'none' });
+      }
       return;
     }
     setCapturing(true);
@@ -53,10 +62,6 @@ export default function CameraCapturePage() {
     });
   }, [cameraReady, capturing]);
 
-  const onCancel = () => {
-    void Taro.navigateBack();
-  };
-
   const onCameraError = () => {
     Taro.showToast({
       title: '无法使用相机，请检查权限',
@@ -64,30 +69,75 @@ export default function CameraCapturePage() {
     });
   };
 
+  const onManualHint = () => {
+    Taro.showToast({ title: '请从首页对话或搜索完成录入', icon: 'none' });
+  };
+
   return (
     <View className='camera-capture-page'>
-      <DouyinCamera
-        id={CAMERA_ID}
-        className='camera-capture-page__camera'
-        devicePosition='front'
-        resolution='high'
-        flash='off'
-        beauty={0}
-        onInitDone={onCameraInit}
-        onError={onCameraError}
-      />
-      <Text className='camera-capture-page__hint'>
-        已尝试关闭小程序侧美颜；若画面仍偏磨皮，请在抖音拍摄面板将美颜调至「无」。
-      </Text>
-      <View className='camera-capture-page__toolbar'>
-        <Text className='camera-capture-page__btn camera-capture-page__btn--ghost' onClick={onCancel}>
-          取消
-        </Text>
-        <View
-          className={`camera-capture-page__shutter${!cameraReady || capturing ? ' camera-capture-page__shutter--disabled' : ''}`}
-          onClick={onCapture}
-        />
-        <View className='camera-capture-page__btn' />
+      <View className='camera-capture-page__main'>
+        <View className='camera-capture-page__header'>
+          <Text className='camera-capture-page__title'>智能识屏录入</Text>
+          <Text className='camera-capture-page__subtitle'>{HEADER_SUB}</Text>
+        </View>
+
+        <View className='camera-capture-page__search-wrap'>
+          <View className='camera-capture-page__search'>
+            <View className='camera-capture-page__search-icon' />
+            <View className='camera-capture-page__search-field'>
+              <Text className='camera-capture-page__search-placeholder'>搜索品牌、单品或核心成分...</Text>
+            </View>
+            <View className='camera-capture-page__search-btn'>
+              <View className='camera-capture-page__search-btn-icon' />
+            </View>
+          </View>
+        </View>
+
+        <View className={`camera-capture-page__scanner${!cameraReady || capturing ? ' camera-capture-page__scanner--busy' : ''}`}>
+          <DouyinCamera
+            id={CAMERA_ID}
+            className='camera-capture-page__camera'
+            devicePosition='back'
+            resolution='high'
+            flash='off'
+            beauty={0}
+            onInitDone={onCameraInit}
+            onError={onCameraError}
+          />
+
+          <View className='camera-capture-page__viewport'>
+            <View className='camera-capture-page__frost'>
+              <View className='camera-capture-page__corner camera-capture-page__corner--tl' />
+              <View className='camera-capture-page__corner camera-capture-page__corner--tr' />
+              <View className='camera-capture-page__corner camera-capture-page__corner--bl' />
+              <View className='camera-capture-page__corner camera-capture-page__corner--br' />
+              <View className='camera-capture-page__laser' />
+              <View className='camera-capture-page__center'>
+                <View className='camera-capture-page__center-icon-wrap'>
+                  <View className='camera-capture-page__center-icon' />
+                </View>
+                <Text className='camera-capture-page__center-text'>将瓶身或成分表置于框内</Text>
+              </View>
+            </View>
+          </View>
+          <View className='camera-capture-page__tap-catcher' onClick={onCapture} />
+        </View>
+
+        <View className='camera-capture-page__footer'>
+          <View className='camera-capture-page__trust'>
+            <View className='camera-capture-page__trust-badge'>
+              <View className='camera-capture-page__trust-badge-icon' />
+            </View>
+            <View className='camera-capture-page__trust-body'>
+              <Text className='camera-capture-page__trust-title'>精准院线级解析</Text>
+              <Text className='camera-capture-page__trust-desc'>{TRUST_DESC}</Text>
+            </View>
+          </View>
+          <View className='camera-capture-page__manual' onClick={onManualHint}>
+            <View className='camera-capture-page__manual-icon' />
+            <Text className='camera-capture-page__manual-text'>找不到产品？尝试手动添加</Text>
+          </View>
+        </View>
       </View>
     </View>
   );

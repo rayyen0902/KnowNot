@@ -6,46 +6,64 @@ export default function OrderDetailPage() {
     <View className='order-detail-page'>
       <View className='order-detail-main'>
         <View className='status-card'>
-          <View className='status-card__orb' />
-          <View className='status-card__head'>
-            <View className='status-card__truck'>◍</View>
-            <View className='status-card__main'>
+          <View className='status-card__blur-orb' />
+          <View className='status-card__row'>
+            <View className='status-card__icon-wrap' />
+            <View className='status-card__text-wrap'>
               <Text className='status-card__title'>已发货，运输中</Text>
-              <Text className='status-card__desc'>最新：离开【上海中】，发往【苏州...</Text>
+              <Text className='status-card__desc'>最新：离开【上海市】，发往【苏州…</Text>
             </View>
           </View>
-          <View className='status-card__bottom'>
+          <View className='status-card__footer'>
             <Text className='status-card__eta'>预计 10月15日 送达</Text>
-            <Text className='status-card__action'>查看物流详情 ›</Text>
+            <View className='status-card__logistics-btn'>
+              <Text>查看物流详情</Text>
+              <Text className='status-card__logistics-arrow'>›</Text>
+            </View>
           </View>
         </View>
 
         <View className='address-card'>
-          <Text className='address-card__line1'>林清雅 138****5678</Text>
-          <Text className='address-card__line2'>江苏省 苏州市 工业园区 金鸡湖大道88号 诚品居所 12栋 804室</Text>
+          <View className='address-card__icon-col'>
+            <View className='address-card__icon' />
+          </View>
+          <View className='address-card__content'>
+            <View className='address-card__line1'>
+              <Text className='address-card__name'>林清雅</Text>
+              <Text className='address-card__mobile'>138****5678</Text>
+            </View>
+            <Text className='address-card__line2'>江苏省 苏州市 工业园区 金鸡湖大道88号 诚品居所 12栋 804室</Text>
+          </View>
         </View>
 
         <View className='product-card'>
-          <Text className='product-card__title'>知不官方旗舰店</Text>
-
-          <View className='product-item'>
-            <View className='product-item__img' />
-            <View className='product-item__main'>
-              <Text className='product-item__name'>知不AI特调-抗糖焕亮精华液 针对暗沉肌</Text>
-              <Text className='product-item__meta'>规格: 30ml 焕亮版</Text>
-              <Text className='product-item__price'>¥ 399.00</Text>
-            </View>
-            <Text className='product-item__count'>x 1</Text>
+          <View className='product-card__shop'>
+            <Text className='product-card__shop-icon'>◍</Text>
+            <Text className='product-card__shop-name'>知不官方旗舰店</Text>
           </View>
 
           <View className='product-item'>
             <View className='product-item__img' />
             <View className='product-item__main'>
-              <Text className='product-item__name'>知不AI修护-舒缓保湿面霜</Text>
-              <Text className='product-item__meta'>规格: 50g 基础修护</Text>
-              <Text className='product-item__price'>¥ 280.00</Text>
+              <Text className='product-item__name'>知不AI特调·抗糖焕亮精华液 针对暗沉肌</Text>
+              <Text className='product-item__meta'>规格: 30ml 焕亮版</Text>
+              <View className='product-item__price-row'>
+                <Text className='product-item__price'>¥ 399.00</Text>
+                <Text className='product-item__count'>x 1</Text>
+              </View>
             </View>
-            <Text className='product-item__count'>x 1</Text>
+          </View>
+
+          <View className='product-item product-item--border'>
+            <View className='product-item__img' />
+            <View className='product-item__main'>
+              <Text className='product-item__name'>知不AI修护·舒缓保湿面霜</Text>
+              <Text className='product-item__meta'>规格: 50g 基础修护</Text>
+              <View className='product-item__price-row'>
+                <Text className='product-item__price'>¥ 280.00</Text>
+                <Text className='product-item__count'>x 1</Text>
+              </View>
+            </View>
           </View>
 
           <View className='product-card__footer'>
@@ -55,28 +73,31 @@ export default function OrderDetailPage() {
 
         <View className='amount-card'>
           <View className='amount-row'>
-            <Text>商品总价</Text>
-            <Text>¥ 679.00</Text>
+            <Text className='amount-row__label'>商品总价</Text>
+            <Text className='amount-row__value'>¥ 679.00</Text>
           </View>
           <View className='amount-row'>
-            <Text>运费</Text>
-            <Text>¥ 0.00</Text>
+            <Text className='amount-row__label'>运费</Text>
+            <Text className='amount-row__value'>¥ 0.00</Text>
           </View>
           <View className='amount-row amount-row--discount'>
-            <Text>AI护肤专属优惠</Text>
-            <Text>- ¥ 50.00</Text>
+            <Text className='amount-row__label'>AI护肤专属优惠</Text>
+            <Text className='amount-row__value'>- ¥ 50.00</Text>
           </View>
           <View className='amount-row amount-row--pay'>
-            <Text>实付款</Text>
-            <Text>¥ 629.00</Text>
+            <Text className='amount-row__pay-label'>实付款</Text>
+            <Text className='amount-row__pay-value'>¥ 629.00</Text>
           </View>
         </View>
 
         <View className='info-card'>
-          <Text className='info-card__title'>| 订单信息</Text>
+          <Text className='info-card__title'>订单信息</Text>
           <View className='info-row'>
             <Text className='info-row__label'>订单编号</Text>
-            <Text className='info-row__value'>ZB2023101288934 复制</Text>
+            <View className='info-row__value-wrap'>
+              <Text className='info-row__value'>ZB2023101288934</Text>
+              <Text className='info-row__copy'>复制</Text>
+            </View>
           </View>
           <View className='info-row'>
             <Text className='info-row__label'>下单时间</Text>

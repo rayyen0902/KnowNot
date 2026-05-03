@@ -269,3 +269,22 @@
   background: #e4e2e2;
   color: #6f6368;
 }
+
+.profile-temp-tab-wrap {
+  padding-bottom: 20px;
+}
+
+.profile-temp-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background: #8e4864;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  padding: 10px 16px;
+  box-shadow: 0 4px 12px rgb(142 72 100 / 20%);
+}
+

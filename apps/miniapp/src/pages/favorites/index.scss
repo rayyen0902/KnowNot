@@ -1,34 +1,619 @@
-.favorite-card {
-  padding: 24px;
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 14px 32px rgba(142, 72, 100, 0.08);
+$design-width: 390;
+
+@function d($px) {
+  @return calc(750rpx * $px / $design-width);
 }
 
-.favorite-card__item {
+/* Pencil: PpiTQ「我的收藏 - 优化版」 */
+
+.favorites-page {
+  min-height: 100vh;
+  background: #fbf9f9;
+}
+
+.favorites-body {
+  padding-bottom: d(116);
+}
+
+.favorites-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-header {
+  padding: d(32) d(24) d(40) d(24);
+  display: flex;
+  flex-direction: column;
+  gap: d(12);
+}
+
+.favorites-header__title {
+  color: #8e4864;
+  font-size: d(40);
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: d(-1);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.favorites-header__sub {
+  color: #524347;
+  font-size: d(16);
+  line-height: 1.625;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.favorites-tabs-wrap {
+  padding: 0 d(24);
+}
+
+.favorites-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   width: 100%;
-  padding: 20px 0;
-  border-bottom: 1px solid #f1e7ea;
-  font-size: 24px;
-  text-align: left;
+  border-radius: 9999px;
+  padding: d(6);
+  background: rgb(239 237 237 / 36%);
+  border: d(1) solid rgb(214 193 198 / 1.2%);
+  box-shadow: 0 d(8) d(28) rgb(27 28 28 / 6%);
+  backdrop-filter: blur(d(35));
+}
+
+.favorites-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: d(8);
+  padding: d(10) d(24);
+  border-radius: 9999px;
+}
+
+.favorites-tab--active {
+  background: #8e4864;
+}
+
+.favorites-tab__text {
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  color: #524347;
+}
+
+.favorites-tab--active .favorites-tab__text {
+  color: #fff;
+}
+
+.favorites-tab__icon {
+  width: d(14.25);
+  height: d(15.375);
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.favorites-tab--active .favorites-tab__icon--doc {
+  width: d(13.5);
+  height: d(13.5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='%23ffffff' d='M3 1h8v12H3V1zm2 2v1h4V3H5zm0 3v5h4V6H5z'/%3E%3C/svg%3E");
+}
+
+.favorites-tab:not(.favorites-tab--active) .favorites-tab__icon--doc {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='%23524347' d='M3 1h8v12H3V1zm2 2v1h4V3H5zm0 3v5h4V6H5z'/%3E%3C/svg%3E");
+}
+
+.favorites-tab--active .favorites-tab__icon--bag {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23ffffff' d='M2 4h10v10H2V4zm2 2v6h6V6H4zM5 2h4v2H5V2z'/%3E%3C/svg%3E");
+}
+
+.favorites-tab:not(.favorites-tab--active) .favorites-tab__icon--bag {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 15'%3E%3Cpath fill='%23524347' d='M2 4h10v10H2V4zm2 2v6h6V6H4zM5 2h4v2H5V2z'/%3E%3C/svg%3E");
+}
+
+.favorites-bento {
+  margin-top: d(24);
+  padding: 0 d(24);
+  display: flex;
+  flex-direction: column;
+  gap: d(24);
+}
+
+.fav-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* NHFOu */
+.fav-card--hero {
+  border-radius: d(20);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 d(4) d(21) rgb(0 0 0 / 2%);
+}
+
+.fav-card--hero__media {
+  position: relative;
+  height: d(224);
+  background: #e9e8e8;
+}
+
+.fav-card--hero__media-bg {
+  position: absolute;
+  inset: 0;
+  background: #e9e8e8;
+}
+
+.fav-card--hero__media-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  background: linear-gradient(-45deg, rgb(142 72 100 / 80%) 0%, rgb(247 161 192 / 20%) 100%);
+}
+
+.fav-card--hero__body {
+  padding: d(24);
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-card--hero__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: d(16);
+}
+
+.fav-card--hero__pill {
+  display: flex;
+  align-items: center;
+  gap: d(4);
+  padding: d(4) d(12);
+  border-radius: 9999px;
+  background: #9aeeeb;
+}
+
+.fav-card--hero__pill-icon {
+  width: d(16);
+  height: d(16);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23006e6c' d='M8 1l2 4 4 .5-3 3 1 4.5L8 11l-4 2 1-4.5-3-3L6 5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fav-card--hero__pill-text {
+  color: #006e6c;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--hero__time {
+  color: #847377;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--hero__title {
   color: #1b1c1c;
+  font-size: d(20);
+  line-height: 1.375;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(12);
 }
 
-.favorite-card__item:last-child {
-  border-bottom: none;
+.fav-card--hero__desc {
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(24);
 }
 
-.favorite-card__empty {
-  padding: 40px 16px;
-  text-align: center;
-  color: #5c5c5c;
-  font-size: 28px;
+.fav-card--hero__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.favorite-card__empty-hint {
-  display: block;
-  margin-top: 16px;
-  font-size: 24px;
-  color: #9a8f93;
+.fav-card--hero__avatar {
+  width: d(32);
+  height: d(32);
+  border-radius: 9999px;
+  background: #f7a1c0;
+  border: d(2) solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: d(5.5) 0 d(6.5) 0;
+}
+
+.fav-card--hero__avatar-t {
+  color: #8e4864;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 700;
+  font-family: Inter, sans-serif;
+}
+
+.fav-card--hero__cta {
+  display: flex;
+  align-items: center;
+  gap: d(4);
+}
+
+.fav-card--hero__cta-text {
+  color: #8e4864;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--hero__cta-arrow {
+  width: d(12);
+  height: d(12);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%238e4864' d='M4.5 1L3 2.5 7.5 7 3 11.5 4.5 13l6-6z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* r1ICo */
+.fav-card--clinical {
+  position: relative;
+  border-radius: d(20);
+  background: #006a68;
+  padding: d(24);
+  overflow: hidden;
+  box-shadow: 0 d(8) d(28) rgb(0 106 104 / 15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: d(200);
+}
+
+.fav-card--clinical__blob {
+  position: absolute;
+  right: d(-40);
+  top: d(-40);
+  width: d(160);
+  height: d(160);
+  border-radius: 9999px;
+  background: rgb(154 238 235 / 4%);
+  filter: blur(d(56));
+  pointer-events: none;
+}
+
+.fav-card--clinical__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: d(8);
+  padding-bottom: d(16);
+}
+
+.fav-card--clinical__icon-wrap {
+  width: d(40);
+  height: d(40);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 1.2%);
+  backdrop-filter: blur(d(3.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-card--clinical__icon {
+  width: d(16);
+  height: d(20);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 20'%3E%3Cpath fill='%23ffffff' d='M3 2h10v16H3V2zm2 2v12h6V4H5zm2 2h4v2H7V6zm0 4h4v2H7v-2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fav-card--clinical__title {
+  margin-top: d(11);
+  color: #fff;
+  font-size: d(18);
+  line-height: 1.25;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--clinical__desc {
+  color: #9aeeeb;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  opacity: 0.9;
+}
+
+.fav-card--clinical__bar {
+  position: relative;
+  z-index: 1;
+  margin-top: d(32);
+  padding-top: d(16);
+  border-top: d(1) solid rgb(255 255 255 / 4%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fav-card--clinical__read {
+  color: #9aeeeb;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--clinical__play {
+  width: d(32);
+  height: d(32);
+  border-radius: 9999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-card--clinical__play-icon {
+  width: d(13.33);
+  height: d(13.78);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23006a68' d='M3 2l7 4-7 4V2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* sbJ9S */
+.fav-card--texty {
+  border-radius: d(20);
+  background: #f5f3f3;
+  padding: d(24);
+  border: d(1) solid rgb(214 193 198 / 2.4%);
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-card--texty__tag-row {
+  display: flex;
+  align-items: center;
+  gap: d(8);
+  margin-bottom: d(16);
+}
+
+.fav-card--texty__tag-icon {
+  width: d(22);
+  height: d(22);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='9' fill='none' stroke='%238e4864' stroke-width='1.5'/%3E%3Cpath fill='%238e4864' d='M11 6v6l3 2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fav-card--texty__tag {
+  color: #8e4864;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
+  letter-spacing: d(0.6);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--texty__title {
+  color: #1b1c1c;
+  font-size: d(18);
+  line-height: 1.5555556;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(12);
+}
+
+.fav-card--texty__desc {
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(24);
+}
+
+.fav-card--texty__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fav-card--texty__time {
+  color: #847377;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--texty__arrow-btn {
+  width: d(36);
+  height: d(36);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-card--texty__arrow {
+  width: d(11.67);
+  height: d(15);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 15'%3E%3Cpath fill='%238e4864' d='M4 1L2.5 2.5 7 7l-4.5 4.5L4 13l6-6z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* lT3KX */
+.fav-card--note {
+  position: relative;
+  border-radius: d(20);
+  background: #fff;
+  padding: d(24);
+  overflow: hidden;
+  box-shadow: 0 d(2) d(10.5) rgb(0 0 0 / 3%);
+}
+
+.fav-card--note__accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: d(4);
+  height: 100%;
+  background: #f7a1c0;
+}
+
+.fav-card--note__title {
+  padding-left: d(8);
+  color: #1b1c1c;
+  font-size: d(18);
+  line-height: 1.5555556;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(8);
+}
+
+.fav-card--note__desc {
+  padding-left: d(8);
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  margin-bottom: d(16);
+}
+
+.fav-card--note__ai {
+  margin-left: d(8);
+  padding: d(12);
+  border-radius: d(8);
+  background: #fbf9f9;
+  border: d(1) solid #e4e2e2;
+  display: flex;
+  gap: d(12);
+  align-items: flex-start;
+}
+
+.fav-card--note__ai-icon {
+  margin-top: d(2);
+  width: d(16.67);
+  height: d(16.67);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23006a68' d='M8 1a4 4 0 100 8 4 4 0 000-8zm-5 14c.5-3 3.5-5 5-5s4.5 2 5 5H3z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fav-card--note__ai-text {
+  flex: 1;
+  min-width: 0;
+  color: #1b1c1c;
+  font-size: d(12);
+  line-height: 1.625;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+/* p7KCmj */
+.fav-card--visual {
+  position: relative;
+  height: d(240);
+  border-radius: d(20);
+  overflow: hidden;
+  box-shadow: 0 d(4) d(17.5) rgb(0 0 0 / 5%);
+}
+
+.fav-card--visual__img {
+  position: absolute;
+  inset: 0;
+  background: #e9e8e8;
+}
+
+.fav-card--visual__grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 0%) 50%, rgb(27 28 28 / 80%) 100%);
+}
+
+.fav-card--visual__glass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: d(20);
+}
+
+.fav-card--visual__glass-inner {
+  border-radius: d(12);
+  padding: d(16);
+  background: rgb(251 249 249 / 4%);
+  border: d(1) solid rgb(255 255 255 / 4%);
+  backdrop-filter: blur(d(10.5));
+  display: flex;
+  flex-direction: column;
+  gap: d(8);
+}
+
+.fav-card--visual__chip {
+  align-self: flex-start;
+  padding: d(2) d(8);
+  border-radius: d(4);
+  background: rgb(255 255 255 / 81%);
+}
+
+.fav-card--visual__chip-t {
+  color: #8e4864;
+  font-size: d(10);
   line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: d(0.5);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.fav-card--visual__glass-title {
+  color: #fff;
+  font-size: d(16);
+  line-height: 1.25;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.favorites-empty {
+  margin: d(32) d(24) 0;
+  padding: d(48) d(24);
+  border-radius: d(20);
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 d(4) d(21) rgb(0 0 0 / 2%);
+}
+
+.favorites-empty__title {
+  color: #1b1c1c;
+  font-size: d(18);
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.favorites-empty__hint {
+  display: block;
+  margin-top: d(12);
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.5;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
 }

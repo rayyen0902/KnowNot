@@ -1,0 +1,1114 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 3000,
+      "height": 3000,
+      "fill": "#FFFFFF",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "kcer8",
+          "x": 283,
+          "y": 664,
+          "name": "首页",
+          "width": 393,
+          "height": 842,
+          "fill": [
+            "#ffffffff",
+            "#fbf9f9ff"
+          ],
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "lxtkg",
+              "x": 3,
+              "y": -1,
+              "name": "Main Content Area: Chat Feed",
+              "clip": true,
+              "width": 387,
+              "height": 672,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "dZtFc",
+                  "x": 19,
+                  "y": 24,
+                  "name": "Section - AI Questionnaire Greeting",
+                  "width": 358,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gT2mt",
+                      "name": "Section - Lightweight Product Card",
+                      "width": 355,
+                      "height": 147,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "B2FpLZ",
+                          "name": "Background",
+                          "width": "fill_container",
+                          "fill": "#e4e2e2ff",
+                          "cornerRadius": [
+                            2,
+                            16,
+                            16,
+                            16
+                          ],
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "gap": 12,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "b57Emz",
+                              "name": "Container",
+                              "width": "fill_container",
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1
+                              },
+                              "layout": "vertical",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "a2fzeO",
+                                  "name": "根据您的混合性肌肤，我推荐这款产品：",
+                                  "fill": "#1b1c1cff",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "根据您的混合性肌肤，我推荐这款产品：",
+                                  "lineHeight": 1.5,
+                                  "textAlignVertical": "middle",
+                                  "fontFamily": "WenQuanYi Zen Hei",
+                                  "fontSize": 14,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "BPeme",
+                              "name": "Background+Border",
+                              "width": "fill_container",
+                              "fill": "#fbf9f9ff",
+                              "cornerRadius": 12,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "#d6c1c64d"
+                              },
+                              "gap": 12,
+                              "padding": 12,
+                              "alignItems": "center",
+                              "layoutIncludeStroke": true,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "azK0H",
+                                  "name": "Background",
+                                  "clip": true,
+                                  "width": 64,
+                                  "height": 64,
+                                  "fill": "#e9e8e8ff",
+                                  "cornerRadius": 8,
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1
+                                  },
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "pjAiy",
+                                      "name": "Product",
+                                      "clip": true,
+                                      "width": "fill_container",
+                                      "height": "fill_container",
+                                      "fill": {
+                                        "type": "image",
+                                        "enabled": true,
+                                        "url": "",
+                                        "mode": "stretch"
+                                      },
+                                      "stroke": {
+                                        "align": "inside",
+                                        "thickness": 1
+                                      },
+                                      "layout": "none"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "KMEjS",
+                                  "name": "Container",
+                                  "width": "fill_container",
+                                  "stroke": {
+                                    "align": "inside",
+                                    "thickness": 1
+                                  },
+                                  "layout": "vertical",
+                                  "gap": 3,
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "Y24mb",
+                                      "name": "Background",
+                                      "fill": "#ffd9e4ff",
+                                      "cornerRadius": 9999,
+                                      "stroke": {
+                                        "align": "inside",
+                                        "thickness": 1
+                                      },
+                                      "padding": [
+                                        2,
+                                        8
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "kVZH4",
+                                          "name": "Text",
+                                          "fill": "#3b0420ff",
+                                          "textGrowth": "fixed-width-height",
+                                          "width": 40,
+                                          "height": 15,
+                                          "content": "保湿控油",
+                                          "lineHeight": 1.5,
+                                          "textAlignVertical": "middle",
+                                          "fontFamily": "WenQuanYi Zen Hei",
+                                          "fontSize": 10,
+                                          "fontWeight": "500"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "subES",
+                                      "name": "Heading 4",
+                                      "width": "fill_container",
+                                      "stroke": {
+                                        "align": "inside",
+                                        "thickness": 1
+                                      },
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "H90Gz2",
+                                          "name": "焕颜平衡精华液",
+                                          "fill": "#1b1c1cff",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "焕颜平衡精华液",
+                                          "lineHeight": 1.25,
+                                          "textAlignVertical": "middle",
+                                          "fontFamily": "WenQuanYi Zen Hei",
+                                          "fontSize": 14,
+                                          "fontWeight": "500"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "b35i2",
+                                      "name": "Container",
+                                      "clip": true,
+                                      "width": "fill_container",
+                                      "stroke": {
+                                        "align": "inside",
+                                        "thickness": 1
+                                      },
+                                      "layout": "vertical",
+                                      "padding": [
+                                        1,
+                                        0,
+                                        0,
+                                        0
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "hPfiD",
+                                          "name": "适合混合性肌肤日常护理",
+                                          "fill": "#524347ff",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "适合混合性肌肤日常护理",
+                                          "lineHeight": 1.3333333333333333,
+                                          "textAlignVertical": "middle",
+                                          "fontFamily": "WenQuanYi Zen Hei",
+                                          "fontSize": 12,
+                                          "fontWeight": "500"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "W7hz4",
+                  "x": 20,
+                  "y": 455,
+                  "name": "Section - Single Choice Card (Makeup style)",
+                  "width": 355,
+                  "height": "fit_content(16)",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "yEaul",
+                  "x": 20,
+                  "y": 292,
+                  "name": "Section - System Notification",
+                  "width": 355,
+                  "height": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eFWZ4",
+                      "name": "Container",
+                      "width": "fill_container",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tHhNN",
+                          "name": "已成功保存您的肌肤档案档案",
+                          "fill": "#d967b9ff",
+                          "textGrowth": "fixed-width-height",
+                          "width": 156,
+                          "height": 16,
+                          "content": "已成功保存您的肌肤档案档案",
+                          "lineHeight": 1.3333333333333333,
+                          "textAlignVertical": "middle",
+                          "fontFamily": "Plus Jakarta Sans",
+                          "fontSize": 12,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N02xNb",
+              "x": -3,
+              "y": 687,
+              "name": "Bottom Navigation & Controls",
+              "width": 393,
+              "height": 155,
+              "fill": "#fbf9f9f2",
+              "stroke": {
+                "align": "inside",
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "#d6c1c61a"
+              },
+              "effect": {
+                "type": "background_blur",
+                "radius": 3.5
+              },
+              "layout": "vertical",
+              "padding": [
+                16,
+                16,
+                32,
+                16
+              ],
+              "layoutIncludeStroke": true,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PDWAk",
+                  "name": "Mode Tabs: Scrollable",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 50,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TfASm",
+                      "x": 222,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "o8cK8",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "fQQ4L",
+                              "name": "Icon",
+                              "geometry": "M5.33333 5.33333c-0.73333 0-1.36111-0.26111-1.88333-0.78333-0.52222-0.52222-0.78333-1.15-0.78333-1.88333 0-0.73333 0.26111-1.36111 0.78333-1.88334 0.52222-0.52222 1.15-0.78333 1.88333-0.78333 0.73333 0 1.36111 0.26111 1.88334 0.78333 0.52222 0.52222 0.78333 1.15 0.78333 1.88334 0 0.73333-0.26111 1.36111-0.78333 1.88333-0.52222 0.52222-1.15 0.78333-1.88334 0.78333l0 0m-5.33333 5.33334l0-1.86667c0-0.37778 0.09722-0.725 0.29167-1.04167 0.19444-0.31667 0.45278-0.55833 0.775-0.725 0.68889-0.34444 1.38889-0.60278 2.1-0.775 0.71111-0.17222 1.43333-0.25833 2.16666-0.25833 0.73333 0 1.45556 0.08611 2.16667 0.25833 0.71111 0.17222 1.41111 0.43056 2.1 0.775 0.32222 0.16667 0.58055 0.40833 0.775 0.725 0.19444 0.31667 0.29167 0.66389 0.29167 1.04167l0 1.86667-10.66667 0 0 0m1.33333-1.33334l8 0 0-0.53333c0-0.12222-0.03055-0.23333-0.09166-0.33333-0.06111-0.1-0.14167-0.17778-0.24167-0.23334-0.6-0.3-1.20556-0.525-1.81667-0.675-0.61111-0.15-1.22778-0.225-1.85-0.225-0.62222 0-1.23889 0.075-1.85 0.225-0.61111 0.15-1.21667 0.375-1.81666 0.675-0.1 0.05556-0.18056 0.13333-0.24167 0.23334-0.06111 0.1-0.09167 0.21111-0.09167 0.33333l0 0.53333 0 0m4-5.33333c0.36667 0 0.68056-0.13056 0.94167-0.39167 0.26111-0.26111 0.39167-0.575 0.39167-0.94166 0-0.36667-0.13056-0.68056-0.39167-0.94167-0.26111-0.26111-0.575-0.39167-0.94167-0.39167-0.36667 0-0.68056 0.13056-0.94166 0.39167-0.26111 0.26111-0.39167 0.575-0.39167 0.94167 0 0.36667 0.13056 0.68056 0.39167 0.94166 0.26111 0.26111 0.575 0.39167 0.94166 0.39167l0 0m0-1.33333l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0m0 6.66666l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+                              "fill": "#524347ff",
+                              "width": 10.666666984558105,
+                              "height": 10.666666984558105
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "mvuBn",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "D1heFt",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "个人中心",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AToTH",
+                      "x": 111,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "TXytV",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "JZl4b",
+                              "name": "Icon",
+                              "geometry": "M2.66667 9.33333l1.33333 0 0-4.66666-1.33333 0 0 4.66666 0 0m2.66666 0l1.33334 0 0-6.66666-1.33334 0 0 6.66666 0 0m2.66667 0l1.33333 0 0-2.66666-1.33333 0 0 2.66666 0 0m-6.66667 2.66667c-0.36667 0-0.68056-0.13055-0.94166-0.39167-0.26111-0.26111-0.39167-0.575-0.39167-0.94166l0-9.33334c0-0.36667 0.13056-0.68056 0.39167-0.94166 0.26111-0.26111 0.575-0.39167 0.94166-0.39167l9.33334 0c0.36667 0 0.68056 0.13056 0.94166 0.39167 0.26111 0.26111 0.39167 0.575 0.39167 0.94166l0 9.33334c0 0.36667-0.13055 0.68056-0.39167 0.94166-0.26111 0.26111-0.575 0.39167-0.94166 0.39167l-9.33334 0 0 0m0-1.33333l9.33334 0 0 0 0 0 0-9.33334 0 0 0 0-9.33334 0 0 0 0 0 0 9.33334 0 0 0 0 0 0m0-9.33334l0 0 0 0 0 0 0 9.33334 0 0 0 0 0 0 0 0 0 0 0-9.33334 0 0 0 0 0 0",
+                              "fill": "#524347ff",
+                              "width": 12,
+                              "height": 12
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "K18onU",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oev5K",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "护肤报告",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dlLTo",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "iLElT",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "tSD4E",
+                              "name": "Icon",
+                              "geometry": "M1.33333 13.33333c-0.36667 0-0.68056-0.13055-0.94166-0.39166-0.26111-0.26111-0.39167-0.575-0.39167-0.94167l0-9.33333c0-0.36667 0.13056-0.68056 0.39167-0.94167 0.26111-0.26111 0.575-0.39167 0.94166-0.39167l0.66667 0 0-1.33333 1.33333 0 0 1.33333 5.33334 0 0-1.33333 1.33333 0 0 1.33333 0.66667 0c0.36667 0 0.68056 0.13056 0.94166 0.39167 0.26111 0.26111 0.39167 0.575 0.39167 0.94167l0 9.33333c0 0.36667-0.13055 0.68056-0.39167 0.94167-0.26111 0.26111-0.575 0.39167-0.94166 0.39166l-9.33334 0 0 0m0-1.33333l9.33334 0 0 0 0 0 0-6.66667-9.33334 0 0 6.66667 0 0 0 0 0 0m0-8l9.33334 0 0-1.33333 0 0 0 0-9.33334 0 0 0 0 0 0 1.33333 0 0m0 0l0-1.33333 0 0 0 0 0 0 0 0 0 0 0 1.33333 0 0 0 0",
+                              "fill": "#524347ff",
+                              "width": 12,
+                              "height": 13.333333015441895
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nFl4n",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ags8K",
+                              "name": "护肤日程",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "护肤日程",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "Plus Jakarta Sans",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zo6y8",
+                      "x": 332,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "HT5mA",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "K2oEM",
+                              "name": "Icon",
+                              "geometry": "M10 7.33333l-2.76667-2.7c-0.34444-0.33333-0.63611-0.70278-0.875-1.10833-0.23889-0.40556-0.35833-0.84722-0.35833-1.325 0-0.61111 0.21389-1.13056 0.64167-1.55833 0.42778-0.42778 0.94722-0.64167 1.55833-0.64167 0.35556 0 0.68889 0.075 1 0.225 0.31111 0.15 0.57778 0.35278 0.8 0.60833 0.22222-0.25556 0.48889-0.45833 0.8-0.60833 0.31111-0.15 0.64444-0.225 1-0.225 0.61111 0 1.13055 0.21389 1.55833 0.64167 0.42778 0.42778 0.64167 0.94722 0.64167 1.55833 0 0.47778-0.11667 0.91944-0.35 1.325-0.23333 0.40556-0.52222 0.775-0.86667 1.10833l-2.78333 2.7 0 0m0-1.86666l1.81667-1.78334c0.21111-0.21111 0.40555-0.43611 0.58333-0.675 0.17778-0.23889 0.26667-0.50833 0.26667-0.80833 0-0.24444-0.08333-0.45-0.25-0.61667-0.16667-0.16667-0.37222-0.25-0.61667-0.25-0.15556 0-0.30278 0.03056-0.44167 0.09167-0.13889 0.06111-0.25833 0.15278-0.35833 0.275l-1 1.2-1-1.2c-0.1-0.12222-0.21944-0.21389-0.35833-0.275-0.13889-0.06111-0.28611-0.09167-0.44167-0.09167-0.24444 0-0.45 0.08333-0.61667 0.25-0.16667 0.16667-0.25 0.37222-0.25 0.61667 0 0.3 0.08889 0.56944 0.26667 0.80833 0.17778 0.23889 0.37222 0.46389 0.58333 0.675l1.81667 1.78334 0 0m-6 5.53333l4.63333 1.26667 3.96667-1.23334c-0.05556-0.1-0.13611-0.18611-0.24167-0.25833-0.10556-0.07222-0.225-0.10833-0.35833-0.10833l-3.36667 0c-0.3 0-0.53889-0.01111-0.71666-0.03334-0.17778-0.02222-0.36111-0.06667-0.55-0.13333l-1.55-0.51667 0.36666-1.3 1.35 0.45c0.18889 0.05556 0.41111 0.1 0.66667 0.13334 0.25556 0.03333 0.63333 0.05556 1.13333 0.06666l0 0 0 0 0 0c0-0.12222-0.03611-0.23889-0.10833-0.35-0.07222-0.11111-0.15833-0.18333-0.25833-0.21666l-3.9-1.43334 0 0 0 0-1.06667 0 0 3.66667 0 0m-4 2.33333l0-7.33333 5.06667 0c0.07778 0 0.15556 0.00833 0.23333 0.025 0.07778 0.01667 0.15 0.03611 0.21667 0.05833l3.91666 1.45c0.36667 0.13333 0.66389 0.36667 0.89167 0.7 0.22778 0.33333 0.34167 0.7 0.34167 1.1l1.33333 0c0.55556 0 1.02778 0.18333 1.41667 0.55 0.38889 0.36667 0.58333 0.85 0.58333 1.45l0 0.66667-5.33333 1.66667-4.66667-1.3 0 0 0 0.96666-4 0 0 0m1.33333-1.33333l1.33334 0 0-4.66667-1.33334 0 0 4.66667 0 0m8.66667-9.1l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+                              "fill": "#524347ff",
+                              "width": 14,
+                              "height": 13.666666984558105
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Iu0DJ",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "abDj4",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "知心模式",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tiMJi",
+                      "x": 456,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "H71CUf",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "gFHrb",
+                              "name": "Icon",
+                              "geometry": "M6 12l0-1.33333 5.33333 0 0 0 0 0 0-4.73334c0-1.3-0.45278-2.40278-1.35833-3.30833-0.90556-0.90556-2.00833-1.35833-3.30833-1.35833-1.3 0-2.40278 0.45278-3.30834 1.35833-0.90556 0.90556-1.35833 2.00833-1.35833 3.30833l0 4.06667-0.66667 0c-0.36667 0-0.68056-0.13056-0.94166-0.39167-0.26111-0.26111-0.39167-0.575-0.39167-0.94166l0-1.33334c0-0.23333 0.05833-0.45278 0.175-0.65833 0.11667-0.20556 0.28056-0.36944 0.49167-0.49167l0.05-0.88333c0.08889-0.75556 0.30833-1.45556 0.65833-2.1 0.35-0.64444 0.78889-1.20556 1.31667-1.68333 0.52778-0.47778 1.13333-0.85 1.81666-1.11667 0.68333-0.26667 1.40278-0.4 2.15834-0.4 0.75556 0 1.47222 0.13333 2.15 0.4 0.67778 0.26667 1.28333 0.63611 1.81666 1.10833 0.53333 0.47222 0.97222 1.03056 1.31667 1.675 0.34444 0.64444 0.56667 1.34444 0.66667 2.1l0.05 0.86667c0.21111 0.1 0.375 0.25 0.49166 0.45 0.11667 0.2 0.175 0.41111 0.175 0.63333l0 1.53334c0 0.22222-0.05833 0.43333-0.175 0.63333-0.11667 0.2-0.28056 0.35-0.49166 0.45l0 0.81667c0 0.36667-0.13056 0.68056-0.39167 0.94166-0.26111 0.26111-0.575 0.39167-0.94167 0.39167l-5.33333 0 0 0m-1.33333-4.66667c-0.18889 0-0.34722-0.06389-0.475-0.19166-0.12778-0.12778-0.19167-0.28611-0.19167-0.475 0-0.18889 0.06389-0.34722 0.19167-0.475 0.12778-0.12778 0.28611-0.19167 0.475-0.19167 0.18889 0 0.34722 0.06389 0.475 0.19167 0.12778 0.12778 0.19167 0.28611 0.19166 0.475 0 0.18889-0.06389 0.34722-0.19166 0.475-0.12778 0.12778-0.28611 0.19167-0.475 0.19166l0 0m4 0c-0.18889 0-0.34722-0.06389-0.475-0.19166-0.12778-0.12778-0.19167-0.28611-0.19167-0.475 0-0.18889 0.06389-0.34722 0.19167-0.475 0.12778-0.12778 0.28611-0.19167 0.475-0.19167 0.18889 0 0.34722 0.06389 0.475 0.19167 0.12778 0.12778 0.19167 0.28611 0.19166 0.475 0 0.18889-0.06389 0.34722-0.19166 0.475-0.12778 0.12778-0.28611 0.19167-0.475 0.19166l0 0m-5.98334-1.03333c-0.07778-1.17778 0.27778-2.18889 1.06667-3.03333 0.78889-0.84444 1.77222-1.26667 2.95-1.26667 0.98889 0 1.85833 0.31389 2.60833 0.94167 0.75 0.62778 1.20278 1.43056 1.35834 2.40833-1.01111-0.01111-1.94167-0.28333-2.79167-0.81667-0.85-0.53333-1.50278-1.25556-1.95833-2.16666-0.17778 0.88889-0.55278 1.68056-1.125 2.375-0.57222 0.69444-1.275 1.21389-2.10834 1.55833l0 0",
+                              "fill": "#524347ff",
+                              "width": 13.333333015441895,
+                              "height": 12
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rb6o9",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VPL7o",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "顾问模式",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JMFUV",
+                      "x": 568,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "W4RMuy",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "q0JCB",
+                              "name": "Icon",
+                              "geometry": "M5.06667 14l-1.26667-2.13333-2.4-0.53334 0.23333-2.46666-1.63333-1.86667 1.63333-1.86667-0.23333-2.46666 2.4-0.53334 1.26667-2.13333 2.26666 0.96667 2.26667-0.96667 1.26667 2.13333 2.4 0.53334-0.23334 2.46666 1.63334 1.86667-1.63334 1.86667 0.23334 2.46666-2.4 0.53334-1.26667 2.13333-2.26667-0.96667-2.26666 0.96667 0 0m0.56666-1.7l1.7-0.73333 1.73334 0.73333 0.93333-1.6 1.83333-0.43333-0.16666-1.86667 1.23333-1.4-1.23333-1.43333 0.16666-1.86667-1.83333-0.4-0.96667-1.6-1.7 0.73333-1.73333-0.73333-0.93333 1.6-1.83334 0.4 0.16667 1.86667-1.23333 1.43333 1.23333 1.4-0.16667 1.9 1.83334 0.4 0.96666 1.6 0 0m1.7-5.3l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0m-0.7 2.36667l3.76667-3.76667-0.93333-0.96667-2.83334 2.83334-1.43333-1.4-0.93333 0.93333 2.36666 2.36667 0 0",
+                              "fill": "#524347ff",
+                              "width": 14.666666984558105,
+                              "height": 14
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JgEtR",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JKssv",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 56,
+                              "height": 20,
+                              "content": "专家模式",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RvL3M",
+                      "x": 680,
+                      "y": 0,
+                      "name": "Button",
+                      "fill": "#ffffffb2",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#d6c1c633"
+                      },
+                      "gap": 6,
+                      "padding": [
+                        6,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "layoutIncludeStroke": true,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "rlpqg",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "vG9Xx",
+                              "name": "Icon",
+                              "geometry": "M0 5.33333l0-5.33333 5.33333 0 0 5.33333-5.33333 0 0 0m0 6.66667l0-5.33333 5.33333 0 0 5.33333-5.33333 0 0 0m6.66667-6.66667l0-5.33333 5.33333 0 0 5.33333-5.33333 0 0 0m0 6.66667l0-5.33333 5.33333 0 0 5.33333-5.33333 0 0 0m-5.33334-8l2.66667 0 0-2.66667-2.66667 0 0 2.66667 0 0m6.66667 0l2.66667 0 0-2.66667-2.66667 0 0 2.66667 0 0m0 6.66667l2.66667 0 0-2.66667-2.66667 0 0 2.66667 0 0m-6.66667 0l2.66667 0 0-2.66667-2.66667 0 0 2.66667 0 0m6.66667-6.66667l0 0 0 0 0 0 0 0 0 0m0 4l0 0 0 0 0 0 0 0 0 0m-4 0l0 0 0 0 0 0 0 0 0 0m0-4l0 0 0 0 0 0 0 0 0 0",
+                              "fill": "#524347ff",
+                              "width": 12,
+                              "height": 12
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rIHXc",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "THcjw",
+                              "name": "Text",
+                              "fill": "#524347ff",
+                              "textGrowth": "fixed-width-height",
+                              "width": 28,
+                              "height": 20,
+                              "content": "其他",
+                              "lineHeight": 1.4285714285714286,
+                              "textAlign": "center",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Eqmbw",
+                  "name": "Input Bar Shell",
+                  "width": "fill_container",
+                  "fill": "#f5f3f3ff",
+                  "cornerRadius": 9999,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#d6c1c61a"
+                  },
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "layoutIncludeStroke": true,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Mu4oY",
+                      "name": "Button",
+                      "width": 35.66999816894531,
+                      "height": 40,
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "C9nxD",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "OodZR",
+                              "name": "Icon",
+                              "geometry": "M10 14.5c1.25 0 2.3125-0.4375 3.1875-1.3125 0.875-0.875 1.3125-1.9375 1.3125-3.1875 0-1.25-0.4375-2.3125-1.3125-3.1875-0.875-0.875-1.9375-1.3125-3.1875-1.3125-1.25 0-2.3125 0.4375-3.1875 1.3125-0.875 0.875-1.3125 1.9375-1.3125 3.1875 0 1.25 0.4375 2.3125 1.3125 3.1875 0.875 0.875 1.9375 1.3125 3.1875 1.3125l0 0m0-2c-0.7 0-1.29167-0.24167-1.775-0.725-0.48333-0.48333-0.725-1.075-0.725-1.775 0-0.7 0.24167-1.29167 0.725-1.775 0.48333-0.48333 1.075-0.725 1.775-0.725 0.7 0 1.29167 0.24167 1.775 0.725 0.48333 0.48333 0.725 1.075 0.725 1.775 0 0.7-0.24167 1.29167-0.725 1.775-0.48333 0.48333-1.075 0.725-1.775 0.725l0 0m-8 5.5c-0.55 0-1.02083-0.19583-1.4125-0.5875-0.39167-0.39167-0.5875-0.8625-0.5875-1.4125l0-12c0-0.55 0.19583-1.02083 0.5875-1.4125 0.39167-0.39167 0.8625-0.5875 1.4125-0.5875l3.15 0 1.85-2 6 0 1.85 2 3.15 0c0.55 0 1.02083 0.19583 1.4125 0.5875 0.39167 0.39167 0.5875 0.8625 0.5875 1.4125l0 12c0 0.55-0.19583 1.02083-0.5875 1.4125-0.39167 0.39167-0.8625 0.5875-1.4125 0.5875l-16 0 0 0m0-2l16 0 0 0 0 0 0-12 0 0 0 0-4.05 0-1.825-2-4.25 0-1.825 2-4.05 0 0 0 0 0 0 12 0 0 0 0 0 0m8-6l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+                              "fill": "#006a68ff",
+                              "width": 20,
+                              "height": 18
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rRAjV",
+                      "name": "Button",
+                      "width": 35.66999816894531,
+                      "height": 40,
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "hWkX1",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "xSOQB",
+                              "name": "Icon",
+                              "geometry": "M7 12c-0.83333 0-1.54167-0.29167-2.125-0.875-0.58333-0.58333-0.875-1.29167-0.875-2.125l0-6c0-0.83333 0.29167-1.54167 0.875-2.125 0.58333-0.58333 1.29167-0.875 2.125-0.875 0.83333 0 1.54167 0.29167 2.125 0.875 0.58333 0.58333 0.875 1.29167 0.875 2.125l0 6c0 0.83333-0.29167 1.54167-0.875 2.125-0.58333 0.58333-1.29167 0.875-2.125 0.875l0 0m0-6l0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0m-1 13l0-3.075c-1.73333-0.23333-3.16667-1.00833-4.3-2.325-1.13333-1.31667-1.7-2.85-1.7-4.6l2 0c0 1.38333 0.4875 2.5625 1.4625 3.5375 0.975 0.975 2.15417 1.4625 3.5375 1.4625 1.38333 0 2.5625-0.4875 3.5375-1.4625 0.975-0.975 1.4625-2.15417 1.4625-3.5375l2 0c0 1.75-0.56667 3.28333-1.7 4.6-1.13333 1.31667-2.56667 2.09167-4.3 2.325l0 3.075-2 0 0 0m1-9c0.28333 0 0.52083-0.09583 0.7125-0.2875 0.19167-0.19167 0.2875-0.42917 0.2875-0.7125l0-6c0-0.28333-0.09583-0.52083-0.2875-0.7125-0.19167-0.19167-0.42917-0.2875-0.7125-0.2875-0.28333 0-0.52083 0.09583-0.7125 0.2875-0.19167 0.19167-0.2875 0.42917-0.2875 0.7125l0 6c0 0.28333 0.09583 0.52083 0.2875 0.7125 0.19167 0.19167 0.42917 0.2875 0.7125 0.2875l0 0",
+                              "fill": "#006a68ff",
+                              "width": 14,
+                              "height": 19
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mXxiB",
+                      "name": "Input",
+                      "clip": true,
+                      "width": "fill_container",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "padding": [
+                        10,
+                        4,
+                        8,
+                        4
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dXtBM",
+                          "name": "Container",
+                          "clip": true,
+                          "width": "fill_container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "padding": [
+                            0,
+                            0,
+                            2,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "MLDry",
+                              "name": "咨询你的私人护肤顾问...",
+                              "fill": "#52434780",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "咨询你的私人护肤顾问...",
+                              "textAlignVertical": "middle",
+                              "fontFamily": "WenQuanYi Zen Hei",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "d0WQhs",
+                      "name": "Button",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#8e4864ff",
+                      "cornerRadius": 9999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "k3EgA",
+                          "name": "Container",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1
+                          },
+                          "layout": "vertical",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "path",
+                              "id": "IKvjF",
+                              "name": "Icon",
+                              "geometry": "M6 8l-6 0 0-2 6 0 0-6 2 0 0 6 6 0 0 2-6 0 0 6-2 0 0-6 0 0",
+                              "fill": "#ffffffff",
+                              "width": 14,
+                              "height": 14
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,210 +1,241 @@
-.scan-page {
+$design-width: 390;
+
+@function d($px) {
+  @return calc(750rpx * #{$px} / #{$design-width});
+}
+
+/* Pencil: llWnw「肤质检测拍照引导 - 优化版」；网格 h5R29S */
+
+.photo-guide-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #fbf9f9 100%);
-}
-
-.scan-main {
-  padding: 24px 20px 28px;
-}
-
-.scan-copy__title {
-  display: block;
-  color: #8e4864;
-  font-size: 80px;
-  font-weight: 800;
-}
-
-.scan-copy__desc {
-  display: block;
-  margin-top: 8px;
-  color: #524347;
-  font-size: 28px;
-  line-height: 1.43;
-}
-
-.scan-search {
-  margin-top: 28px;
+  background: linear-gradient(180deg, #fff 0%, #fbf9f9 100%);
+  padding-bottom: d(96);
   position: relative;
+  box-sizing: border-box;
 }
 
-.scan-search__input {
-  height: 56px;
-  border-radius: 999px;
-  background: #f5f3f3;
-  box-shadow: 0 2px 8px rgba(27, 28, 28, 0.03);
-  font-size: 28px;
+.photo-guide-page__main {
+  padding: d(16) d(20) d(80) d(20);
+  display: flex;
+  flex-direction: column;
+  gap: d(40);
+  box-sizing: border-box;
+}
+
+.photo-guide-page__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: d(12);
+  width: 100%;
+  max-width: d(280);
+  margin: 0 auto;
+}
+
+.photo-guide-page__hero-title {
+  color: #8e4864;
+  font-size: d(30);
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.photo-guide-page__hero-desc {
   color: #524347;
-  padding: 0 56px 0 48px;
+  font-size: d(16);
+  line-height: 1.625;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  max-width: d(272);
 }
 
-.scan-search__icon {
-  position: absolute;
-  left: 16px;
-  top: 18px;
-  color: #b6a8ae;
-  z-index: 2;
+.photo-guide-page__grid {
+  position: relative;
+  width: 100%;
+  max-width: d(350);
+  margin: 0 auto;
+  min-height: d(660);
 }
 
-.scan-search__go {
+.photo-guide-page__card {
   position: absolute;
-  right: 8px;
-  top: 8px;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: d(12);
+  background: #f5f3f3;
+  box-shadow: 0 d(4) d(21) rgb(27 28 28 / 2%);
+  padding: d(24);
+  box-sizing: border-box;
+}
+
+.photo-guide-page__card--one {
+  left: 0;
+  top: 0;
+  width: d(350);
+}
+
+.photo-guide-page__card--two {
+  left: d(16);
+  top: d(228);
+  width: d(334);
+}
+
+.photo-guide-page__card--three {
+  left: 0;
+  top: d(456);
+  width: d(334);
+}
+
+.photo-guide-page__card-icon-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: d(16);
+}
+
+.photo-guide-page__card-icon-ring {
+  width: d(64);
+  height: d(64);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-guide-page__card-icon-ring--pink {
+  background: rgb(247 161 192 / 9%);
+}
+
+.photo-guide-page__card-icon-ring--mint {
+  background: rgb(154 238 235 / 9%);
+}
+
+.photo-guide-page__card-icon-ring--indigo {
+  background: rgb(173 181 254 / 9%);
+}
+
+.photo-guide-page__card-icon-glyph {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.photo-guide-page__card-icon-glyph--sun {
+  width: d(27.5);
+  height: d(27.5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='4.5' fill='none' stroke='%238e4864' stroke-width='1.8'/%3E%3Cpath stroke='%238e4864' stroke-width='1.6' stroke-linecap='round' d='M14 2v3M14 23v3M2 14h3M23 14h3M5.5 5.5l2.2 2.2M20.3 20.3l2.2 2.2M5.5 22.5l2.2-2.2M20.3 7.7l2.2-2.2'/%3E%3C/svg%3E");
+}
+
+.photo-guide-page__card-icon-glyph--face {
+  width: d(25);
+  height: d(25);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'%3E%3Cpath fill='%23006a68' d='M12.5 3C8.4 3 5 6.2 5 10v2c0 1.2.3 2.3.8 3.3-.5 1-1.3 2.8-1.3 4.2 0 .8.7 1.5 1.5 1.5h13c.8 0 1.5-.7 1.5-1.5 0-1.4-.8-3.2-1.3-4.2.5-1 .8-2.1.8-3.3v-2c0-3.8-3.4-7-7.5-7zm0 3c2.5 0 4.5 1.8 4.5 4v1.5h-9V10c0-2.2 2-4 4.5-4z'/%3E%3C/svg%3E");
+}
+
+.photo-guide-page__card-icon-glyph--distance {
+  width: d(22.5);
+  height: d(22.5);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%2351599b' stroke-width='1.8' d='M4 4h7v7H4zM13 13h7v7h-7z'/%3E%3Cpath fill='%2351599b' d='M11 11h2v2h-2z'/%3E%3C/svg%3E");
+}
+
+.photo-guide-page__card-title {
+  color: #1b1c1c;
+  font-size: d(20);
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: d(8);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.photo-guide-page__card-desc {
+  color: #524347;
+  font-size: d(14);
+  line-height: 1.4285714;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+}
+
+.photo-guide-page__card-desc--wide {
+  max-width: d(294);
+  padding: 0 d(4);
+  box-sizing: border-box;
+}
+
+.photo-guide-page__card-desc--narrow {
+  max-width: d(280);
+  padding: 0 d(3);
+  box-sizing: border-box;
+}
+
+.photo-guide-page__bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: d(390);
+  margin: 0 auto;
+  padding: d(20);
+  box-sizing: border-box;
+  background: rgb(251 249 249 / 49%);
+  box-shadow: 0 d(-8) d(28) rgb(27 28 28 / 5%);
+  backdrop-filter: blur(d(17.5));
+}
+
+.photo-guide-page__bottom-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: d(12);
+  width: 100%;
+}
+
+.photo-guide-page__cta {
+  width: 100%;
+  border-radius: 9999px;
   background: #8e4864;
   color: #fff;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  gap: d(8);
+  padding: d(16) 0;
+  box-shadow: 0 d(8) d(21) rgb(142 72 100 / 20%);
+  box-sizing: border-box;
 }
 
-.scan-viewport-wrap {
-  margin-top: 32px;
-  border-radius: 32px;
-  background: #e4e2e2;
-  box-shadow: 0 8px 28px rgba(142, 72, 100, 0.08);
-  padding: 24px;
-  cursor: pointer;
+.photo-guide-page__cta-icon {
+  width: d(20);
+  height: d(18);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 18'%3E%3Cpath fill='%23ffffff' d='M3 4.5h2.2L6.2 2h7.6l1 2.5H17c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2v-9c0-1.1.9-2 2-2zm7 2.5a4 4 0 100 8 4 4 0 000-8zm0 1.8a2.2 2.2 0 110 4.4 2.2 2.2 0 010-4.4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
-.scan-viewport {
-  position: relative;
-  min-height: 418px;
-  border-radius: 24px;
-  border: 1px solid rgba(247, 161, 192, 0.16);
-  backdrop-filter: blur(2px);
+.photo-guide-page__cta-label {
+  color: #fff;
+  font-size: d(18);
+  line-height: 1.5555556;
+  font-weight: 500;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
 }
 
-.scan-corner {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border-color: #8e4864;
-}
-
-.scan-corner--tl {
-  left: 16px;
-  top: 16px;
-  border-left: 4px solid #8e4864;
-  border-top: 4px solid #8e4864;
-  border-radius: 12px 0 0 0;
-}
-
-.scan-corner--tr {
-  right: 16px;
-  top: 16px;
-  border-right: 4px solid #8e4864;
-  border-top: 4px solid #8e4864;
-  border-radius: 0 12px 0 0;
-}
-
-.scan-corner--bl {
-  left: 16px;
-  bottom: 16px;
-  border-left: 4px solid #8e4864;
-  border-bottom: 4px solid #8e4864;
-  border-radius: 0 0 0 12px;
-}
-
-.scan-corner--br {
-  right: 16px;
-  bottom: 16px;
-  border-right: 4px solid #8e4864;
-  border-bottom: 4px solid #8e4864;
-  border-radius: 0 0 12px 0;
-}
-
-.scan-center {
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  background: #fbf9f9;
-  color: #8e4864;
-  box-shadow: 0 8px 24px rgba(142, 72, 100, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -54%);
-}
-
-.scan-center__icon {
-  font-size: 48px;
-}
-
-.scan-center::before,
-.scan-center::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 110px;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(142, 72, 100, 0), rgba(142, 72, 100, 0.5));
-}
-
-.scan-center::before {
-  right: 62px;
-}
-
-.scan-center::after {
-  left: 62px;
-  transform: scaleX(-1);
-}
-
-.scan-center__hint {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(50% + 46px);
-  text-align: center;
-  color: #8e4864;
-  font-size: 32px;
-}
-
-.scan-trust {
-  margin-top: 20px;
-  border-radius: 16px;
-  background: #f5f3f3;
-  border: 1px solid rgba(228, 226, 226, 0.25);
-  padding: 16px;
-  display: flex;
-  gap: 12px;
-}
-
-.scan-trust__icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  background: #9aeeeb;
-  color: #006a68;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.scan-trust__title {
-  display: block;
-  color: #1b1c1c;
-  font-size: 28px;
-  line-height: 1.43;
-}
-
-.scan-trust__desc {
-  display: block;
-  margin-top: 2px;
+.photo-guide-page__hint {
   color: #524347;
-  font-size: 24px;
-  line-height: 1.33;
-}
-
-.scan-manual {
-  margin-top: 20px;
+  opacity: 0.7;
+  font-size: d(12);
+  line-height: 1.3333333;
+  font-weight: 500;
   text-align: center;
-  color: #8e4864;
-  font-size: 28px;
-  cursor: pointer;
+  max-width: d(276);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
 }

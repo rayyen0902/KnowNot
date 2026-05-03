@@ -18,6 +18,12 @@ build/
 .env.*
 !.env.example
 
+# 本机备份脚本旁路的本地配置（若使用）
+infra/backup/.env
+infra/backup/.launchd.out.log
+infra/backup/.launchd.err.log
+infra/backup/.fswatch.log
+
 # 日志
 *.log
 npm-debug.log*

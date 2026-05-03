@@ -1,0 +1,88 @@
+Metadata-Version: 2.4
+Name: aihufu-ai
+Version: 0.1.0
+Summary: Internal AI layer for AIhufu (report generation, structured JSON).
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.110
+Requires-Dist: uvicorn[standard]>=0.29
+Requires-Dist: httpx>=0.27
+Requires-Dist: pydantic>=2.6
+
+# AIhufu Python AI 层（内部服务）
+
+Go 是唯一对外入口；本目录仅提供 **内网可调** 的 AI 能力（`implementation-v1.md` 约定路径）。
+
+## 快速启动（HTTP）
+
+```bash
+cd services/ai-python
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e .
+export INTERNAL_TOKEN=dev_internal_token   # 可选；不设则不校验
+export AI_PORT=9081
+python -m uvicorn aihufu_ai.app:app --host 127.0.0.1 --port "${AI_PORT}"
+```
+
+健康检查：
+
+```bash
+curl -sS "http://127.0.0.1:${AI_PORT:-9081}/internal/v1/ai/health"
+```
+
+## 大模型联通策略
+
+- 设置 `AI_API_KEY`（与可选 `AI_BASE_URL`、`AI_MODEL`）时，走 **OpenAI 兼容** `POST {AI_BASE_URL}/chat/completions`，并要求模型输出 **JSON**（`response_format` 在供应商支持时启用）。
+- 未设置 `AI_API_KEY` 时，走 **stub**：仍返回完整结构化报告字段，便于联调与降级演练（`meta.llm_mode=stub`）。
+
+## 可复现失败用例（本地）
+
+需显式开启模拟开关（默认关闭，避免误用于现网）：
+
+```bash
+export AI_ALLOW_SIMULATE=1
+python -m aihufu_ai.cli --case success
+python -m aihufu_ai.cli --case timeout
+python -m aihufu_ai.cli --case upstream
+python -m aihufu_ai.cli --case schema_invalid
+```
+
+或批量：
+
+```bash
+chmod +x ./scripts/smoke_internal_report.sh
+AI_ALLOW_SIMULATE=1 ./scripts/smoke_internal_report.sh
+```
+
+## 与 Go trace 对齐
+
+请求可携带：
+
+- `X-Trace-Id`：与 Go `trace_id` 对齐（Python 回显到 JSON 与日志）
+- `X-Request-Id`：与 Go `request_id` 占位对齐（可选）
+
+Go 侧建议在调用 Python 时透传上述 Header，并在自身 access log 中打印同一对 ID。
+
+## 映射表草案（Python `report` → Go `report/detail` 的 `data`）
+
+Python 内部成功时返回 `report` 对象，字段集合与 `docs/api.md` 的 `GET /api/v1/report/detail` 中 **报告固定字段**一致（不含 `report_id`）。
+
+| Python `report` 字段 | Go `data` 字段 | 说明 |
+| --- | --- | --- |
+| `skin_type` | `skin_type` | 一致 |
+| `main_issues` | `main_issues` | 一致 |
+| `recommended_ingredients` | `recommended_ingredients` | 一致 |
+| `avoid_ingredients` | `avoid_ingredients` | 一致 |
+| `morning_routine[]` | `morning_routine[]` | 元素为 `{title,desc,tip?}`（与 Go `reportDetail`、前端 `RoutineStep` 对齐） |
+| `night_routine[]` | `night_routine[]` | 同上 |
+| `product_tips` | `product_tips` | 一致 |
+| `confidence` | `confidence` | 一致 |
+| （不返回） | `report_id` | 由 Go 生成/落库后拼入对外响应 |
+
+> 备注：`docs/implementation-v1.md` 中存在 **routine 字段类型**前后表述不一致（`string[]` vs `object[]`）。Python 以 **`docs/api.md` V1 冻结**为准（`object[]`）。
+
+## 与 Go 对外错误码的关系（非等价，需 BE 映射）
+
+Python 失败回执使用 `success=false` + `status` + `error.code`（`AI_*`）。Go 若降级为 mock/固定逻辑，不应把 Python 内部错误直接暴露给小程序；建议在任务层映射为 `report/task` 的 `failed` + `error_message`，对外仍走 `api.md` 的 `code` 体系（例如 `50201`）。

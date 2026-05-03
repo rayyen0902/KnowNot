@@ -15,7 +15,8 @@ function currentPath() {
 
 export function goTo(path: string) {
   const target = normalize(path);
-  if (!target || currentPath() === target) {
+  const hasQuery = target.includes('?');
+  if (!target || (!hasQuery && currentPath() === target)) {
     return;
   }
 

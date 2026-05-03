@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=390, initial-scale=1" />
+  <title>FE-NIGHT-13 photo-guide grid capture</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 390px; background: linear-gradient(180deg, #fff 0%, #fbf9f9 100%); font-family: 'PingFang SC', sans-serif; padding: 16px 20px 40px; }
+    .pg-grid { position: relative; width: 350px; margin: 0 auto; min-height: 660px; }
+    .pg-card {
+      position: absolute; display: flex; flex-direction: column; align-items: center;
+      border-radius: 12px; background: #f5f3f3; box-shadow: 0 4px 21px rgb(27 28 28 / 2%); padding: 24px;
+    }
+    .pg-card--1 { left: 0; top: 0; width: 350px; }
+    .pg-card--2 { left: 16px; top: 228px; width: 334px; }
+    .pg-card--3 { left: 0; top: 456px; width: 334px; }
+    .pg-card__icon-slot { margin-bottom: 16px; }
+    .pg-card__ring { width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+    .pg-card__ring--pink { background: rgb(247 161 192 / 9%); }
+    .pg-card__ring--mint { background: rgb(154 238 235 / 9%); }
+    .pg-card__ring--indigo { background: rgb(173 181 254 / 9%); }
+    .pg-card__glyph { background-repeat: no-repeat; background-position: center; background-size: contain; margin: 0 auto; }
+    .pg-card__glyph--sun { width: 27.5px; height: 27.5px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='4.5' fill='none' stroke='%238e4864' stroke-width='1.8'/%3E%3Cpath stroke='%238e4864' stroke-width='1.6' stroke-linecap='round' d='M14 2v3M14 23v3M2 14h3M23 14h3'/%3E%3C/svg%3E"); }
+    .pg-card__glyph--face { width: 25px; height: 25px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'%3E%3Ccircle cx='12.5' cy='11' r='6' fill='none' stroke='%23006a68' stroke-width='1.5'/%3E%3C/svg%3E"); }
+    .pg-card__glyph--dist { width: 22.5px; height: 22.5px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%2351599b' stroke-width='1.8' d='M4 4h7v7H4zM13 13h7v7h-7z'/%3E%3C/svg%3E"); }
+    .pg-card__title { color: #1b1c1c; font-size: 20px; font-weight: 500; text-align: center; margin-bottom: 8px; }
+    .pg-card__desc { color: #524347; font-size: 14px; line-height: 1.4285714; text-align: center; white-space: pre-line; }
+    .pg-card__desc--w { max-width: 294px; }
+    .pg-card__desc--n { max-width: 280px; }
+  </style>
+</head>
+<body>
+  <div class="pg-grid">
+    <div class="pg-card pg-card--1">
+      <div class="pg-card__icon-slot"><div class="pg-card__ring pg-card__ring--pink"><div class="pg-card__glyph pg-card__glyph--sun"></div></div></div>
+      <div class="pg-card__title">自然均匀光线</div>
+      <div class="pg-card__desc pg-card__desc--w">请在光线充足、均匀的环境下拍摄。避免强烈直
+射光或背光，以免产生阴影影响分析。</div>
+    </div>
+    <div class="pg-card pg-card--2">
+      <div class="pg-card__icon-slot"><div class="pg-card__ring pg-card__ring--mint"><div class="pg-card__glyph pg-card__glyph--face"></div></div></div>
+      <div class="pg-card__title">完全露出面部</div>
+      <div class="pg-card__desc pg-card__desc--n">请摘下眼镜，将头发撩起，保持面部放松，正
+对镜头。素颜状态下检测效果最佳。</div>
+    </div>
+    <div class="pg-card pg-card--3">
+      <div class="pg-card__icon-slot"><div class="pg-card__ring pg-card__ring--indigo"><div class="pg-card__glyph pg-card__glyph--dist"></div></div></div>
+      <div class="pg-card__title">保持适当距离</div>
+      <div class="pg-card__desc pg-card__desc--n">脸部轮廓需完整显示在屏幕提示框内，不要太
+远或太近，保持手机稳定。</div>
+    </div>
+  </div>
+</body>
+</html>

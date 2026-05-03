@@ -8,7 +8,9 @@ export default defineAppConfig({
     'pages/privacy-policy/index',
     'pages/health-authorization/index',
     'pages/home/index',
+    'pages/pencil-home/index',
     'pages/home-v2/index',
+    'pages/questionnaire/index',
     'pages/photo-guide/index',
     'pages/camera-capture/index',
     'pages/skin-profile/index',
@@ -19,7 +21,6 @@ export default defineAppConfig({
     'pages/confirm-order/index',
     'pages/calendar/index',
     'pages/favorites/index',
-    'pages/skin-record/index',
     'pages/my-products/index',
     'pages/profile/index',
     'pages/settings/index'

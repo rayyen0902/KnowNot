@@ -82,7 +82,7 @@ export default function ProfilePage() {
             </View>
             <Text>›</Text>
           </View>
-          <View className='profile-list-row' onClick={() => goTo('/pages/skin-record/index')}>
+          <View className='profile-list-row' onClick={() => goTo('/pages/skin-profile/index')}>
             <View className='profile-list-row__left'>
               <Text className='profile-list-row__dot profile-list-row__dot--teal'>☲</Text>
               <Text>肤质记录</Text>
@@ -97,6 +97,7 @@ export default function ProfilePage() {
             <Text>›</Text>
           </View>
         </View>
+
       </View>
     </View>
   );

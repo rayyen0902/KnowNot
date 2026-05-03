@@ -1,12 +1,13 @@
 import { View, Text } from '@tarojs/components';
+import { goTo } from '@/utils/router';
 import './index.scss';
 
 const products = [
   {
     brand: 'ESTEE LAUDER',
-    name: '小棕瓶特润修护肌透精华霜 50ml',
+    name: '小棕瓶特润修护肌透精华露 50ml',
     date: '2023.01.15',
-    status: '仅剩 15天过期',
+    status: '仅剩 15 天过期',
     statusType: 'danger'
   },
   {
@@ -36,7 +37,10 @@ export default function MyProductsPage() {
             <View className='summary-card__orb' />
           </View>
           <View className='summary-card summary-card--warn'>
-            <Text className='summary-card__label summary-card__label--warn'>⚠ 临期提示</Text>
+            <View className='summary-card__warn-row'>
+              <Text className='summary-card__warn-icon'>▲</Text>
+              <Text className='summary-card__label summary-card__label--warn'>临期提示</Text>
+            </View>
             <Text className='summary-card__value summary-card__value--warn'>2</Text>
             <View className='summary-card__orb summary-card__orb--warn' />
           </View>
@@ -54,18 +58,21 @@ export default function MyProductsPage() {
               <View className='product-card__main'>
                 <Text className='product-card__brand'>{item.brand}</Text>
                 <Text className='product-card__name'>{item.name}</Text>
-                <Text className='product-card__meta'>开日用: {item.date}</Text>
-                <Text className={`product-card__status product-card__status--${item.statusType}`}>
-                  {item.statusType === 'danger' ? '▲ ' : '◉ '}
-                  {item.status}
-                </Text>
+                <Text className='product-card__meta'>开启日期: {item.date}</Text>
+                <View className={`product-card__status-chip product-card__status-chip--${item.statusType}`}>
+                  <Text className='product-card__status-icon'>{item.statusType === 'danger' ? '▲' : '◉'}</Text>
+                  <Text className='product-card__status-text'>{item.status}</Text>
+                </View>
               </View>
-              <Text className='product-card__more'>•••</Text>
+              <Text className='product-card__more'>⋯</Text>
             </View>
           ))}
         </View>
 
-        <View className='my-products-fab'>＋ 添加新产品</View>
+        <View className='my-products-fab' onClick={() => goTo('/pages/camera-capture/index')}>
+          <Text className='my-products-fab__icon'>＋</Text>
+          <Text>添加新产品</Text>
+        </View>
       </View>
     </View>
   );

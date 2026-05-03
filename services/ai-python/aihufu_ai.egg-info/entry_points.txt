@@ -1,0 +1,2 @@
+[console_scripts]
+aihufu-ai = aihufu_ai.server:main

@@ -1,0 +1,368 @@
+/* 数值与 Pencil `pencil-首页.pen` 中 kcer8 / lxtkg / dZtFc / gT2mt / B2FpLZ / BPeme / yEaul / N02xNb / PDWAk / Eqmbw 一致；u = 390 画布 → rpx（750rpx=屏宽，375 逻辑宽同样适用） */
+@function u($px) {
+  @return round($px * 750 / 390) * 1rpx;
+}
+
+.pencil-home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* kcer8 fill: #fff + #fbf9f9 — 两色线性渐变（稿中数组顺序按垂直过渡处理） */
+  background: linear-gradient(180deg, #ffffff 0%, #fbf9f9 100%);
+}
+
+.pencil-home__scroll {
+  flex: 1;
+  height: 0;
+  box-sizing: border-box;
+}
+
+/* lxtkg 内边距：dZtFc x=19、右侧 387-19-358=10；顶 y=24 */
+.pencil-home__feed {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: u(387);
+  margin: 0 auto;
+  padding: u(24) u(10) u(24) u(19);
+  padding-bottom: u(200);
+}
+
+/* dZtFc：width 358；gT2mt 相对其 x=0、宽 355（snapshot_layout） */
+.pencil-home__dztfc {
+  width: 100%;
+  max-width: u(358);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* gT2mt：snapshot 高 147、宽 355 */
+.pencil-home__gt2mt {
+  width: 100%;
+  max-width: u(355);
+  height: u(147);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* B2FpLZ：snapshot 高 145、宽 355；gap 12 padding 12 */
+.pencil-home__b2fplz {
+  display: flex;
+  flex-direction: column;
+  gap: u(12);
+  padding: u(12);
+  width: 100%;
+  min-height: u(145);
+  border-radius: u(2) u(16) u(16) u(16);
+  background: #e4e2e2;
+  box-sizing: border-box;
+}
+
+.pencil-home__b57emz {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* a2fzeO：snapshot 高 21、宽 331 */
+.pencil-home__reco-title {
+  display: block;
+  width: 100%;
+  max-width: u(331);
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-size: u(14);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1b1c1c;
+}
+
+/* BPeme：snapshot 高 88、宽 331（在 B2FpLZ 内 x12）；横向 gap 12、padding 12 */
+.pencil-home__bpeme {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: u(12);
+  padding: u(12);
+  width: 100%;
+  min-height: u(88);
+  border-radius: u(12);
+  background: #fbf9f9;
+  border: 1px solid rgba(214, 193, 198, 0.302);
+  box-sizing: border-box;
+}
+
+/* azK0H：64×64 radius 8 fill #e9e8e8；稿内 image url 空 — 纯色块 */
+.pencil-home__azk0h {
+  width: u(64);
+  height: u(64);
+  flex-shrink: 0;
+  border-radius: u(8);
+  background: #e9e8e8;
+  box-sizing: border-box;
+}
+
+/* KMEjS：snapshot 高 60、宽 231 */
+.pencil-home__kmejs {
+  flex: 1;
+  min-width: 0;
+  max-width: u(231);
+  min-height: u(60);
+  display: flex;
+  flex-direction: column;
+  gap: u(3);
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Y24mb：padding [2,8] 两值为 [horizontal, vertical] → 左右 2、上下 8 */
+.pencil-home__y24mb {
+  align-self: flex-start;
+  padding: u(8) u(2);
+  border-radius: 9999px;
+  background: #ffd9e4;
+  box-sizing: border-box;
+}
+
+/* kVZH4 */
+.pencil-home__reco-tag-text {
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-size: u(10);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #3b0420;
+}
+
+/* H90Gz2 */
+.pencil-home__reco-name {
+  display: block;
+  width: 100%;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-size: u(14);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #1b1c1c;
+}
+
+/* b35i2 padding [1,0,0,0] */
+.pencil-home__b35i2 {
+  padding: u(1) 0 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* hPfiD */
+.pencil-home__reco-desc {
+  display: block;
+  width: 100%;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-size: u(12);
+  font-weight: 500;
+  line-height: 1.3333333333;
+  color: #524347;
+}
+
+/* yEaul：width 355 gap 24 height 16；x=20 相对 lxtkg — 用 margin 对齐 */
+.pencil-home__yeaul {
+  margin-top: u(121);
+  margin-left: u(1);
+  width: 100%;
+  max-width: u(355);
+  min-height: u(16);
+  display: flex;
+  flex-direction: column;
+  gap: u(24);
+  box-sizing: border-box;
+}
+
+.pencil-home__efwz4 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* tHhNN：snapshot 宽 156 高 16，居中由 eFWZ4 flex 实现 */
+.pencil-home__notice {
+  display: block;
+  width: u(156);
+  max-width: 100%;
+  font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif;
+  font-size: u(12);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #d967b9;
+  text-align: center;
+}
+
+/* N02xNb：padding [16,16,32,16] 四值为 top,right,bottom,left */
+.pencil-home__n02xnb {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: u(16) u(16) u(32) u(16);
+  border-top: 1px solid rgba(214, 193, 198, 0.102);
+  background: rgba(251, 249, 249, 0.949);
+  /* effect.background_blur radius 3.5（390）→ 换算后近似 */
+  backdrop-filter: blur(#{round(3.5 * 750 / 390)}rpx);
+}
+
+.pencil-home__pdwak-scroll {
+  width: 100%;
+  height: u(50);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* flex 行 + 精确 marginLeft，避免绝对定位导致 scroll 内容宽在端上异常 */
+.pencil-home__pdwak-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Tab：padding 6px 12px；高 32（snapshot） */
+.pencil-home__tab {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: u(6);
+  padding: u(6) u(12);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.698);
+  border: 1px solid rgba(214, 193, 198, 0.2);
+  box-sizing: border-box;
+}
+
+.pencil-home__tab-img {
+  flex-shrink: 0;
+  display: block;
+}
+
+.pencil-home__tab-label {
+  flex-shrink: 0;
+  font-size: u(14);
+  line-height: 1.4285714286;
+  color: #524347;
+  white-space: nowrap;
+}
+
+.pencil-home__tab-label--sans {
+  font-family: 'Plus Jakarta Sans', 'PingFang SC', sans-serif;
+  font-weight: 400;
+}
+
+.pencil-home__tab-label--hei {
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-weight: 500;
+}
+
+/* Eqmbw：snapshot 高 56、宽 361；子项间距 12；竖向 padding 8、横向 12 */
+.pencil-home__eqmbw {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: u(12);
+  padding: u(8) u(12);
+  min-height: u(56);
+  border-radius: 9999px;
+  background: #f5f3f3;
+  border: 1px solid rgba(214, 193, 198, 0.102);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Mu4oY / rRAjV 稿宽 35.66999816894531、高 40 */
+.pencil-home__mu4oy,
+.pencil-home__rrajv {
+  width: u(35.66999816894531);
+  height: u(40);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  box-sizing: border-box;
+}
+
+.pencil-home__eq-icon {
+  display: block;
+}
+
+/* mXxiB：padding [10,4,8,4] = top,right,bottom,left */
+.pencil-home__mxxib {
+  flex: 1;
+  min-width: 0;
+  padding: u(10) u(4) u(8) u(4);
+  box-sizing: border-box;
+}
+
+/* dXtBM padding [0,0,2,0] */
+.pencil-home__dxtbm {
+  padding: 0 0 u(2) 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* MLDry */
+.pencil-home__input-placeholder {
+  display: block;
+  width: 100%;
+  font-family: 'WenQuanYi Zen Hei', 'PingFang SC', sans-serif;
+  font-size: u(14);
+  font-weight: 500;
+  color: rgba(82, 67, 71, 0.502);
+}
+
+.pencil-home__d0wqhs {
+  width: u(40);
+  height: u(40);
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: #8e4864;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.pencil-home__send-img {
+  display: block;
+}
+
+/* 视口几何中心：仅按钮可点，不拦截滚动与底栏 */
+.pencil-home__fab-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 200;
+}
+
+.pencil-home__fab {
+  pointer-events: auto;
+  padding: 12px 28px;
+  font-size: 26px;
+  line-height: 1.2;
+  border-radius: 999px;
+  background: rgba(142, 72, 100, 0.92);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(27, 28, 28, 0.12);
+}
