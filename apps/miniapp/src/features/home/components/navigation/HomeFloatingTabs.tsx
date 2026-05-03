@@ -8,6 +8,7 @@ import {
   setAccelerateSentAt,
   subscribeReportTask
 } from '@/services/reportFlowState';
+import { openReportTabEntry } from '@/utils/reportTabNavigation';
 import { goTo } from '@/utils/router';
 import './HomeFloatingTabs.scss';
 
@@ -100,6 +101,10 @@ export default function HomeFloatingTabs() {
                 if (!item.path) return;
                 if (item.key === 'report' && reportTabBlocked) {
                   tryReportStrongTouchFeedback();
+                  return;
+                }
+                if (item.key === 'report') {
+                  openReportTabEntry();
                   return;
                 }
                 goTo(item.path);
