@@ -345,7 +345,9 @@ export default function ReportPage() {
       <View className='report-page'>
         <View className='report-card'>
           <Text className='report-card__title'>绑定后可查看完整报告</Text>
-          <Text className='report-card__text'>为保障数据安全，需先完成授权绑定后再查看详细分析与建议。</Text>
+          <Text className='report-card__text'>
+            登录前不会展示分数、成分列表等报告实质内容。为保障数据安全，需先完成授权绑定后再查看详细分析与建议。
+          </Text>
           <Text className='report-footer__btn' onClick={goBind}>立即绑定并查看</Text>
           <Text className='report-footer__desc'>*本服务提供日常护肤建议，不提供医疗诊断或治疗方案。</Text>
         </View>
@@ -363,8 +365,10 @@ export default function ReportPage() {
       ) : null}
       {errorText ? (
         <View className='report-card'>
-          <Text className='report-card__title'>加载失败</Text>
-          <Text className='report-card__text'>{errorText}</Text>
+          <Text className='report-card__title'>暂时无法加载</Text>
+          <Text className='report-card__text'>
+            {errorText}。你可以稍后在首页聊天里点开报告卡片再试，不必着急。
+          </Text>
         </View>
       ) : null}
       {!report ? null : (
