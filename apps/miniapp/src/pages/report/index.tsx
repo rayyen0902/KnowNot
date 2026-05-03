@@ -1,9 +1,15 @@
 import { useMemo, useState } from 'react';
 import Taro, { useDidShow, useLoad } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
-import { getReportDetail, getShopCards } from '@/services/api';
-import type { ReportDetailResponse, ShopCard } from '@/services/types';
-import { getLastReportId } from '@/services/reportFlowState';
+import { createReportTask, getReportDetail, getShopCards } from '@/services/api';
+import type { ReportDetailResponse, ReportTaskCreateRequest, ShopCard } from '@/services/types';
+import {
+  getLastCreateProfileJson,
+  getLastReportId,
+  setActiveReportTask,
+  setLastCreateProfileJson
+} from '@/services/reportFlowState';
+import { ensureReportSessionId } from '@/services/reportSession';
 import { goTo } from '@/utils/router';
 import { getAnonymousId, getUserId } from '@/utils/session';
 import './index.scss';
@@ -285,6 +291,47 @@ export default function ReportPage() {
     goTo('/pages/questionnaire/index');
   };
 
+  const handleRegenerate = () => {
+    Taro.showActionSheet({
+      itemList: ['修改问卷', '直接重新生成'],
+      success: (res) => {
+        if (res.tapIndex === 0) {
+          goTo('/pages/questionnaire/index');
+          return;
+        }
+        if (res.tapIndex === 1) {
+          void (async () => {
+            const raw = getLastCreateProfileJson();
+            if (!raw) {
+              Taro.showToast({ title: '缺少上次问卷数据，请先修改问卷', icon: 'none' });
+              return;
+            }
+            try {
+              Taro.showLoading({ title: '提交中...', mask: true });
+              const profile = JSON.parse(raw) as ReportTaskCreateRequest['profile'];
+              const sessionId = await ensureReportSessionId();
+              setLastCreateProfileJson(raw);
+              const { task_id } = await createReportTask({ session_id: sessionId, profile });
+              setActiveReportTask({
+                taskId: task_id,
+                phase: 'pending',
+                startedAt: Date.now()
+              });
+              Taro.hideLoading();
+              goTo('/pages/home/index');
+            } catch (e) {
+              Taro.hideLoading();
+              Taro.showToast({
+                title: e instanceof Error ? e.message : '提交失败，请稍后重试',
+                icon: 'none'
+              });
+            }
+          })();
+        }
+      }
+    });
+  };
+
   const openShopCard = async (card: ShopCard) => {
     if (!card.jump_url) {
       Taro.showToast({ title: '暂无跳转链接', icon: 'none' });
@@ -460,7 +507,9 @@ export default function ReportPage() {
           </View>
 
           <View className='report-footer report-footer--recommend'>
-            <Text className='report-footer__btn'>重新测试肤质</Text>
+            <Text className='report-footer__btn' onClick={handleRegenerate}>
+              再次生成
+            </Text>
             <Text className='report-footer__desc'>*分析结果基于当前AI模型评估，仅供日常护肤参考，不作为医疗诊断依据。</Text>
           </View>
         </View>

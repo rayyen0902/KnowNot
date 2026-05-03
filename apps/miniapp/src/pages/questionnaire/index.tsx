@@ -1,8 +1,14 @@
 import { useMemo, useState } from 'react';
 import { View, Text } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import Taro, { useDidHide, useLoad } from '@tarojs/taro';
 import { createReportTask, initAnonymousUser } from '@/services/api';
-import { setActiveReportTask, setLastCreateProfileJson, REPORT_FLOW_KEYS } from '@/services/reportFlowState';
+import {
+  getQuestionnaireDraft,
+  setActiveReportTask,
+  setLastCreateProfileJson,
+  setQuestionnaireDraft,
+  REPORT_FLOW_KEYS
+} from '@/services/reportFlowState';
 import { ensureReportSessionId } from '@/services/reportSession';
 import { goTo } from '@/utils/router';
 import { buildReportProfileFromAnswers } from '@/utils/questionnaireToProfile';
@@ -190,23 +196,66 @@ const STEPS = [
 
 type Answers = Record<string, string[]>;
 
+const INITIAL_ANSWERS: Answers = {
+  age: ['25_30'],
+  issues: ['acne', 'sensitive'],
+  skinType: ['combo'],
+  oil: ['t_zone'],
+  sensitivity: ['barrier'],
+  budget: ['500_1000'],
+  factor: ['ingredient', 'feel'],
+  brand_pref: ['efficacy_clinic'],
+  routine_pref: ['simple']
+};
+
 export default function QuestionnairePage() {
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({
-    age: ['25_30'],
-    issues: ['acne', 'sensitive'],
-    skinType: ['combo'],
-    oil: ['t_zone'],
-    sensitivity: ['barrier'],
-    budget: ['500_1000'],
-    factor: ['ingredient', 'feel'],
-    brand_pref: ['efficacy_clinic'],
-    routine_pref: ['simple']
-  });
+  const [answers, setAnswers] = useState<Answers>(() => ({ ...INITIAL_ANSWERS }));
 
   const maxSkinPhotos = 3;
   const [captureSheetOpen, setCaptureSheetOpen] = useState(false);
   const [pickedSkinPhotos, setPickedSkinPhotos] = useState<string[]>([]);
+
+  useLoad(() => {
+    const d = getQuestionnaireDraft();
+    if (!d) return;
+    const incomplete =
+      d.current < STEPS.length - 1 || (d.current === STEPS.length - 1 && d.pickedSkinPhotos.length === 0);
+    if (!incomplete) {
+      setQuestionnaireDraft(null);
+      return;
+    }
+    Taro.showModal({
+      title: '发现未完成的填写',
+      content: '要继续上次的问卷与照片吗？',
+      confirmText: '接着填',
+      cancelText: '重新填',
+      success: (res) => {
+        if (res.confirm) {
+          setCurrent(d.current);
+          setAnswers({ ...d.answers });
+          setPickedSkinPhotos([...d.pickedSkinPhotos]);
+        } else {
+          setQuestionnaireDraft(null);
+          setCurrent(0);
+          setAnswers({ ...INITIAL_ANSWERS });
+          setPickedSkinPhotos([]);
+        }
+      }
+    });
+  });
+
+  useDidHide(() => {
+    const incomplete =
+      current < STEPS.length - 1 || (current === STEPS.length - 1 && pickedSkinPhotos.length === 0);
+    if (!incomplete) return;
+    setQuestionnaireDraft({
+      current,
+      answers,
+      pickedSkinPhotos,
+      updatedAt: Date.now()
+    });
+  });
 
   const openCaptureSheet = () => setCaptureSheetOpen(true);
   const closeCaptureSheet = () => setCaptureSheetOpen(false);
