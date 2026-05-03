@@ -1,3 +1,11 @@
+@use 'sass:math';
+
+$design-width: 390;
+
+@function d($px) {
+  @return #{math.div($px * 750, $design-width)}rpx;
+}
+
 .auth-page {
   min-height: 100vh;
   background: #fbf9f9;
@@ -7,81 +15,96 @@
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  padding: 79px 24px 40px;
+  padding: d(143) d(24) d(143);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .auth-bg-orb {
   position: absolute;
   border-radius: 999px;
-  filter: blur(60px);
+  filter: blur(d(52.5));
   opacity: 0.2;
   pointer-events: none;
 }
 
 .auth-bg-orb--pink {
-  top: -90px;
-  left: -39px;
-  width: 273px;
-  height: 273px;
+  top: d(-164);
+  left: d(-39);
+  width: d(273);
+  height: d(273);
   background: #f7a1c0;
 }
 
 .auth-bg-orb--teal {
-  right: -36px;
-  bottom: 116px;
-  width: 234px;
-  height: 234px;
+  right: d(-78);
+  bottom: d(258);
+  width: d(234);
+  height: d(234);
   background: #9aeeeb;
 }
 
 .auth-brand {
-  width: 100%;
+  width: d(249.61);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 48px;
+  padding-bottom: d(48);
 }
 
 .auth-brand__logo {
-  width: 96px;
-  height: 96px;
+  width: d(96);
+  height: d(96);
   border-radius: 999px;
   background:
     radial-gradient(circle at center, transparent 0 40%, rgba(0, 0, 0, 0.06) 40% 43%, transparent 43% 55%, rgba(0, 0, 0, 0.04) 55% 58%, transparent 58%),
     #fff;
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.05),
-    0 0 0 4px #f5f3f3;
+    0 d(1) d(2) rgba(0, 0, 0, 0.05),
+    0 0 0 d(4) #f5f3f3;
 }
 
 .auth-brand__title {
-  margin-top: 24px;
-  padding-bottom: 8px;
+  margin-top: d(24);
+  padding-bottom: d(8);
   color: #8e4864;
-  font-size: 64px;
+  font-size: d(32);
   font-weight: 500;
   line-height: 1.5;
+  letter-spacing: d(-0.8);
   text-align: center;
 }
 
 .auth-brand__desc {
+  width: d(245.3);
   color: #524347;
-  font-size: 28px;
+  font-size: d(14);
   font-weight: 500;
   line-height: 1.43;
   text-align: center;
 }
 
+.auth-skip {
+  align-self: flex-end;
+  margin: d(-24) 0 d(12);
+  padding: d(8) d(4);
+}
+
+.auth-skip__text {
+  font-size: d(14);
+  color: #8e4864;
+  text-decoration: underline;
+}
+
 .auth-card {
   position: relative;
-  width: 100%;
-  border-radius: 24px;
+  width: d(342);
+  border-radius: d(24);
   background: #fff;
-  box-shadow: 0 8px 28px rgba(27, 28, 28, 0.04);
-  padding: 32px;
+  box-shadow: 0 d(8) d(28) rgba(27, 28, 28, 0.04);
+  padding: d(32);
   overflow: hidden;
 }
 
@@ -90,7 +113,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: d(4);
   opacity: 0.5;
   background: linear-gradient(90deg, #8e4864 0%, #f7a1c0 100%);
 }
@@ -100,10 +123,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: d(8);
   border-radius: 999px;
-  padding: 16px 24px;
-  font-size: 32px;
+  padding: d(16) d(24);
+  font-size: d(16);
   line-height: 1.5;
   font-weight: 500;
 }
@@ -114,39 +137,33 @@
 }
 
 .auth-action__icon {
-  font-size: 40px;
+  font-size: d(20);
   line-height: 1;
 }
 
-.auth-card__hint {
-  display: block;
-  margin-top: 16px;
-  font-size: 22px;
-  line-height: 1.45;
-  color: #7a6d70;
-}
-
 .auth-agree {
-  margin-top: 16px;
+  margin-top: d(8);
   display: flex;
-  gap: 12px;
+  gap: d(12);
   align-items: flex-start;
 }
 
 .auth-agree__check {
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  border-radius: 4px;
+  width: d(16);
+  height: d(16);
+  margin-top: d(2);
+  border-radius: d(4);
   background: #fbf9f9;
-  border: 1px solid #d6c1c6;
+  border: d(1) solid #d6c1c6;
   flex-shrink: 0;
 }
 
 .auth-agree__text {
   color: #524347;
-  font-size: 24px;
+  font-size: d(12);
+  font-weight: 500;
   line-height: 1.25;
+  width: d(250);
 }
 
 .auth-agree__link {
@@ -154,31 +171,31 @@
 }
 
 .auth-sub {
-  margin-top: 48px;
+  margin-top: d(48);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: d(16);
 }
 
 .auth-sub__trust {
   display: flex;
   align-items: center;
-  gap: 4px;
-  color: #524347;
-  font-size: 24px;
+  gap: d(4);
+  color: #847377;
+  font-size: d(12);
   font-weight: 500;
 }
 
 .auth-sub__trust-icon {
   color: #006a68;
-  font-size: 28px;
+  font-size: d(14);
   line-height: 1;
 }
 
 .auth-sub__phone {
   color: #8e4864;
-  font-size: 28px;
+  font-size: d(14);
   font-weight: 500;
   line-height: 1.43;
 }

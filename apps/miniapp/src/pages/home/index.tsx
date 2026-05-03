@@ -4,7 +4,13 @@ import { View, ScrollView, Text, Input } from '@tarojs/components';
 import HomeFlow from '@/features/home/container/HomeFlow';
 import { ChatThread, HomeFloatingTabs } from '@/features/home/components';
 import { initAnonymousUser } from '@/services/api';
-import { appendChatMessage, getChatMessages, subscribeChatMessages } from '@/services/reportFlowState';
+import {
+  appendChatMessage,
+  getChatMessages,
+  setPendingAuthCancelSoftReminder,
+  shouldAppendAuthCancelSoftReminder,
+  subscribeChatMessages
+} from '@/services/reportFlowState';
 import type { ChatMessage } from '@/services/reportFlowState';
 import './index.scss';
 
@@ -17,6 +23,14 @@ export default function HomePage() {
       console.info('[v1-flow] user/init success', payload);
     });
     setChatMessages(getChatMessages());
+    if (shouldAppendAuthCancelSoftReminder()) {
+      setPendingAuthCancelSoftReminder(false);
+      appendChatMessage({
+        role: 'ai',
+        text: '需要查看报告时，随时可以再点聊天里的报告卡片，或使用底部「护肤报告」入口。不着急也没关系。'
+      });
+      setChatMessages(getChatMessages());
+    }
   });
 
   useEffect(() => {

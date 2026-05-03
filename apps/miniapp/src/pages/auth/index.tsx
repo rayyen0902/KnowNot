@@ -1,11 +1,13 @@
 import { useRef } from 'react';
-import Taro, { useLoad } from '@tarojs/taro';
+import Taro, { useLoad, useUnload } from '@tarojs/taro';
 import { View, Text } from '@tarojs/components';
 import { bindAnonymousUser } from '@/services/api';
+import { setPendingAuthCancelSoftReminder } from '@/services/reportFlowState';
 import { goTo, switchTab } from '@/utils/router';
 import './index.scss';
 
 export default function AuthPage() {
+  const loginCompletedRef = useRef(false);
   const pageStateRef = useRef({
     scene: '',
     anonymousId: '',
@@ -18,8 +20,20 @@ export default function AuthPage() {
     pageStateRef.current.reportId = params?.report_id || '';
   });
 
+  useUnload(() => {
+    if (!loginCompletedRef.current) {
+      setPendingAuthCancelSoftReminder(true);
+    }
+  });
+
   const enterHome = () => {
     switchTab('/pages/home/index');
+  };
+
+  const leaveWithoutLogin = () => {
+    loginCompletedRef.current = true;
+    setPendingAuthCancelSoftReminder(true);
+    goTo('/pages/home/index');
   };
 
   const handleLoginSuccess = async () => {
@@ -42,17 +56,17 @@ export default function AuthPage() {
           reportId: pageStateRef.current.reportId
         });
         Taro.hideLoading();
-        const reportUrl = pageStateRef.current.reportId
-          ? `/pages/report/index?report_id=${encodeURIComponent(pageStateRef.current.reportId)}`
-          : '/pages/report/index';
+        loginCompletedRef.current = true;
+        const fallbackUrl = '/pages/home/index';
         try {
           await Taro.navigateBack({ delta: 1 });
         } catch {
-          await Taro.redirectTo({ url: reportUrl });
+          await Taro.redirectTo({ url: fallbackUrl });
         }
         return;
       }
       Taro.hideLoading();
+      loginCompletedRef.current = true;
       enterHome();
     } catch (error) {
       Taro.hideLoading();
@@ -72,19 +86,19 @@ export default function AuthPage() {
         <View className='auth-brand'>
           <View className='auth-brand__logo' />
           <View className='auth-brand__title'>开启您的专属护肤</View>
-          <Text className='auth-brand__desc'>温和科学的 AI 肌肤分析，帮你制定可执行护理方案</Text>
+          <Text className='auth-brand__desc'>专业临床级 AI 肌肤诊断，量身定制方案</Text>
+        </View>
+
+        <View className='auth-skip' onClick={leaveWithoutLogin}>
+          <Text className='auth-skip__text'>稍后返回</Text>
         </View>
 
         <View className='auth-card'>
           <View className='auth-card__glow' />
           <View className='auth-action auth-action--primary' onClick={handleLoginSuccess}>
-            <Text className='auth-action__icon'>▭</Text>
-            <Text>抖音授权并继续</Text>
+            <Text className='auth-action__icon'>◍</Text>
+            <Text>抖音一键授权登录</Text>
           </View>
-
-          <Text className='auth-card__hint'>
-            说明：当前为联调演示流程；正式环境将接入手机号验证码与抖音侧鉴权，届时以产品公告为准。
-          </Text>
 
           <View className='auth-agree'>
             <View className='auth-agree__check' />
@@ -94,7 +108,7 @@ export default function AuthPage() {
               、
               <Text className='auth-agree__link' onClick={() => goTo('/pages/privacy-policy/index')}>《隐私政策》</Text>
               及
-              <Text className='auth-agree__link' onClick={() => goTo('/pages/health-authorization/index')}>《健康信息授权》</Text>
+              <Text className='auth-agree__link' onClick={() => goTo('/pages/health-authorization/index')}>《健康信息授权协议》</Text>
             </View>
           </View>
         </View>
