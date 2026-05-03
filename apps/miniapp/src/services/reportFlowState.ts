@@ -132,6 +132,16 @@ export function appendChatMessage(msg: Omit<ChatMessage, 'id' | 'createdAt'> & {
   persistChatMessages([...list, full]);
 }
 
+/** 中性报告卡片（不透出 report/detail 实质字段，对齐定稿 #8） */
+export function appendReportReadyCardMessage(reportId: string) {
+  appendChatMessage({
+    role: 'report_card',
+    reportId,
+    cardTitle: '护肤报告已就绪',
+    text: '点卡片查看（登录后可看完整内容）'
+  });
+}
+
 export function getAccelerateSentAt(): number {
   try {
     const v = Taro.getStorageSync(REPORT_FLOW_KEYS.accelerateSentAt);

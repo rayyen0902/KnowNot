@@ -7,5 +7,6 @@ export { default as UploadPhotoCard } from './cards/UploadPhotoCard';
 export { default as ProductRecommendCard } from './cards/ProductRecommendCard';
 export { default as StatusNoticeCard } from './cards/StatusNoticeCard';
 export { default as HomeFloatingTabs } from './navigation/HomeFloatingTabs';
+export { default as ChatThread } from './chat/ChatThread';
 
 export type { HomeBlockLayout } from '@/features/home/types/layout';
