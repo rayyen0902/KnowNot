@@ -1,47 +1,60 @@
+@use '../../../../styles/from-pencil-390' as *;
+
+/* 与 `pencil-首页.pen`「Mode Tabs」一致：390 画布标注 → fp() → rpx */
 .floating-tabs {
-  position: fixed;
-  left: 20px;
-  right: 20px;
-  bottom: 160px;
-  height: 60px;
-  z-index: 49;
+  width: 100%;
+  height: fp(50);
+  white-space: nowrap;
 }
 
 .floating-tabs__row {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: fp(12);
   min-width: max-content;
-  height: 60px;
-  padding: 0 4px;
+  height: fp(50);
+  padding: 0 fp(2);
 }
 
 .floating-tabs__item {
-  height: 44px;
-  padding: 0 14px;
+  height: fp(44);
+  padding: 0 fp(14);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 8px 20px rgba(27, 28, 28, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(214, 193, 198, 0.2);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 14px;
+  gap: fp(8);
+  font-size: fp(14);
   color: #524347;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .floating-tabs__item--active {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.95);
   color: #8e4864;
+  border-color: rgba(214, 193, 198, 0.35);
+}
+
+.floating-tabs__item--disabled {
+  opacity: 0.45;
+  pointer-events: auto;
+}
+
+.floating-tabs__label {
+  font-size: fp(14);
+  line-height: 1.2;
 }
 
 .floating-tabs__icon {
-  width: 16px;
-  height: 16px;
-  border: 1.8px solid currentColor;
-  border-radius: 4px;
+  width: fp(16);
+  height: fp(16);
+  border: #{fp(1.8)} solid currentColor;
+  border-radius: fp(4);
   position: relative;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .floating-tabs__icon--my {
@@ -51,57 +64,62 @@
 .floating-tabs__icon--my::before {
   content: '';
   position: absolute;
-  width: 6px;
-  height: 6px;
-  border: 1.8px solid currentColor;
+  width: fp(6);
+  height: fp(6);
+  border: #{fp(1.8)} solid currentColor;
   border-radius: 9999px;
-  top: 1px;
-  left: 3px;
+  top: fp(1);
+  left: fp(3);
 }
 
 .floating-tabs__icon--my::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 5px;
-  border: 1.8px solid currentColor;
+  width: fp(10);
+  height: fp(5);
+  border: #{fp(1.8)} solid currentColor;
   border-top: none;
-  border-radius: 0 0 8px 8px;
-  bottom: 1px;
-  left: 2px;
+  border-radius: 0 0 fp(8) fp(8);
+  bottom: fp(1);
+  left: fp(2);
 }
 
-.floating-tabs__icon--report::before {
+.floating-tabs__icon--doc::before {
   content: '';
   position: absolute;
-  left: 3px;
-  right: 3px;
-  top: 3px;
-  height: 1.8px;
+  left: fp(3);
+  right: fp(3);
+  top: fp(3);
+  height: #{fp(1.8)};
   background: currentColor;
-  box-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor;
+  box-shadow: 0 #{fp(4)} 0 currentColor, 0 #{fp(8)} 0 currentColor;
 }
 
 .floating-tabs__icon--calendar::before {
   content: '';
   position: absolute;
-  left: 2px;
-  right: 2px;
-  top: 5px;
-  height: 1.8px;
+  left: fp(2);
+  right: fp(2);
+  top: fp(5);
+  height: #{fp(1.8)};
   background: currentColor;
 }
 
 .floating-tabs__icon--calendar::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: fp(2);
+  height: fp(2);
   background: currentColor;
   border-radius: 9999px;
-  left: 4px;
-  top: 9px;
-  box-shadow: 4px 0 0 currentColor, 8px 0 0 currentColor, 0 4px 0 currentColor, 4px 4px 0 currentColor, 8px 4px 0 currentColor;
+  left: fp(4);
+  top: fp(9);
+  box-shadow:
+    #{fp(4)} 0 0 currentColor,
+    #{fp(8)} 0 0 currentColor,
+    0 #{fp(4)} 0 currentColor,
+    #{fp(4)} #{fp(4)} 0 currentColor,
+    #{fp(8)} #{fp(4)} 0 currentColor;
 }
 
 .floating-tabs__icon--heart {
@@ -112,23 +130,23 @@
 .floating-tabs__icon--heart::after {
   content: '';
   position: absolute;
-  width: 8px;
-  height: 12px;
-  border: 1.8px solid currentColor;
+  width: fp(8);
+  height: fp(12);
+  border: #{fp(1.8)} solid currentColor;
   border-bottom: none;
   border-right: none;
-  border-radius: 8px 8px 0 0;
-  top: 2px;
+  border-radius: fp(8) fp(8) 0 0;
+  top: fp(2);
 }
 
 .floating-tabs__icon--heart::before {
-  left: 3px;
+  left: fp(3);
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
 
 .floating-tabs__icon--heart::after {
-  left: 8px;
+  left: fp(8);
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
@@ -140,22 +158,65 @@
 .floating-tabs__icon--expert::before {
   content: '';
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: fp(4);
+  height: fp(4);
   border-radius: 9999px;
   background: currentColor;
-  top: 2px;
-  left: 6px;
+  top: fp(2);
+  left: fp(6);
 }
 
 .floating-tabs__icon--expert::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 5px;
-  border: 1.8px solid currentColor;
+  width: fp(10);
+  height: fp(5);
+  border: #{fp(1.8)} solid currentColor;
   border-top: none;
-  border-radius: 0 0 8px 8px;
-  bottom: 2px;
-  left: 3px;
+  border-radius: 0 0 fp(8) fp(8);
+  bottom: fp(2);
+  left: fp(3);
+}
+
+.floating-tabs__icon--chat {
+  border-radius: fp(6);
+}
+
+.floating-tabs__icon--chat::before {
+  content: '';
+  position: absolute;
+  left: fp(3);
+  right: fp(3);
+  top: fp(4);
+  height: fp(6);
+  border: #{fp(1.8)} solid currentColor;
+  border-radius: fp(4);
+}
+
+.floating-tabs__icon--chat::after {
+  content: '';
+  position: absolute;
+  width: fp(5);
+  height: fp(5);
+  border-left: #{fp(1.8)} solid currentColor;
+  border-bottom: #{fp(1.8)} solid currentColor;
+  transform: rotate(-45deg);
+  left: fp(4);
+  bottom: fp(2);
+}
+
+.floating-tabs__icon--more {
+  border: none;
+}
+
+.floating-tabs__icon--more::before {
+  content: '';
+  position: absolute;
+  width: fp(3);
+  height: fp(3);
+  border-radius: 9999px;
+  background: currentColor;
+  left: fp(2);
+  top: fp(6);
+  box-shadow: #{fp(6)} 0 0 currentColor, #{fp(12)} 0 0 currentColor;
 }
